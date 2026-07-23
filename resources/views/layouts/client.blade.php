@@ -8,16 +8,6 @@
     <meta name="description" content="Sarab - Fast Food & Restaurant HTML Template">
     <title>@yield('title', 'Sarab - Fast Food & Restaurant HTML Template')</title>
 
-{{--    @vite([--}}
-{{--        'resources/css/client/bootstrap.min.css',--}}
-{{--        'resources/css/client/aos.css',--}}
-{{--        'resources/css/client/swiper-bundle.min.css',--}}
-{{--        'resources/css/client/all.min.css',--}}
-{{--        'resources/css/client/magnific-popup.css',--}}
-{{--        'resources/css/client/style.css',--}}
-{{--    ])--}}
-
-
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
     <!-- Bootstrap 5.3 -->
     <link href="{{ asset('/css/client/bootstrap.min.css') }}" rel="stylesheet"/>
@@ -106,25 +96,25 @@
         <!-- Categories inside search box -->
         <div class="sovcats">
             <div class="sovcat active" data-cat="all">
-                <img src="{{ asset('img/menu/1.jpg') }}}" alt=""/>All Items
+                <img src="{{ asset('img/client/menu/1.jpg') }}}" alt=""/>All Items
             </div>
             <div class="sovcat" data-cat="burgers">
-                <img src="{{ asset('img/menu/1.jpg') }}" alt=""/>Burgers
+                <img src="{{ asset('img/client/menu/1.jpg') }}" alt=""/>Burgers
             </div>
             <div class="sovcat" data-cat="pizza">
-                <img src="{{ asset('img/menu/2.jpg') }}" alt=""/>Pizza
+                <img src="{{ asset('img/client/menu/2.jpg') }}" alt=""/>Pizza
             </div>
             <div class="sovcat" data-cat="chicken">
-                <img src="{{ asset('img/menu/3.jpg') }}" alt=""/>Chicken
+                <img src="{{ asset('img/client/menu/3.jpg') }}" alt=""/>Chicken
             </div>
             <div class="sovcat" data-cat="wraps">
-                <img src="{{ asset('img/menu/4.jpg') }}" alt=""/>Wraps
+                <img src="{{ asset('img/client/menu/4.jpg') }}" alt=""/>Wraps
             </div>
             <div class="sovcat" data-cat="pasta">
-                <img src="{{ asset('img/menu/5.jpg') }}" alt=""/>Pasta
+                <img src="{{ asset('img/client/menu/5.jpg') }}" alt=""/>Pasta
             </div>
             <div class="sovcat" data-cat="desserts">
-                <img src="{{ asset('img/menu/6.jpg') }}" alt=""/>Desserts
+                <img src="{{ asset('img/client/menu/6.jpg') }}" alt=""/>Desserts
             </div>
         </div>
         <div class="sovtrend">
@@ -175,7 +165,7 @@
             <div class="col-lg-6">
                 <div style="position:relative;text-align:center;">
                     <div class="hcircle">
-                        <img src="{{ asset('img/banner-img.jpg') }}" alt="Burger"/>
+                        <img src="{{ asset('img/client/banner-img.jpg') }}" alt="Burger"/>
                     </div>
                     <div class="fcard fc1">
                         <div class="fcoi r"><i class="fas fa-fire"></i></div>
@@ -225,42 +215,42 @@
         <div class="row g-3 justify-content-center">
             <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="0">
                 <div class="catcard active" data-filter="all">
-                    <img class="catimg" src="{{ asset('img/category/1.jpg') }}" alt=""/>
+                    <img class="catimg" src="{{ asset('img/client/category/1.jpg') }}" alt=""/>
                     <div class="catnm">All Items</div>
                     <div class="catct">99 items</div>
                 </div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="70">
                 <div class="catcard" data-filter="burgers">
-                    <img class="catimg" src="{{ asset('img/category/2.jpg') }}" alt=""/>
+                    <img class="catimg" src="{{ asset('img/client/category/2.jpg') }}" alt=""/>
                     <div class="catnm">Burgers</div>
                     <div class="catct">24 items</div>
                 </div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="140">
                 <div class="catcard" data-filter="pizza">
-                    <img class="catimg" src="{{ asset('img/category/3.jpg') }}" alt=""/>
+                    <img class="catimg" src="{{ asset('img/client/category/3.jpg') }}" alt=""/>
                     <div class="catnm">Pizza</div>
                     <div class="catct">18 items</div>
                 </div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="210">
                 <div class="catcard" data-filter="chicken">
-                    <img class="catimg" src="{{ asset('img/category/4.jpg') }}" alt=""/>
+                    <img class="catimg" src="{{ asset('img/client/category/4.jpg') }}" alt=""/>
                     <div class="catnm">Fried Chicken</div>
                     <div class="catct">15 items</div>
                 </div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="280">
                 <div class="catcard" data-filter="wraps">
-                    <img class="catimg" src="{{ asset('img/category/5.jpg') }}" alt=""/>
+                    <img class="catimg" src="{{ asset('img/client/category/5.jpg') }}" alt=""/>
                     <div class="catnm">Wraps</div>
                     <div class="catct">12 items</div>
                 </div>
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="350">
                 <div class="catcard" data-filter="desserts">
-                    <img class="catimg" src="{{ asset('img/category/6.jpg') }}" alt=""/>
+                    <img class="catimg" src="{{ asset('img/client/category/6.jpg') }}" alt=""/>
                     <div class="catnm">Desserts</div>
                     <div class="catct">20 items</div>
                 </div>
@@ -275,8 +265,8 @@
             <div class="col-lg-5" data-aos="fade-right">
                 <div class="astack">
                     <div class="aexp"><span class="anum">12+</span><small>Years of<br/>Excellence</small></div>
-                    <div class="amain"><img src="{{ asset('img/about1.jpg') }}" alt="Restaurant"/></div>
-                    <div class="asm"><img src="{{ asset('img/about2.jpg') }}" alt=""/></div>
+                    <div class="amain"><img src="{{ asset('img/client/about1.jpg') }}" alt="Restaurant"/></div>
+                    <div class="asm"><img src="{{ asset('img/client/about2.jpg') }}" alt=""/></div>
                 </div>
             </div>
             <div class="col-lg-7" data-aos="fade-left">
@@ -337,7 +327,7 @@
             <div class="col-sm-6 col-lg-4 mwrap" data-c="burgers" data-aos="fade-up">
                 <div
                     class="mcard"
-                    data-img="img/menu/1.jpg"
+                    data-img="img/client/menu/1.jpg"
                     data-title="Classic Smash Burger"
                     data-cat="Burgers"
                     data-price="$14.99" data-old="$18.99"
@@ -347,7 +337,7 @@
                     data-tags="Spicy,Bestseller,Beef"
                 >
                     <div class="mimg">
-                        <img src="{{ asset('img/menu/1.jpg') }}" alt="Smash Burger"/>
+                        <img src="{{ asset('img/client/menu/1.jpg') }}" alt="Smash Burger"/>
                         <div class="mbdg hot"><i class="fas fa-star"></i> Hot</div>
                         <div class="mhrt"><i class="far fa-heart"></i></div>
                     </div>
@@ -370,7 +360,7 @@
             <div class="col-sm-6 col-lg-4 mwrap" data-c="pizza" data-aos="fade-up" data-aos-delay="80">
                 <div
                     class="mcard"
-                    data-img="img/menu/2.jpg"
+                    data-img="img/client/menu/2.jpg"
                     data-title="Margherita Royale"
                     data-cat="Pizza"
                     data-price="$19.99" data-old="$24.99"
@@ -380,7 +370,7 @@
                     data-tags="Vegetarian,New,Italian"
                 >
                     <div class="mimg">
-                        <img src="{{ asset('img/menu/2.jpg') }}" alt="Pizza"/>
+                        <img src="{{ asset('img/client/menu/2.jpg') }}" alt="Pizza"/>
                         <div class="mbdg new"><i class="fas fa-star"></i> New</div>
                         <div class="mhrt"><i class="far fa-heart"></i></div>
                     </div>
@@ -403,7 +393,7 @@
             <div class="col-sm-6 col-lg-4 mwrap" data-c="chicken" data-aos="fade-up" data-aos-delay="160">
                 <div
                     class="mcard"
-                    data-img="img/menu/3.jpg"
+                    data-img="img/client/menu/3.jpg"
                     data-title="Nashville Hot Chicken"
                     data-cat="Chicken"
                     data-price="$12.99" data-old="$16.99"
@@ -413,7 +403,7 @@
                     data-tags="Spicy,Bestseller,Crispy"
                 >
                     <div class="mimg">
-                        <img src="{{ asset('img/menu/3.jpg') }}" alt="Chicken"/>
+                        <img src="{{ asset('img/client/menu/3.jpg') }}" alt="Chicken"/>
                         <div class="mbdg"><i class="fas fa-star"></i> Best Seller</div>
                         <div class="mhrt"><i class="far fa-heart"></i></div>
                     </div>
@@ -436,7 +426,7 @@
             <div class="col-sm-6 col-lg-4 mwrap" data-c="wraps" data-aos="fade-up">
                 <div
                     class="mcard"
-                    data-img="img/menu/4.jpg"
+                    data-img="img/client/menu/4.jpg"
                     data-title="Loaded Fajita Wrap"
                     data-cat="Wraps"
                     data-price="$10.99" data-old=""
@@ -446,7 +436,7 @@
                     data-tags="Grilled,Fresh,Mexican"
                 >
                     <div class="mimg">
-                        <img src="{{ asset('img/menu/4.jpg') }}" alt="Wrap"/>
+                        <img src="{{ asset('img/client/menu/4.jpg') }}" alt="Wrap"/>
                         <div class="mhrt"><i class="far fa-heart"></i></div>
                     </div>
                     <div class="mbody">
@@ -468,7 +458,7 @@
             <div class="col-sm-6 col-lg-4 mwrap" data-c="desserts" data-aos="fade-up" data-aos-delay="80">
                 <div
                     class="mcard"
-                    data-img="img/menu/5.jpg"
+                    data-img="img/client/menu/5.jpg"
                     data-title="Nutella Lava Cake"
                     data-cat="Desserts"
                     data-price="$8.99" data-old="$11.99"
@@ -478,7 +468,7 @@
                     data-tags="Sweet,New,Chocolate"
                 >
                     <div class="mimg">
-                        <img src="{{ asset('img/menu/5.jpg') }}" alt="Lava Cake"/>
+                        <img src="{{ asset('img/client/menu/5.jpg') }}" alt="Lava Cake"/>
                         <div class="mbdg new"><i class="fas fa-star"></i> New</div>
                         <div class="mhrt"><i class="far fa-heart"></i></div>
                     </div>
@@ -501,7 +491,7 @@
             <div class="col-sm-6 col-lg-4 mwrap" data-c="pasta" data-aos="fade-up" data-aos-delay="160">
                 <div
                     class="mcard"
-                    data-img="img/menu/6.jpg"
+                    data-img="img/client/menu/6.jpg"
                     data-title="Truffle Mushroom Pasta"
                     data-cat="Pasta"
                     data-price="$16.99" data-old=""
@@ -511,7 +501,7 @@
                     data-tags="Vegetarian,Chef's Pick,Italian"
                 >
                     <div class="mimg">
-                        <img src="{{ asset('img/menu/6.jpg') }}" alt="Pasta"/>
+                        <img src="{{ asset('img/client/menu/6.jpg') }}" alt="Pasta"/>
                         <div class="mbdg hot">Chef's Pick</div>
                         <div class="mhrt"><i class="far fa-heart"></i></div>
                     </div>
@@ -583,7 +573,7 @@
                 <div class="spimgw">
                     <div class="spglow"></div>
                     <div class="sppbdg"><span class="old">$24.99</span><span class="np">$17.49</span></div>
-                    <img src="{{ asset('img/off-img.jpg') }}" alt="Special Burger"/>
+                    <img src="{{ asset('img/client/off-img.jpg') }}" alt="Special Burger"/>
                 </div>
             </div>
         </div>
@@ -605,51 +595,51 @@
             <div
                 class="gitem"
                 data-gi="0"
-                data-gimg="{{ asset('img/portfolio/work1.jpg') }}"
+                data-gimg="{{ asset('img/client/portfolio/work1.jpg') }}"
                 data-gtitle="Gourmet Burgers"
                 data-gdesc="Our award-winning smash burgers, hand-crafted with 100% premium beef, aged cheddar and house-made sauces."
             >
-                <img src="{{ asset('img/portfolio/work1.jpg') }}" alt="Burgers"/>
+                <img src="{{ asset('img/client/portfolio/work1.jpg') }}" alt="Burgers"/>
                 <div class="gover"><span><i class="fas fa-expand-alt"></i> Gourmet Burgers</span></div>
             </div>
             <div
                 class="gitem"
                 data-gi="1"
-                data-gimg="{{ asset('img/portfolio/work2.jpg') }}"
+                data-gimg="{{ asset('img/client/portfolio/work2.jpg') }}"
                 data-gtitle="Wood-Fired Pizza"
                 data-gdesc="Authentic Neapolitan-style pizzas fired at 900deg F in our wood-burning stone oven for the perfect char."
             >
-                <img src="{{ asset('img/portfolio/work2.jpg') }}" alt="Pizza"/>
+                <img src="{{ asset('img/client/portfolio/work2.jpg') }}" alt="Pizza"/>
                 <div class="gover"><span><i class="fas fa-expand-alt"></i> Wood-Fired Pizza</span></div>
             </div>
             <div
                 class="gitem"
                 data-gi="2"
-                data-gimg="{{ asset('img/portfolio/work3.jpg') }}"
+                data-gimg="{{ asset('img/client/portfolio/work3.jpg') }}"
                 data-gtitle="Crispy Fried Chicken"
                 data-gdesc="Double-brined, hand-battered chicken fried to golden perfection using our 15-spice secret blend."
             >
-                <img src="{{ asset('img/portfolio/work3.jpg') }}" alt="Chicken"/>
+                <img src="{{ asset('img/client/portfolio/work3.jpg') }}" alt="Chicken"/>
                 <div class="gover"><span><i class="fas fa-expand-alt"></i> Crispy Fried Chicken</span></div>
             </div>
             <div
                 class="gitem"
                 data-gi="3"
-                data-gimg="{{ asset('img/portfolio/work4.jpg') }}"
+                data-gimg="{{ asset('img/client/portfolio/work4.jpg') }}"
                 data-gtitle="Sweet Desserts"
                 data-gdesc="Handcrafted desserts - from molten lava cakes to artisan ice cream sundaes and seasonal pastries."
             >
-                <img src="{{ asset('img/portfolio/work4.jpg') }}" alt="Desserts"/>
+                <img src="{{ asset('img/client/portfolio/work4.jpg') }}" alt="Desserts"/>
                 <div class="gover"><span><i class="fas fa-expand-alt"></i> Sweet Desserts</span></div>
             </div>
             <div
                 class="gitem"
                 data-gi="4"
-                data-gimg="{{ asset('img/portfolio/work5.jpg') }}"
+                data-gimg="{{ asset('img/client/portfolio/work5.jpg') }}"
                 data-gtitle="Fresh Wraps &amp; Rolls"
                 data-gdesc="Loaded fresh wraps packed with grilled proteins, crunchy vegetables and our house-made sauces."
             >
-                <img src="{{ asset('img/portfolio/work5.jpg') }}" alt="Wraps"/>
+                <img src="{{ asset('img/client/portfolio/work5.jpg') }}" alt="Wraps"/>
                 <div class="gover"><span><i class="fas fa-expand-alt"></i> Fresh Wraps &amp; Rolls</span></div>
             </div>
         </div>
@@ -765,7 +755,7 @@
             <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
                 <div class="chcard">
                     <div class="chimg">
-                        <img src="{{ asset('img/chefs/1.jpg') }}" alt=""/>
+                        <img src="{{ asset('img/client/chefs/1.jpg') }}" alt=""/>
                         <div class="chsoc">
                             <a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a>
                         </div>
@@ -780,7 +770,7 @@
             <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
                 <div class="chcard">
                     <div class="chimg">
-                        <img src="{{ asset('img/chefs/2.jpg') }}" alt=""/>
+                        <img src="{{ asset('img/client/chefs/2.jpg') }}" alt=""/>
                         <div class="chsoc">
                             <a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a>
                         </div>
@@ -795,7 +785,7 @@
             <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
                 <div class="chcard">
                     <div class="chimg">
-                        <img src="{{ asset('img/chefs/3.jpg') }}" alt=""/>
+                        <img src="{{ asset('img/client/chefs/3.jpg') }}" alt=""/>
                         <div class="chsoc">
                             <a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a>
                         </div>
@@ -810,7 +800,7 @@
             <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
                 <div class="chcard">
                     <div class="chimg">
-                        <img src="{{ asset('img/chefs/4.jpg') }}" alt=""/>
+                        <img src="{{ asset('img/client/chefs/4.jpg') }}" alt=""/>
                         <div class="chsoc">
                             <a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a>
                         </div>
@@ -922,7 +912,7 @@
                         </div>
                         <p class="testxt">Honestly the best burgers I've ever had. The smash burger is incredible - perfectly crispy edges, juicy inside, and those pickles! We come every Friday now.</p>
                         <div class="tesauth">
-                            <img src="{{ asset('img/testimonial/1.jpg') }}" alt=""/>
+                            <img src="{{ asset('img/client/testimonial/1.jpg') }}" alt=""/>
                             <div>
                                 <div class="tesnm">Monica Wilber</div>
                                 <div class="tesrl">Regular Customer</div>
@@ -938,7 +928,7 @@
                         </div>
                         <p class="testxt">Ordered delivery and the food arrived hot and fresh in 22 minutes. Portions are generous. Sarab has become my go-to comfort food spot without question.</p>
                         <div class="tesauth">
-                            <img src="{{ asset('img/testimonial/2.jpg') }}" alt=""/>
+                            <img src="{{ asset('img/client/testimonial/2.jpg') }}" alt=""/>
                             <div>
                                 <div class="tesnm">Cameron Fox</div>
                                 <div class="tesrl">Food Blogger</div>
@@ -954,7 +944,7 @@
                         </div>
                         <p class="testxt">The truffle pasta blew my mind. I didn't expect that quality from a fast food place. Great ambiance, super friendly staff. Highly recommended!</p>
                         <div class="tesauth">
-                            <img src="{{ asset('img/testimonial/3.jpg') }}" alt=""/>
+                            <img src="{{ asset('img/client/testimonial/3.jpg') }}" alt=""/>
                             <div>
                                 <div class="tesnm">Priya Sharma</div>
                                 <div class="tesrl">Food Enthusiast</div>
@@ -970,7 +960,7 @@
                         </div>
                         <p class="testxt">Catered our office party of 50 people and everything was flawless. Fresh, delicious, on time and well presented. Nashville chicken was the absolute star!</p>
                         <div class="tesauth">
-                            <img src="{{ asset('img/testimonial/4.jpg') }}" alt=""/>
+                            <img src="{{ asset('img/client/testimonial/4.jpg') }}" alt=""/>
                             <div>
                                 <div class="tesnm">David Park</div>
                                 <div class="tesrl">Corporate Client</div>
@@ -1101,7 +1091,7 @@
             <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
                 <div class="blcard">
                     <div class="blimg">
-                        <img src="{{ asset('img/blog/1.jpg') }}" alt=""/>
+                        <img src="{{ asset('img/client/blog/1.jpg') }}" alt=""/>
                         <div class="bldatebdg"><span class="bd">14</span><span class="bm">Mar</span></div>
                     </div>
                     <div class="blbody">
@@ -1117,7 +1107,7 @@
             <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
                 <div class="blcard">
                     <div class="blimg">
-                        <img src="{{ asset('img/blog/2.jpg') }}" alt=""/>
+                        <img src="{{ asset('img/client/blog/2.jpg') }}" alt=""/>
                         <div class="bldatebdg"><span class="bd">28</span><span class="bm">Feb</span></div>
                     </div>
                     <div class="blbody">
@@ -1133,7 +1123,7 @@
             <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
                 <div class="blcard">
                     <div class="blimg">
-                        <img src="{{ asset('img/blog/3.jpg') }}" alt=""/>
+                        <img src="{{ asset('img/client/blog/3.jpg') }}" alt=""/>
                         <div class="bldatebdg"><span class="bd">05</span><span class="bm">Jan</span></div>
                     </div>
                     <div class="blbody">
@@ -1326,16 +1316,16 @@
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-chevron-up"></i></button>
 
 <!-- jQuery -->
-<script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
+<script src="{{ asset('js/client/jquery-3.7.1.min.js') }}"></script>
 <!-- Bootstrap 5 -->
-<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('js/client/bootstrap.bundle.min.js') }}"></script>
 <!-- AOS -->
-<script src="{{ asset('js/aos.js') }}"></script>
+<script src="{{ asset('js/client/aos.js') }}"></script>
 <!-- Swiper -->
-<script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
+<script src="{{ asset('js/client/swiper-bundle.min.js') }}"></script>
 <!-- CounterUp -->
-<script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('js/client/jquery.magnific-popup.min.js') }}"></script>
 <!-- Main js -->
-<script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/client/main.js') }}"></script>
 </body>
 </html>
