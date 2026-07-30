@@ -9,6 +9,8 @@
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.bootstrap5.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.9.0/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-9DZ6o3pJWcTwBR8W196XizUEf2kNMD35tkeyWqOB0yzml+nZrEe/13PMCpAIrT4r" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
           crossorigin="anonymous" />
@@ -17,7 +19,6 @@
     <link href="{{ asset('/css/admin/nucleo-icons.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/admin/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- Popper -->
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
     <!-- Main Styling -->
     <link href="{{ asset('/css/admin/argon-dashboard-tailwind.css?v=1.0.1') }}" rel="stylesheet" />
 </head>
@@ -62,7 +63,7 @@
                 </a>
             </li>
             <li class="mt-0.5 w-full">
-                <a class="py-2.7 {{ $viewData['activate'] == 'category' ? 'bg-blue-500/13 font-semibold text-slate-700' : '' }} dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 transition-colors" href="{{ route('admin.category') }}">
+                <a class="py-2.7 {{ $viewData['activate'] == 'category' ? 'bg-blue-500/13 font-semibold text-slate-700' : '' }} dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 transition-colors" href="{{ route('category.index') }}">
                     <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                         <i class="relative top-0 text-sm leading-normal text-cyan-500 fa-solid fa-tag"></i>
                     </div>
@@ -139,6 +140,9 @@
 <!-- plugin for charts  -->
 <script src="{{ asset('/js/admin/plugins/chartjs.min.js') }}" async></script>
 <script src="{{ asset('/js/admin/sidenav-burger.js') }}" async></script>
+<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.9.0/dist/js/coreui.bundle.min.js" integrity="sha384-FTek6QoTuxz6Bb078pS0kYQ0qH2LZVB5LWwZl8944mluH+TCk0q3OP4PqA+dHJRl" crossorigin="anonymous"></script>
 
 <!-- plugin for scrollbar  -->
 <script src="{{ asset('/js/admin/plugins/perfect-scrollbar.min.js') }}" async></script>

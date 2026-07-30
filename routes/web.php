@@ -6,7 +6,9 @@ Route::get('/admin', 'App\Http\Controllers\Admin\AdminController@index')->name("
 Route::get('/admin/food', 'App\Http\Controllers\Admin\FoodController@index')->name("food.index");
 Route::get('/admin/food/new', 'App\Http\Controllers\Admin\FoodController@new')->name("food.new");
 
+Route::get('/admin/category', 'App\Http\Controllers\Admin\CategoryController@index')->name("category.index");
+Route::get('/admin/category/new', 'App\Http\Controllers\Admin\CategoryController@new')->name("category.new");
+
 Route::get('/admin/order', 'App\Http\Controllers\Admin\AdminController@order')->name("admin.order");
-Route::get('/admin/category', 'App\Http\Controllers\Admin\AdminController@category')->name("admin.category");
 Route::get('/admin/employee', 'App\Http\Controllers\Admin\AdminController@employee')->name("admin.employee");
 Route::get('/admin/profile', 'App\Http\Controllers\Admin\AdminController@profile')->name("admin.profile");

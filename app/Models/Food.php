@@ -9,15 +9,17 @@ class Food extends Model
 {
     public $timestamps = false;
     protected $fillable =
-        [
-            'FOD_ID',
-            'FOD_NAME',
-            'FOD_DESCRIPTION',
-            'FOD_PRICE',
-            'FOD_IMAGE',
-            'FOD_CREATED_AT',
-            'FOD_UPDATED_AT',
-        ];
+    [
+        'FOD_ID',
+        'FOD_NAME',
+        'FOD_DESCRIPTION',
+        'FOD_PRICE',
+        'FOD_IMAGE',
+        'FOD_CREATED_AT',
+        'FOD_UPDATED_AT',
+    ];
+
+    protected $table = 'Food';
 
     protected $casts =
     [

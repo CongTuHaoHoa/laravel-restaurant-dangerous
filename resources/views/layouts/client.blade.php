@@ -10,6 +10,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
     <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.9.0/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-9DZ6o3pJWcTwBR8W196XizUEf2kNMD35tkeyWqOB0yzml+nZrEe/13PMCpAIrT4r" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.9.0/dist/js/coreui.bundle.min.js" integrity="sha384-FTek6QoTuxz6Bb078pS0kYQ0qH2LZVB5LWwZl8944mluH+TCk0q3OP4PqA+dHJRl" crossorigin="anonymous"></script>
     <link href="{{ asset('/css/client/bootstrap.min.css') }}" rel="stylesheet"/>
     <!-- AOS Animate on Scroll -->
     <link href="{{ asset('/css/client/aos.css') }}" rel="stylesheet"/>
@@ -745,70 +747,55 @@
 
 <!-- CHEFS -->
 <section id="chefs">
-    <div class="container">
+    <div class="container ">
         <div class="text-center mb-5" data-aos="fade-up">
             <span class="slbl">The Culinary Team</span>
             <h2 class="stitle">Meet Our Expert <span>Chefs</span></h2>
             <div class="sline"></div>
         </div>
-        <div class="row g-4">
+        <div class="row g-4 flex justify-content-center">
             <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
                 <div class="chcard">
                     <div class="chimg">
-                        <img src="{{ asset('img/client/chefs/1.jpg') }}" alt=""/>
+                        <img src="{{ asset('img/client/chefs/chef-dung.jpg') }}" alt=""/>
                         <div class="chsoc">
                             <a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
                     <div class="chbody">
-                        <div class="chnm">Alice Mortal</div>
-                        <div class="chrole">Head Chef</div>
-                        <div class="chexp">12 years experience</div>
+                        <div class="chnm">Phạm Tấn "Pirate" Dũng</div>
+                        <div class="chrole">Đầu bếp hải sản</div>
+                        <div class="chexp">16 năm kinh nghiệm</div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
                 <div class="chcard">
                     <div class="chimg">
-                        <img src="{{ asset('img/client/chefs/2.jpg') }}" alt=""/>
+                        <img src="{{ asset('img/client/chefs/chef-hoan.jpg') }}" alt=""/>
                         <div class="chsoc">
                             <a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
                     <div class="chbody">
-                        <div class="chnm">Michael Corn</div>
-                        <div class="chrole">Grill Master</div>
-                        <div class="chexp">8 years experience</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
-                <div class="chcard">
-                    <div class="chimg">
-                        <img src="{{ asset('img/client/chefs/3.jpg') }}" alt=""/>
-                        <div class="chsoc">
-                            <a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                    <div class="chbody">
-                        <div class="chnm">Faz Chowdel</div>
-                        <div class="chrole">Pastry Chef</div>
-                        <div class="chexp">10 years experience</div>
+                        <div class="chnm">Vũ Đăng "Sheriff" Hoàn</div>
+                        <div class="chrole">Đầu bếp món nướng</div>
+                        <div class="chexp">21 năm kinh nghiệm</div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
                 <div class="chcard">
                     <div class="chimg">
-                        <img src="{{ asset('img/client/chefs/4.jpg') }}" alt=""/>
+                        <img src="{{ asset('img/client/chefs/chef-ngoc.jpg') }}" alt=""/>
                         <div class="chsoc">
                             <a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
                     <div class="chbody">
-                        <div class="chnm">William Latnum</div>
-                        <div class="chrole">Pizza Artisan</div>
-                        <div class="chexp">9 years experience</div>
+                        <div class="chnm">Vũ Thanh "The Boss" Ngọc</div>
+                        <div class="chrole">Đầu bếp món âu</div>
+                        <div class="chexp">12 năm kinh nghiệm</div>
                     </div>
                 </div>
             </div>

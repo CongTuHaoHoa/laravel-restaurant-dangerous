@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Food;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 
-class FoodController extends Controller
+class CategoryController extends Controller
 {
 //    public function insert(Request $request)
 //    {
@@ -50,25 +49,24 @@ class FoodController extends Controller
 //        $book->save();
 //        return redirect()->route('book.index');
 //    }
-    public function new()
+    public function new(): Factory|View
     {
         $viewData = [];
-        $viewData["title"] = "Món ăn | Thêm mới";
+        $viewData["title"] = "Danh mục | Thêm mới";
         $viewData["subtitle"] = "Thêm mới";
-        $viewData["activate"] = "food";
-        $viewData["categories"] = Category::all();
+        $viewData["activate"] = "category";
 
-        return view('admin.food.new') -> with("viewData", $viewData);
+        return view('admin.category.new') -> with("viewData", $viewData);
     }
     public function index(): Factory|View
     {
         $viewData = [];
-        $viewData["title"] = "Trang quản trị | Món ăn";
-        $viewData["subtitle"] = "Món ăn";
-        $viewData["foods"] = Food::paginate(7);
+        $viewData["title"] = "Trang quản trị | Danh mục";
+        $viewData["subtitle"] = "Danh mục";
+        $viewData["categories"] = Category::paginate(7);
 
-        $viewData["activate"] = "food";
-        return view('admin.food.index') -> with("viewData", $viewData);
+        $viewData["activate"] = "category";
+        return view('admin.category.index') -> with("viewData", $viewData);
     }
 
 //    public function change($id)
