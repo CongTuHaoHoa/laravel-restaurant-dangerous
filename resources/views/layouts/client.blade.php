@@ -750,7 +750,7 @@
     <div class="container ">
         <div class="text-center mb-5" data-aos="fade-up">
             <span class="slbl">The Culinary Team</span>
-            <h2 class="stitle">Meet Our Expert <span>Chefs</span></h2>
+            <h2 class="stitle">Fuck you <span>Chefs</span></h2>
             <div class="sline"></div>
         </div>
         <div class="row g-4 flex justify-content-center">
