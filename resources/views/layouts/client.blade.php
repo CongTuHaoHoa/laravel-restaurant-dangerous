@@ -68,13 +68,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
-                <li class="nav-item"><a class="nav-link" href="#chefs">Chefs</a></li>
-                <li class="nav-item"><a class="nav-link" href="#reservation">Reservation</a></li>
-                <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact-section">Contact</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{{ route('client.index') }}#hero">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#menu">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#chefs">Chefs</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#reservation">Reservation</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#testimonials">Reviews</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#contact-section">Contact</a></li>
             </ul>
             <div class="d-flex align-items-center gap-2">
 
@@ -86,11 +86,11 @@
 
                 @guest
                     <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm">
-                        <i class="fas fa-sign-in-alt me-1"></i> Login
+                        <i class="fas fa-sign-in-alt me-1"></i>
                     </a>
 
                     <a href="{{ route('register') }}" class="btn btn-warning btn-sm">
-                        <i class="fas fa-user-plus me-1"></i> Register
+                        <i class="fas fa-user-plus me-1"></i>
                     </a>
                 @else
                     <div class="dropdown">
@@ -103,7 +103,7 @@
 
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item" href="{{ route('home') }}">
+                                <a class="dropdown-item" href="{{ route('client.index') }}">
                                     Dashboard
                                 </a>
                             </li>
@@ -129,11 +129,11 @@
                     </div>
                 @endguest
 
-                <a href="#menu" class="nav-link nav-cta">
+                <a href="{{ route('client.index') }}#menu" class="nav-link nav-cta">
                     <i class="fas fa-shopping-bag me-1"></i>Order Now
                 </a>
 
-                <a href="{{ route('cart.index') }}" class="btn btn-outline-warning btn-sm position-relative">
+                <a href="cart.index" class="btn btn-outline-warning btn-sm position-relative">
                     <i class="fas fa-shopping-cart"></i>
 
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">

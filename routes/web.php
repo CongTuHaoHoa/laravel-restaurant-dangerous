@@ -18,7 +18,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
 Route::get('/cart', 'App\Http\Controllers\Client\CartController@index')->name('cart.index');
 
