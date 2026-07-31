@@ -10,6 +10,6 @@ class ClientController extends Controller
     {
         $viewData = [];
         $viewData["title"] = "Home Page - Online Store";
-        return view('client.index') -> with("viewData", $viewData);
+        return view('client.home') -> with("viewData", $viewData);
     }
 }
