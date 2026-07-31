@@ -12,3 +12,7 @@ Route::get('/admin/category/new', 'App\Http\Controllers\Admin\CategoryController
 Route::get('/admin/order', 'App\Http\Controllers\Admin\AdminController@order')->name("admin.order");
 Route::get('/admin/employee', 'App\Http\Controllers\Admin\AdminController@employee')->name("admin.employee");
 Route::get('/admin/profile', 'App\Http\Controllers\Admin\AdminController@profile')->name("admin.profile");
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
