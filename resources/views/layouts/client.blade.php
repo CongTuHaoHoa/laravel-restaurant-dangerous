@@ -76,10 +76,70 @@
                 <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact-section">Contact</a></li>
             </ul>
-            <div class="d-flex align-items-center gap-1">
-                <!-- FIX 1: Search button -->
-                <button id="navSearchBtn" title="Search"><i class="fas fa-search"></i></button>
-                <a href="#menu" class="nav-link nav-cta"><i class="fas fa-shopping-bag me-1"></i>Order Now</a>
+            <div class="d-flex align-items-center gap-2">
+
+    <div class="d-flex align-items-center gap-2">
+
+                <button id="navSearchBtn" title="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+
+                @guest
+                    <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm">
+                        <i class="fas fa-sign-in-alt me-1"></i> Login
+                    </a>
+
+                    <a href="{{ route('register') }}" class="btn btn-warning btn-sm">
+                        <i class="fas fa-user-plus me-1"></i> Register
+                    </a>
+                @else
+                    <div class="dropdown">
+                        <button class="btn btn-warning btn-sm dropdown-toggle"
+                                type="button"
+                                data-bs-toggle="dropdown">
+                            <i class="fas fa-user me-1"></i>
+                            {{ Auth::user()->name }}
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('home') }}">
+                                    Dashboard
+                                </a>
+                            </li>
+
+                            <li><hr class="dropdown-divider"></li>
+
+                            <li>
+                                <a class="dropdown-item"
+                                href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+
+                        <form id="logout-form"
+                            action="{{ route('logout') }}"
+                            method="POST"
+                            class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                @endguest
+
+                <a href="#menu" class="nav-link nav-cta">
+                    <i class="fas fa-shopping-bag me-1"></i>Order Now
+                </a>
+
+                <a href="{{ route('cart.index') }}" class="btn btn-outline-warning btn-sm position-relative">
+                    <i class="fas fa-shopping-cart"></i>
+
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{ session('cart') ? count(session('cart')) : 0 }}
+                    </span>
+                </a>
             </div>
         </div>
     </div>
