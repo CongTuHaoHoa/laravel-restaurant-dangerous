@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\Client\ClientController@index')->name("client.index");
 Route::get('/admin', 'App\Http\Controllers\Admin\AdminController@index')->name("admin.index");
@@ -18,4 +19,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
+
+Route::get('/cart', 'App\Http\Controllers\Client\CartController@index')->name('cart.index');
 
