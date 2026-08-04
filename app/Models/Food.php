@@ -4,9 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Item;
 
 class Food extends Model
 {
+
+    /**
+    * PRODUCT ATTRIBUTES
+    * $this->attributes['id'] - int - contains the product primary key (id)
+    * $this->attributes['name'] - string - contains the product name
+    * $this->attributes['description'] - string - contains the product description
+    * $this->attributes['image'] - string - contains the product image
+    * $this->attributes['price'] - int - contains the product price
+    * $this->attributes['created_at'] - timestamp - contains the product creation date
+    * $this->attributes['updated_at'] - timestamp - contains the product update date
+    * $this->items - Item[] - contains the associated items
+    */
+
+
     public $timestamps = false;
     protected $fillable =
     [
@@ -39,16 +54,9 @@ class Food extends Model
 
     use HasFactory;
 
-    public function getId(){
-    return $this->attributes['id'];
+    public function items(){
+    return $this->hasMany(Item::class);
     }
-    public function setId($id){
-    $this->attributes['id'] = $id;
-    }
-    public function getName(){
-    return $this->attributes['name'];
-    }
-    public function setName($name) {
-    $this->attributes['name'] = $name;
-    }
+
+
 }

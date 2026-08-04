@@ -11,6 +11,7 @@ Route::get('/admin/category/new', 'App\Http\Controllers\Admin\CategoryController
 Route::get('/admin/order', 'App\Http\Controllers\Admin\AdminController@order')->name("admin.order");
 Route::get('/admin/employee', 'App\Http\Controllers\Admin\AdminController@employee')->name("admin.employee");
 Route::get('/admin/profile', 'App\Http\Controllers\Admin\AdminController@profile')->name("admin.profile");
+Route::get('/cart/purchase' ,'App\Http\Controllers\Client\CartController@purchase')->name("cart.purchase");
 });
 
 Auth::routes();
@@ -20,4 +21,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/cart', 'App\Http\Controllers\Client\CartController@index')->name("cart.index");
 Route::get('/cart/delete', 'App\Http\Controllers\Client\CartController@delete')->name('cart.delete');
 Route::post('/cart/add/{id}', 'App\Http\Controllers\Client\CartController@add')->name('cart.add');
+
 
