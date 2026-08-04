@@ -27,5 +27,28 @@ class Food extends Model
         'FOD_UPDATED_AT' => 'datetime',
     ];
 
+    public static function sumPricesByQuantities($foods, $foodsInSession)
+    {
+        $total = 0;
+        foreach($foods as $food)
+            {
+                $total = $total + ($food->getPrice()*$foodsInSession[$food->getId()]);
+            }
+        return $total;
+    }
+
     use HasFactory;
+
+    public function getId(){
+    return $this->attributes['id'];
+    }
+    public function setId($id){
+    $this->attributes['id'] = $id;
+    }
+    public function getName(){
+    return $this->attributes['name'];
+    }
+    public function setName($name) {
+    $this->attributes['name'] = $name;
+    }
 }

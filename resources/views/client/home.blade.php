@@ -645,7 +645,7 @@
                         <div class="chimg">
                             <img src="{{ asset('img/client/chefs/chef-hoan.jpg') }}" alt=""/>
                             <div class="chsoc">
-                                <a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a><a href="https://www.facebook.com/profile.php?id=100069889094927"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a>
                             </div>
                         </div>
                         <div class="chbody">

@@ -86,40 +86,51 @@
 
                 @guest
                     <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm">
-                        <i class="fas fa-sign-in-alt me-1"></i>
+                        <i class="fas fa-sign-in-alt me-1"></i> Login
                     </a>
 
                     <a href="{{ route('register') }}" class="btn btn-warning btn-sm">
-                        <i class="fas fa-user-plus me-1"></i>
+                        <i class="fas fa-user-plus me-1"></i> Register
                     </a>
                 @else
                     <div class="dropdown">
-                        <button class="btn btn-warning btn-sm dropdown-toggle"
-                                type="button"
-                                data-bs-toggle="dropdown">
+                        <button
+                            class="btn btn-warning btn-sm dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             <i class="fas fa-user me-1"></i>
                             {{ Auth::user()->name }}
                         </button>
 
                         <ul class="dropdown-menu dropdown-menu-end">
+
                             <li>
                                 <a class="dropdown-item" href="{{ route('client.index') }}">
-                                    Dashboard
+                                    <i class="fas fa-home me-2"></i> Dashboard
                                 </a>
                             </li>
+
+                            @if(Auth::user()->role == 'admin')
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('admin.index') }}">
+                                        <i class="fas fa-user-shield me-2"></i> Admin Dashboard
+                                    </a>
+                                </li>
+                            @endif
 
                             <li><hr class="dropdown-divider"></li>
 
                             <li>
-                                <a class="dropdown-item"
+                                <a class="dropdown-item text-danger"
                                 href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                    Logout
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt me-2"></i> Logout
                                 </a>
                             </li>
-                        </ul>
 
+                        </ul>
+                            
                         <form id="logout-form"
                             action="{{ route('logout') }}"
                             method="POST"
@@ -129,11 +140,7 @@
                     </div>
                 @endguest
 
-                <a href="{{ route('client.index') }}#menu" class="nav-link nav-cta">
-                    <i class="fas fa-shopping-bag me-1"></i>Order Now
-                </a>
-
-                <a href="cart.index" class="btn btn-outline-warning btn-sm position-relative">
+                <a href="{{ route('cart.index') }}" class="btn btn-outline-warning btn-sm position-relative">
                     <i class="fas fa-shopping-cart"></i>
 
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
