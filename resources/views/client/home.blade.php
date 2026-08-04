@@ -179,7 +179,7 @@
     <!-- ============================================================
        MENU � FIX 3 (filter works) + FIX 4 (plus opens popup)
        ============================================================ -->
-
+    <section id="menu">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
                 <span class="slbl">What's Cooking</span>
@@ -231,7 +231,7 @@
             <div class="text-center mt-5"><a href="#" class="btn-red"><i class="fas fa-th-large"></i>View Full Menu</a>
             </div>
         </div>
-
+    </section>
 
     <!-- ============================================================
        FIX 4 � MENU DETAIL POPUP MODAL
