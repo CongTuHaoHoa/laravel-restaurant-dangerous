@@ -15,9 +15,10 @@ Route::get('/cart/purchase' ,'App\Http\Controllers\Client\CartController@purchas
 });
 
 Auth::routes();
-Route::get('/', 'App\Http\Controllers\Client\ClientController@index')->name("client.index");
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\Client\FoodController::class, 'index'])->name('client.index');
 
+Route::get('/client/{FOD_ID}', [App\Http\Controllers\Client\FoodController::class, 'show'])->name('client.show');
 Route::get('/cart', 'App\Http\Controllers\Client\CartController@index')->name("cart.index");
 Route::get('/cart/delete', 'App\Http\Controllers\Client\CartController@delete')->name('cart.delete');
 Route::post('/cart/add/{id}', 'App\Http\Controllers\Client\CartController@add')->name('cart.add');

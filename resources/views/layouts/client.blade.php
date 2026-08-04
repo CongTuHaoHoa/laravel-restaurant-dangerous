@@ -138,15 +138,15 @@
                             @csrf
                         </form>
                     </div>
+
+                    <a href="{{ route('cart.index') }}" class="btn btn-outline-warning btn-sm position-relative">
+                        <i class="fas fa-shopping-cart"></i>
+
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ session('cart') ? count(session('cart')) : 0 }}
+                        </span>
+                    </a>
                 @endguest
-
-                <a href="{{ route('cart.index') }}" class="btn btn-outline-warning btn-sm position-relative">
-                    <i class="fas fa-shopping-cart"></i>
-
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        {{ session('cart') ? count(session('cart')) : 0 }}
-                    </span>
-                </a>
             </div>
         </div>
     </div>

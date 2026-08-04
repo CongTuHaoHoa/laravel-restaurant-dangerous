@@ -23,7 +23,7 @@
 
                         <!-- Image -->
                         <div class="col-md-3">
-                            <img src="{{ asset('/storage/'.$food->getImage()) }}"
+                            <img src="{{ asset('/storage/'.$food->img) }}"
                                  class="img-fluid rounded-start"
                                  style="height:180px; width:100%; object-fit:cover;">
                         </div>
@@ -34,19 +34,19 @@
                             <div class="card-body">
 
                                 <h4 class="fw-bold">
-                                    {{ $food->name() }}
+                                    {{ $food->name}}
                                 </h4>
 
                                 <p class="text-muted">
-                                    {{ $food->description() }}
+                                    {{ $food->description}}
                                 </p>
 
                                 <h5 class="text-danger fw-bold">
-                                    ${{ number_format($food->price(),2) }}
+                                    ${{ number_format($food->price,2) }}
                                 </h5>
 
                                 <span class="badge bg-success">
-                                    {{ $food->status() }}
+                                    {{ $food->status }}
                                 </span>
 
                             </div>
@@ -64,13 +64,13 @@
 
                                 <input type="number"
                                        class="form-control text-center"
-                                       value="{{ session('foods')[$food->getId()] }}"
+                                       value="{{ session('foods')[$food->id] }}"
                                        readonly>
 
                                 <hr>
 
                                 <h5 class="fw-bold">
-                                    ${{ number_format($food->getPrice()*session('foods')[$food->getId()],2) }}
+                                    ${{ number_format($food->price*session('foods')[$food->id],2) }}
                                 </h5>
 
                             </div>

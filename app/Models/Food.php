@@ -36,6 +36,12 @@ class Food extends Model
 
     protected $table = 'Food';
 
+    protected $primaryKey = 'FOD_ID';
+
+    public $incrementing = false;
+
+    protected $keyType = 'string';
+
     protected $casts =
     [
         'FOD_CREATED_AT' => 'datetime',
@@ -47,7 +53,7 @@ class Food extends Model
         $total = 0;
         foreach($foods as $food)
             {
-                $total = $total + ($food->getPrice()*$foodsInSession[$food->getId()]);
+                $total += ($food->FOD_PRICE*$foodsInSession[$food->FOD_ID]);
             }
         return $total;
     }

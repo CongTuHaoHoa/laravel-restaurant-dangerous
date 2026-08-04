@@ -185,10 +185,7 @@ function openMenuPop(card) {
 
     var full = Math.round(rating),
         empty = 5 - full;
-    document.getElementById('mpStars').innerHTML =
-        '<i class="fas fa-star"></i>'.repeat(full) + 'â˜†'.repeat(empty) +
-        ' <span style="color:#bbb;font-size:.78rem;">' + rating + ' (' + reviews + ' reviews)</span>';
-
+    
     document.getElementById('mpDesc').textContent = desc;
 
     document.getElementById('mpPrice').innerHTML =
