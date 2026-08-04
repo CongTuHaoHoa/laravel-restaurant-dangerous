@@ -16,7 +16,7 @@
 
                 <!-- Image -->
                 <div class="col-lg-6">
-                    <img src="{{ asset($food->FOD_IMAGE) }}"
+                    <img src="{{ asset('storage/food/'.$food->FOD_IMAGE) }}"
                          class="img-fluid h-100 w-100"
                          style="object-fit:cover; min-height:550px;">
                 </div>
