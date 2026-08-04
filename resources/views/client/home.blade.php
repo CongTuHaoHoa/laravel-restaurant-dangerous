@@ -205,7 +205,7 @@
                     <a href="{{ route('client.show', $food->FOD_ID) }}">
                     <div class="mcard">
                         <div class="mimg">
-                            <img src="{{ asset($food->FOD_IMAGE) }}" alt="img"/>
+                            <img src="{{ asset('storage/food/'.$food->FOD_IMAGE) }}" alt="img"/>
                             <div class="mbdg hot"><i class="fas fa-star"></i> Hot</div>
                             <div class="mhrt"><i class="far fa-heart"></i></div>
                         </div>
