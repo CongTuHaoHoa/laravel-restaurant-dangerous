@@ -215,7 +215,7 @@
                             <div class="mdesc">{{ $food->FOD_DESCRIPTION }}</div>
                             <div class="mfoot">
                                 <div>
-                                    <div class="mprice">{{ $food->FOD_PRICE }}<small>{{ number_format($food->FOD_PRICE * 1.3) }}</small></div>
+                                    <div class="mprice">{{ number_format($food->FOD_PRICE, 0, ',', '.') }}<small>{{ number_format($food->FOD_PRICE * 1.3, 0, ',', '.') }}</small></div>
                                 </div>
                                 <button class="madd" title="View Details"><i class="fas fa-plus"></i></button>
                             </div>
