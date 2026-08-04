@@ -29,7 +29,7 @@
                                         <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                                             <div class="flex px-2 py-1">
                                                 <div>
-                                                    <img src="{{ asset($food->FOD_IMAGE) }}" class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user1" />
+                                                    <img src="{{ asset('/storage/food/'.$food->FOD_IMAGE) }}" class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="user1" />
                                                 </div>
                                                 <div class="flex flex-col justify-center">
                                                     <h6 class="mb-0 text-sm leading-normal dark:text-white">{{ $food->FOD_NAME }}</h6>
@@ -40,7 +40,11 @@
                                             <p class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">{{ number_format($food->FOD_PRICE, 0, ',', '.') }}</p>
                                         </td>
                                         <td class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                            <span class="bg-slate-500 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">Lẩu</span>
+                                            <div class="flex gap-1 justify-content-center">
+                                                @foreach($food->getCategories as $category)
+                                                    <span style="background: {{ '#'.$category->CTG_COLOR }}" class="to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">{{ $category->CTG_NAME }}</span>
+                                                @endforeach
+                                            </div>
                                         </td>
                                         <td class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                                             <span class="{{ $food->FOD_STATUS ? 'bg-gradient-to-tl from-emerald-500 to-teal-400' : 'bg-secondary' }} px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">{{ $food->FOD_STATUS ? 'Còn món' : 'Hết món' }}</span>
@@ -53,8 +57,12 @@
                                         </td>
                                         <td class="p-2 bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                                             <div class=" flex float-right px-2 gap-1">
-                                                <a href="" class="inline-block px-3 py-2 leading-normal text-center text-white transition-all ease-in rounded-lg shadow-md bg-warning bg-150 hover:shadow-xs"><i class="fa-solid fa-pen-to-square"></i></a>
-                                                <button class="inline-block px-3 py-2 leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-danger bg-150 hover:shadow-xs"><i class="fa-solid fa-trash"></i></button>
+                                                <a href="{{ route('food.info', $food->FOD_ID) }}" class="inline-block px-3 py-2 leading-normal text-center text-white transition-all ease-in rounded-lg shadow-md bg-warning bg-150 hover:shadow-xs"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                <form method="POST" action="{{ route('food.delete', $food->FOD_ID) }}" onsubmit="return confirm('Bạn có muốn xoá {{ $food->FOD_NAME }}?')">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="inline-block px-3 py-2 leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-danger bg-150 hover:shadow-xs"><i class="fa-solid fa-trash"></i></button>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>
