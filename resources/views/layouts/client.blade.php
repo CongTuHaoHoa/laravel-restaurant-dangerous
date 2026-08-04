@@ -68,13 +68,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
-                <li class="nav-item"><a class="nav-link" href="#chefs">Chefs</a></li>
-                <li class="nav-item"><a class="nav-link" href="#reservation">Reservation</a></li>
-                <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact-section">Contact</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{{ route('client.index') }}#hero">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#menu">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#chefs">Chefs</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#reservation">Reservation</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#testimonials">Reviews</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#contact-section">Contact</a></li>
             </ul>
             <div class="d-flex align-items-center gap-2">
 
@@ -94,32 +94,43 @@
                     </a>
                 @else
                     <div class="dropdown">
-                        <button class="btn btn-warning btn-sm dropdown-toggle"
-                                type="button"
-                                data-bs-toggle="dropdown">
+                        <button
+                            class="btn btn-warning btn-sm dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             <i class="fas fa-user me-1"></i>
                             {{ Auth::user()->name }}
                         </button>
 
                         <ul class="dropdown-menu dropdown-menu-end">
+
                             <li>
-                                <a class="dropdown-item" href="{{ route('home') }}">
-                                    Dashboard
+                                <a class="dropdown-item" href="{{ route('client.index') }}">
+                                    <i class="fas fa-home me-2"></i> Dashboard
                                 </a>
                             </li>
+
+                            @if(Auth::user()->role == 'admin')
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('admin.index') }}">
+                                        <i class="fas fa-user-shield me-2"></i> Admin Dashboard
+                                    </a>
+                                </li>
+                            @endif
 
                             <li><hr class="dropdown-divider"></li>
 
                             <li>
-                                <a class="dropdown-item"
+                                <a class="dropdown-item text-danger"
                                 href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                    Logout
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt me-2"></i> Logout
                                 </a>
                             </li>
-                        </ul>
 
+                        </ul>
+                            
                         <form id="logout-form"
                             action="{{ route('logout') }}"
                             method="POST"
@@ -127,19 +138,15 @@
                             @csrf
                         </form>
                     </div>
+
+                    <a href="{{ route('cart.index') }}" class="btn btn-outline-warning btn-sm position-relative">
+                        <i class="fas fa-shopping-cart"></i>
+
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ session('cart') ? count(session('cart')) : 0 }}
+                        </span>
+                    </a>
                 @endguest
-
-                <a href="#menu" class="nav-link nav-cta">
-                    <i class="fas fa-shopping-bag me-1"></i>Order Now
-                </a>
-
-                <a href="{{ route('cart.index') }}" class="btn btn-outline-warning btn-sm position-relative">
-                    <i class="fas fa-shopping-cart"></i>
-
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        {{ session('cart') ? count(session('cart')) : 0 }}
-                    </span>
-                </a>
             </div>
         </div>
     </div>
