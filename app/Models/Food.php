@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-
+use App\Models\FoodOrders;
 /**
  * @property mixed|string $FOD_ID
  */
@@ -45,4 +45,17 @@ class Food extends Model
     }
 
     use HasFactory;
+
+    public function foodOrders(){
+    return $this->hasMany(FoodOrders::class);
+    }
+
+    public static function sumPricesByQuantities($foods, $foodsInSession)
+    {
+        $total = 0;
+        foreach($foods as $food) {
+            $total += ($food->FOD_PRICE * $foodsInSession[$food->FOD_ID]);
+        }
+        return $total;  
+    }
 }

@@ -2,8 +2,7 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Item;
-
+use App\Models\FoodOrders;
 
 class Order extends Model
 {
@@ -15,7 +14,7 @@ class Order extends Model
 * $this->attributes['created_at'] - timestamp - contains the order creation date
 * $this->attributes['updated_at'] - timestamp - contains the order update date
 * $this->user - User - contains the associated User
-* $this->items - Item[] - contains the associated items
+* $this->foodOrders - FoodOrders[] - contains the associated items
 */
     protected $fillable = [
         'total',
@@ -35,8 +34,8 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function items()
+    public function foodOrders()
     {
-        return $this->hasMany(Item::class);
+        return $this->hasMany(FoodOrders::class);
     }
 }

@@ -23,7 +23,7 @@
 
                         <!-- Image -->
                         <div class="col-md-3">
-                            <img src="{{ asset('/storage/'.$food->img) }}"
+                            <img src="{{ asset('/storage/food/'.$food->FOD_IMAGE) }}" alt ="{{ $food->FOD_NAME }}"
                                  class="img-fluid rounded-start"
                                  style="height:180px; width:100%; object-fit:cover;">
                         </div>
@@ -34,15 +34,15 @@
                             <div class="card-body">
 
                                 <h4 class="fw-bold">
-                                    {{ $food->name}}
+                                    {{ $food->FOD_NAME}}
                                 </h4>
 
                                 <p class="text-muted">
-                                    {{ $food->description}}
+                                    {{ $food->FOD_DESCRIPTION}}
                                 </p>
 
                                 <h5 class="text-danger fw-bold">
-                                    ${{ number_format($food->price,2) }}
+                                    ${{ number_format($food->FOD_PRICE,0) }}
                                 </h5>
 
                                 <span class="badge bg-success">
@@ -64,13 +64,13 @@
 
                                 <input type="number"
                                        class="form-control text-center"
-                                       value="{{ session('foods')[$food->id] }}"
+                                       value="{{ session('foods')[$food->FOD_ID] }}"
                                        readonly>
 
                                 <hr>
 
                                 <h5 class="fw-bold">
-                                    ${{ number_format($food->price*session('foods')[$food->id],2) }}
+                                    ${{ number_format($food->FOD_PRICE*session('foods')[$food->FOD_ID],0) }}
                                 </h5>
 
                             </div>
@@ -121,33 +121,53 @@
                     <div class="d-flex justify-content-between mb-3">
                         <span>Subtotal</span>
                         <strong>
-                            ${{ number_format($viewData["total"],2) }}
+                            ${{ number_format($viewData["total"],0) }}
                         </strong>
                     </div>
 
+                    @if($viewData["total"] < 100000)
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Shipping</span>
+                        <span class="text-success fw-bold">
+                            5,000
+                        </span>
+                    </div>
+                    @else
                     <div class="d-flex justify-content-between mb-3">
                         <span>Shipping</span>
                         <span class="text-success">
                             FREE
                         </span>
                     </div>
+                    @endif
 
                     <hr>
 
                     <div class="d-flex justify-content-between mb-4">
 
                         <h5>Total</h5>
-
+                        @if($viewData["total"] < 100000)
                         <h5 class="text-danger fw-bold">
-                            ${{ number_format($viewData["total"],2) }}
+                            ${{ number_format($viewData["total"] + 5000,0) }}
                         </h5>
-
+                        @else
+                        <h5 class="text-danger fw-bold">
+                            ${{ number_format($viewData["total"],0) }}
+                        </h5>
+                        @endif
                     </div>
 
-                    <button class="btn btn-warning w-100 py-2">
+                    @if(Auth::check() && Auth::user()->balance >= $viewData["total"])
+                    <a href="{{ route('cart.purchase') }}" class="btn btn-warning w-100 py-2">
                         <i class="fas fa-credit-card me-2"></i>
                         Checkout
+                    </a>
+                    @else
+                    <button class="btn btn-warning w-100 py-2" disabled>
+                        <i class="fas fa-credit-card me-2"></i>
+                        Not enough money
                     </button>
+                    @endif  
 
                 </div>
 

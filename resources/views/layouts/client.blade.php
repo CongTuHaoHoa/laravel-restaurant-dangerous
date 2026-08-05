@@ -85,7 +85,7 @@
                 </button>
 
                 @guest
-                    <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm">
+                    <a href="{{ route('login') }}" class="btn btn-outline-secondary btn-sm">
                         <i class="fas fa-sign-in-alt me-1"></i> Login
                     </a>
 
@@ -119,7 +119,12 @@
                                 </li>
                             @endif
 
-                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('myaccount.index') }}">
+                                    <i class="fas fa-user-circle me-2"></i>
+                                    My Account
+                                </a>
+                            </li>
 
                             <li>
                                 <a class="dropdown-item text-danger"
@@ -143,7 +148,7 @@
                         <i class="fas fa-shopping-cart"></i>
 
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            {{ session('cart') ? count(session('cart')) : 0 }}
+                            {{ array_sum(session('foods', [])) }}
                         </span>
                     </a>
                 @endguest
