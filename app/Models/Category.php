@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use BcMath\Number;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,4 +31,19 @@ class Category extends Model
     ];
 
     use HasFactory;
+
+    public function food(string $id){
+    return $this->hasMany(Food::class);
+    }
+
+    public function foodContainsCategory()
+    {
+        return $this->belongsTo(FoodContainsCategory::class);
+    }
+
+    public function count(string $id)
+    {
+        return FoodContainsCategory::where("CTG_ID", $id)->count();
+    }
+
 }

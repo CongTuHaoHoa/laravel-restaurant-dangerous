@@ -30,4 +30,9 @@ class FoodContainsCategory extends Model
         ];
 
     use HasFactory;
+
+    public function category()
+    {
+        return $this->hasMany(Category::class);
+    }
 }

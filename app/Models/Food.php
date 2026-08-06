@@ -66,4 +66,9 @@ class Food extends Model
     {
         return $this->hasMany(Comment::class, 'food_id', 'FOD_ID');
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'CTG_ID');
+    }
 }

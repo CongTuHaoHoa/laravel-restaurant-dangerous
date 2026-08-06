@@ -59,13 +59,15 @@
         </div>
     </section>
     <!-- MARQUEE -->
-    @foreach()
+    
     <div class="mqsec">
         <div class="mqtrack">
-            <div class="mqitem"><i class="fas fa-circle"></i>$Category->CTG_NAME</div>
+            @foreach($viewData["categories"] as $category)
+                <div class="mqitem"><i class="fas fa-circle"></i>{{ $category->CTG_NAME }}</div>
+            @endforeach
         </div>
     </div>
-    @endforeach
+
     <!-- CATEGORY -->
     <section id="category">
         <div class="container">
@@ -80,44 +82,21 @@
                     <div class="catcard active" data-filter="all">
                         <img class="catimg" src="{{ asset('img/client/category/1.jpg') }}" alt=""/>
                         <div class="catnm">All Items</div>
-                        <div class="catct">99 items</div>
+                        <div class="catct">{{ $viewData["foods"]->count() }} item(s)</div>
                     </div>
                 </div>
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="70">
-                    <div class="catcard" data-filter="burgers">
-                        <img class="catimg" src="{{ asset('img/client/category/2.jpg') }}" alt=""/>
-                        <div class="catnm">Burgers</div>
-                        <div class="catct">24 items</div>
+                 @foreach($viewData["categories"] as $category)
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="0">
+                   
+                    <div class="catcard active" data-filter="{{ $category->CTG_NAME }}">
+                        <img class="catimg" src="{{ asset('img/client/default_avatar.png') }}" alt=""/>
+                        <div class="catnm">{{ $category->CTG_NAME}}</div>
+                        <div class="catct">{{ $category->count($category->CTG_ID) }} item(s)</div>
+
                     </div>
+                    
                 </div>
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="140">
-                    <div class="catcard" data-filter="pizza">
-                        <img class="catimg" src="{{ asset('img/client/category/3.jpg') }}" alt=""/>
-                        <div class="catnm">Pizza</div>
-                        <div class="catct">18 items</div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="210">
-                    <div class="catcard" data-filter="chicken">
-                        <img class="catimg" src="{{ asset('img/client/category/4.jpg') }}" alt=""/>
-                        <div class="catnm">Fried Chicken</div>
-                        <div class="catct">15 items</div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="280">
-                    <div class="catcard" data-filter="wraps">
-                        <img class="catimg" src="{{ asset('img/client/category/5.jpg') }}" alt=""/>
-                        <div class="catnm">Wraps</div>
-                        <div class="catct">12 items</div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="350">
-                    <div class="catcard" data-filter="desserts">
-                        <img class="catimg" src="{{ asset('img/client/category/6.jpg') }}" alt=""/>
-                        <div class="catnm">Desserts</div>
-                        <div class="catct">20 items</div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -178,18 +157,14 @@
             <!-- FIX 3 � filter buttons -->
             <div class="text-center mb-4" data-aos="fade-up">
                 <button class="filtbtn active" data-f="all">All</button>
-                <button class="filtbtn" data-f="burgers">Burgers</button>
-                <button class="filtbtn" data-f="pizza">Pizza</button>
-                <button class="filtbtn" data-f="chicken">Chicken</button>
-                <button class="filtbtn" data-f="wraps">Wraps</button>
-                <button class="filtbtn" data-f="desserts">Desserts</button>
-                <button class="filtbtn" data-f="pasta">Pasta</button>
+                @foreach($viewData["categories"] as $category)
+                <button class="filtbtn" data-f="{{ $category->CTG_ID }}">{{ $category->CTG_NAME }}</button>
+                @endforeach
             </div>
 
             
             <div class="row g-4" id="mgrid">
             @foreach($viewData["foods"] as $food)
-            
                 <div class="col-sm-6 col-lg-4 mwrap"data-aos="fade-up">
                     <a href="{{ route('client.show', $food->FOD_ID) }}">
                     <div class="mcard">
@@ -200,7 +175,7 @@
                         </div>
                         <div class="mbody">
                             <div class="mcat">{{ $food->FOD_CATEGORY }}</div>
-                            <div class="mtit">Classic {{ $food->FOD_NAME }}</div>
+                            <div class="mtit">{{ $food->FOD_NAME }}</div>
                             <div class="mdesc">{{ $food->FOD_DESCRIPTION }}</div>
                             <div class="mfoot">
                                 <div>
