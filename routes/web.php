@@ -7,7 +7,6 @@ Route::middleware('admin')->group(function ()
     Route::get('/admin', 'App\Http\Controllers\Admin\AdminController@index')->name("admin.index");
 
     Route::get('/admin/food', 'App\Http\Controllers\Admin\FoodController@index')->name("food.index");
-
     Route::post('/admin/food', 'App\Http\Controllers\Admin\FoodController@add')->name("food.add");
     Route::delete('/admin/food/{id}', 'App\Http\Controllers\Admin\FoodController@delete')->name("food.delete");
     Route::put('/admin/food/{id}', 'App\Http\Controllers\Admin\FoodController@edit')->name("food.edit");
@@ -16,7 +15,12 @@ Route::middleware('admin')->group(function ()
     Route::get('/admin/food/{id}', 'App\Http\Controllers\Admin\FoodController@info')->name("food.info");
 
     Route::get('/admin/category', 'App\Http\Controllers\Admin\CategoryController@index')->name("category.index");
+    Route::post('/admin/category', 'App\Http\Controllers\Admin\CategoryController@add')->name("category.add");
+    Route::delete('/admin/category/{id}', 'App\Http\Controllers\Admin\CategoryController@delete')->name("category.delete");
+    Route::put('/admin/category/{id}', 'App\Http\Controllers\Admin\CategoryController@edit')->name("category.edit");
+
     Route::get('/admin/category/new', 'App\Http\Controllers\Admin\CategoryController@new')->name("category.new");
+    Route::get('/admin/category/{id}', 'App\Http\Controllers\Admin\CategoryController@info')->name("category.info");
 
     Route::get('/admin/order', 'App\Http\Controllers\Admin\AdminController@order')->name("admin.order");
     Route::get('/admin/employee', 'App\Http\Controllers\Admin\AdminController@employee')->name("admin.employee");

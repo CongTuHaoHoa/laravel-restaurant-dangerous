@@ -53,9 +53,10 @@ class Food extends Model
     public static function sumPricesByQuantities($foods, $foodsInSession)
     {
         $total = 0;
-        foreach($foods as $food) {
+        foreach($foods as $food)
+        {
             $total += ($food->FOD_PRICE * $foodsInSession[$food->FOD_ID]);
         }
-        return $total;  
+        return $total;
     }
 }

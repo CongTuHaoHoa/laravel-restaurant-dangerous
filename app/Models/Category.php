@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     public $timestamps = false;
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     protected $fillable =
     [
         'CTG_ID',
@@ -17,6 +20,7 @@ class Category extends Model
         'CTG_UPDATED_AT',
     ];
 
+    protected $primaryKey = 'CTG_ID';
     protected $table = 'Category';
 
     protected $casts =

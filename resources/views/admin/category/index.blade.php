@@ -15,7 +15,6 @@
                             <thead class="align-bottom">
                             <tr>
                                 <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Tên</th>
-                                <th class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Màu sắc</th>
                                 <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Ngày cập nhật</th>
                                 <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Ngày tạo</th>
                                 <th class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-collapse border-solid shadow-none dark:border-white/40 dark:text-white tracking-none whitespace-nowrap text-slate-400 opacity-70"></th>
@@ -27,12 +26,9 @@
                                     <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                                         <div class="flex px-2 py-1">
                                             <div class="flex flex-col justify-center">
-                                                <h6 class="mb-0 text-sm leading-normal dark:text-white">{{ $category->CTG_NAME }}</h6>
+                                                <span style="background: {{ '#'.$category->CTG_COLOR }}" class="to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">{{ $category->CTG_NAME }}</span>
                                             </div>
                                         </div>
-                                    </td>
-                                    <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                        <p class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">{{ $category->CTG_COLOR }}</p>
                                     </td>
                                     <td class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                                         <span class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400">{{ $category->CTG_UPDATED_AT->format('d/m/Y') }}</span>
@@ -42,9 +38,18 @@
                                     </td>
                                     <td class="p-2 bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                                         <div class=" flex float-right px-2 gap-1">
-                                            <a href="" class="inline-block px-3 py-2 leading-normal text-center text-white transition-all ease-in rounded-lg shadow-md bg-warning bg-150 hover:shadow-xs"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <button class="inline-block px-3 py-2 leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-danger bg-150 hover:shadow-xs"><i class="fa-solid fa-trash"></i></button>
+                                            <a href="{{ route('category.info', $category->CTG_ID) }}" class="inline-block px-3 py-2 leading-normal text-center text-white transition-all ease-in rounded-lg shadow-md bg-warning bg-150 hover:shadow-xs"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <form method="POST" action="{{ route('category.delete', $category->CTG_ID) }}" onsubmit="return confirm('Bạn có muốn xoá {{ $category->CTG_NAME }}?')">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="inline-block px-3 py-2 leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-danger bg-150 hover:shadow-xs"><i class="fa-solid fa-trash"></i></button>
+                                            </form>
                                         </div>
+
+{{--                                        <div class=" flex float-right px-2 gap-1">--}}
+{{--                                            <a href="" class="inline-block px-3 py-2 leading-normal text-center text-white transition-all ease-in rounded-lg shadow-md bg-warning bg-150 hover:shadow-xs"><i class="fa-solid fa-pen-to-square"></i></a>--}}
+{{--                                            <button class="inline-block px-3 py-2 leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-danger bg-150 hover:shadow-xs"><i class="fa-solid fa-trash"></i></button>--}}
+{{--                                        </div>--}}
                                     </td>
                                 </tr>
                             @endforeach
