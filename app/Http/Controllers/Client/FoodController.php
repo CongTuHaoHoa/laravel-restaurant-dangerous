@@ -17,8 +17,10 @@ class FoodController extends Controller
 
     public function show($id)
     {
-        $food = Food::findOrFail($id);
+        $viewData = [];
 
-        return view('client.show', compact('food'));
+        $viewData["food"] = Food::with('comments.user')->findOrFail($id);
+
+        return view('client.show')->with("viewData", $viewData);
     }
 }

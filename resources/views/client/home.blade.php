@@ -59,24 +59,13 @@
         </div>
     </section>
     <!-- MARQUEE -->
+    @foreach()
     <div class="mqsec">
         <div class="mqtrack">
-            <div class="mqitem"><i class="fas fa-circle"></i>Crispy Fried Chicken</div>
-            <div class="mqitem"><i class="fas fa-circle"></i>Gourmet Burgers</div>
-            <div class="mqitem"><i class="fas fa-circle"></i>Artisan Pizzas</div>
-            <div class="mqitem"><i class="fas fa-circle"></i>Fresh Wraps &amp; Rolls</div>
-            <div class="mqitem"><i class="fas fa-circle"></i>Loaded Fries</div>
-            <div class="mqitem"><i class="fas fa-circle"></i>Ice Cream Shakes</div>
-            <div class="mqitem"><i class="fas fa-circle"></i>Grilled Sandwiches</div>
-            <div class="mqitem"><i class="fas fa-circle"></i>Crispy Fried Chicken</div>
-            <div class="mqitem"><i class="fas fa-circle"></i>Gourmet Burgers</div>
-            <div class="mqitem"><i class="fas fa-circle"></i>Artisan Pizzas</div>
-            <div class="mqitem"><i class="fas fa-circle"></i>Fresh Wraps &amp; Rolls</div>
-            <div class="mqitem"><i class="fas fa-circle"></i>Loaded Fries</div>
-            <div class="mqitem"><i class="fas fa-circle"></i>Ice Cream Shakes</div>
-            <div class="mqitem"><i class="fas fa-circle"></i>Grilled Sandwiches</div>
+            <div class="mqitem"><i class="fas fa-circle"></i>$Category->CTG_NAME</div>
         </div>
     </div>
+    @endforeach
     <!-- CATEGORY -->
     <section id="category">
         <div class="container">

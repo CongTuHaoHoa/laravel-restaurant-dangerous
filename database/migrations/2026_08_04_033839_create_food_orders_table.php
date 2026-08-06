@@ -15,7 +15,7 @@ return new class extends Migration
             $table->integer('price');
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('id')->on('orders');
-            $table->string('food_id');
+            $table->string('food_id', 8);
             $table->foreign('food_id')->references('FOD_ID')->on('foods');
             $table->timestamps();
         });
