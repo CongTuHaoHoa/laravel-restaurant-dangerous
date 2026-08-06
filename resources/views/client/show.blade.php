@@ -5,20 +5,22 @@
 <section class="py-5" style="background:#0f0f10; min-height:100vh;">
     <div class="container">
 
+        <!-- Back -->
         <div class="mb-4">
             <a href="{{ route('client.index') }}" class="btn btn-outline-light">
-                <i class="fas fa-arrow-left me-2"></i>Back to Menu
+                <i class="fas fa-arrow-left me-2"></i> Back to Menu
             </a>
         </div>
 
-        <div class="card border-0 shadow-lg overflow-hidden" style="border-radius:20px;">
+        <!-- Food Detail -->
+        <div class="card border-0 shadow-lg overflow-hidden mb-5" style="border-radius:20px;">
             <div class="row g-0">
 
                 <!-- Image -->
                 <div class="col-lg-6">
-                    <img src="{{ asset('storage/food/'.$food->FOD_IMAGE) }}"
-                         class="img-fluid h-100 w-100"
-                         style="object-fit:cover; min-height:550px;">
+                    <img src="{{ asset('storage/food/'.$viewData['food']->FOD_IMAGE) }}"
+                        class="img-fluid h-100 w-100"
+                        style="object-fit:cover; min-height:550px;">
                 </div>
 
                 <!-- Info -->
@@ -26,37 +28,30 @@
                     <div class="p-5">
 
                         <span class="badge bg-danger px-3 py-2 mb-3">
-                            {{ $food->FOD_CATEGORY }}
+                            {{ $viewData["food"]->FOD_CATEGORY }}
                         </span>
 
-                        <h1 class="fw-bold mb-3">
-                            {{ $food->FOD_NAME }}
+                        <h1 class="fw-bold">
+                            {{ $viewData["food"]->FOD_NAME }}
                         </h1>
 
-                        <div class="mb-4">
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star-half-alt text-warning"></i>
-
-                            <span class="text-muted ms-2">
-                                (4.8 • 128 Reviews)
+                        <div class="mb-3">
+                            <span class="text-muted ">
+                                Reviews: {{ $viewData["food"]->comments->count() }} 
                             </span>
                         </div>
 
                         <h2 class="text-danger fw-bold mb-4">
-                            {{ number_format($food->FOD_PRICE) }}
+                            {{ number_format($viewData["food"]->FOD_PRICE) }} VNĐ
                         </h2>
 
-                        <p class="text-secondary mb-4" style="line-height:1.8;">
-                            {{ $food->FOD_DESCRIPTION }}
+                        <p class="text-secondary" style="line-height:1.8;">
+                            {{ $viewData["food"]->FOD_DESCRIPTION }}
                         </p>
 
                         <hr>
 
-                        <!-- Quantity -->
-                        <form action="{{ route('cart.add',$food->FOD_ID) }}" method="POST">
+                        <form action="{{ route('cart.add',$viewData["food"]->FOD_ID) }}" method="POST">
                             @csrf
 
                             <div class="d-flex align-items-center mb-4">
@@ -65,12 +60,13 @@
                                     Quantity
                                 </label>
 
-                                <input type="number"
-                                       name="quantity"
-                                       value="1"
-                                       min="1"
-                                       class="form-control"
-                                       style="width:120px;">
+                                <input
+                                    type="number"
+                                    name="quantity"
+                                    value="1"
+                                    min="1"
+                                    class="form-control"
+                                    style="width:120px;">
 
                             </div>
 
@@ -81,31 +77,134 @@
 
                         </form>
 
-                        <hr class="my-5">
-
-                        <div class="row text-center">
-
-                            <div class="col">
-                                <i class="fas fa-shipping-fast fa-2x text-danger mb-2"></i>
-                                <p class="mb-0">Fast Delivery</p>
-                            </div>
-
-                            <div class="col">
-                                <i class="fas fa-utensils fa-2x text-danger mb-2"></i>
-                                <p class="mb-0">Fresh Ingredients</p>
-                            </div>
-
-                            <div class="col">
-                                <i class="fas fa-award fa-2x text-danger mb-2"></i>
-                                <p class="mb-0">Premium Quality</p>
-                            </div>
-
-                        </div>
-
                     </div>
                 </div>
 
             </div>
+        </div>
+
+        <!-- ================= COMMENTS ================= -->
+
+        <div class="card shadow border-0 rounded-4">
+
+            <div class="card-body p-4">
+
+                <h3 class="fw-bold mb-4">
+                    <i class="fas fa-comments text-danger me-2"></i>
+                    Customer Reviews
+                </h3>
+
+                @auth
+
+                <form action="{{ route('comment.store',$viewData['food']->FOD_ID) }}" method="POST">
+
+                    @csrf
+
+                    <textarea
+                        class="form-control mb-3"
+                        name="content"
+                        rows="4"
+                        placeholder="Write your review..."
+                        required></textarea>
+
+                    <button class="btn btn-danger">
+                        <i class="fas fa-paper-plane me-2"></i>
+                        Post Comment
+                    </button>
+
+                </form>
+
+                <hr class="my-4">
+
+                @endauth
+
+                @forelse($viewData["food"]->comments as $comment)
+
+                <div class="d-flex mb-4">
+
+                    <img
+                        src="{{ asset($comment->user->avatar) }}"
+                        width="55"
+                        height="55"
+                        class="rounded-circle me-3"
+                        style="object-fit:cover;">
+
+                    <div class="flex-grow-1">
+
+                        <div class="bg-light rounded-4 p-3">
+
+                            <div class="d-flex justify-content-between">
+
+                                <div>
+
+                                    <h6 class="fw-bold mb-1">
+                                        {{ $comment->user->name }}
+                                    </h6>
+
+                                    <small class="text-muted">
+                                        {{ $comment->created_at }}
+                                    </small>
+
+                                </div>
+
+                                @if(Auth::check() && Auth::id()==$comment->user_id)
+
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="badge rounded-pill bg-danger px-2 py-1"
+                                            style="font-size:.7rem;">
+                                            Your Comment
+                                        </span>
+                                    </div>
+
+                                @endif
+
+                            </div>
+
+                            <hr>
+
+                            @if(Auth::check() && Auth::id()==$comment->user_id)
+
+                                <form action="{{ route('comment.update',$comment->id) }}" method="POST">
+
+                                    @csrf
+                                    @method('PUT')
+
+                                    <textarea
+                                        class="form-control mb-3"
+                                        name="content"
+                                        rows="3">{{ $comment->content }}</textarea>
+
+                                    <button class="btn btn-warning btn-sm">
+                                        <i class="fas fa-edit me-1"></i>
+                                        Update
+                                    </button>
+
+                                </form>
+
+                            @else
+
+                                <p class="mb-0">
+                                    {{ $comment->content }}
+                                </p>
+
+                            @endif
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                @empty
+
+                <div class="alert alert-secondary">
+                    No comments yet.
+                </div>
+
+                @endforelse
+
+            </div>
+
         </div>
 
     </div>

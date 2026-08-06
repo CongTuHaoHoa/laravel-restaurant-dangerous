@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Models\FoodOrders;
+use App\Models\Comment;
+
 /**
  * @property mixed|string $FOD_ID
  */
@@ -58,5 +60,10 @@ class Food extends Model
             $total += ($food->FOD_PRICE * $foodsInSession[$food->FOD_ID]);
         }
         return $total;
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'food_id', 'FOD_ID');
     }
 }
