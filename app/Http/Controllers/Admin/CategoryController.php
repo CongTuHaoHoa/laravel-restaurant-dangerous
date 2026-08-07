@@ -62,7 +62,7 @@ class CategoryController extends Controller
 
             $category->CTG_IMAGE = $CTG_IMAGE;
         }
-        else $category->CTG_IMAGE = 'CTG_DEF.jpg';
+        else $category->CTG_IMAGE = 'CTG_DEF.png';
 
         $category->save();
 
