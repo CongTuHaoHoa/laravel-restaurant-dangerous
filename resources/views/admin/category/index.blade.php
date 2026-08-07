@@ -25,6 +25,9 @@
                                 <tr>
                                     <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                                         <div class="flex px-2 py-1">
+                                            <div>
+                                                <img src="{{ asset('/storage/category/'.$category->CTG_IMAGE) }}" class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl" alt="{{ $category->CTG_NAME }}" />
+                                            </div>
                                             <div class="flex flex-col justify-center">
                                                 <span style="background: {{ '#'.$category->CTG_COLOR }}" class="to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">{{ $category->CTG_NAME }}</span>
                                             </div>

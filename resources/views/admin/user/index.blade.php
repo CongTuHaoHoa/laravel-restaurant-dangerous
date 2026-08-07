@@ -94,7 +94,6 @@
                 </a>
 
                 @php
-
                     $current = $viewData['users']->currentPage();
                     $last = $viewData['users']->lastPage();
                     $start = max($current - 2, 1);

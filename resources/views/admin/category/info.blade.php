@@ -26,8 +26,6 @@
                                     <label for="CTG_NAME" class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Tên danh mục</label>
                                     <input id="CTG_NAME" value="{{ $viewData['category']->CTG_NAME }}" type="text" name="CTG_NAME" placeholder="Nhập tên danh mục" class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
                                 </div>
-                            </div>
-                            <div class="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
                                 <div class="mb-4">
                                     <label for="CTG_COLOR" class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">Màu sắc</label>
                                     <select name="CTG_COLOR" class="form-select" aria-label="Default select example">
@@ -45,10 +43,37 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
+                                <div class="relative flex align-items-center flex-col min-w-0 wrap-break-word bg-white border-0 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+                                    <div style="width: 250px; height: 250px; position: relative" class="mt-3 mb-4 border-2 border-secondary border-solid rounded-2 flex align-items-center justify-content-center">
+                                        <img id="category-image-previewer" class="z-2 img-thumbnail" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"  src="{{ asset('/storage/category/'.$viewData['category']->CTG_IMAGE) }}" alt="{{ $viewData['category']->CTG_NAME }}">
+                                        <i class="fas fa-utensils text-secondary" style="font-size: 120px;"></i>
+                                    </div>
+                                    <div class="border-black/12.5 rounded-t-2xl p-6 text-center pt-0 pb-6 lg:pt-2 lg:pb-4">
+                                        <label class="block px-8 w-max py-2 font-bold leading-normal text-center text-white align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer text-xs bg-secondary tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85">
+                                            Tải ảnh lên
+                                            <input id="CTG_IMAGE" name="CTG_IMAGE" accept="image/*" style="clip: rect(0 0 0 0); clip-path: inset(50%); overflow: hidden; position: absolute; white-space: nowrap" type="file"/>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </form>
+    <script>
+        const input = document.getElementById('CTG_IMAGE')
+        const preview = document.getElementById('category-image-previewer')
+
+        input.addEventListener('change', function()
+        {
+            const file = this.files[0]
+            if (!file) return
+
+            preview.src = URL.createObjectURL(file)
+            preview.classList.remove('hidden')
+        });
+    </script>
 @endsection

@@ -68,7 +68,7 @@
                             <div class="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
                                 <div class="relative flex align-items-center flex-col min-w-0 wrap-break-word bg-white border-0 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
                                     <div style="width: 250px; height: 250px; position: relative" class="mt-3 mb-4 border-2 border-secondary border-solid rounded-2 flex align-items-center justify-content-center">
-                                        <img id="food-image-previewer" class="z-2 img-thumbnail" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"  src="{{ asset('/storage/food/'.$viewData['food']->FOD_IMAGE) }}" alt="">
+                                        <img id="food-image-previewer" class="z-2 img-thumbnail" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"  src="{{ asset('/storage/food/'.$viewData['food']->FOD_IMAGE) }}" alt="{{ $viewData['food']->FOD_NAME }}">
                                         <i class="fas fa-utensils text-secondary" style="font-size: 120px;"></i>
                                     </div>
                                     <div class="border-black/12.5 rounded-t-2xl p-6 text-center pt-0 pb-6 lg:pt-2 lg:pb-4">

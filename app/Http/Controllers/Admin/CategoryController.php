@@ -55,6 +55,15 @@ class CategoryController extends Controller
         $category->CTG_CREATED_AT = time();
         $category->CTG_UPDATED_AT = time();
 
+        if ($request->hasFile('CTG_IMAGE'))
+        {
+            $CTG_IMAGE = $category->CTG_ID.".".$request->file('CTG_IMAGE')->extension();
+            Storage::disk('public')->putFileAs('category', $request->file('CTG_IMAGE'), $CTG_IMAGE);
+
+            $category->CTG_IMAGE = $CTG_IMAGE;
+        }
+        else $category->CTG_IMAGE = 'CTG_DEF.jpg';
+
         $category->save();
 
         return redirect()->route('category.index');
@@ -62,11 +71,15 @@ class CategoryController extends Controller
     public function delete($id): RedirectResponse
     {
         $category = Category::findOrFail($id);
-        $category->delete();
+
+        if ($category->CTG_IMAGE != 'CTG_DEF.png') Storage::disk('public')->delete('category/'.$category->CTG_IMAGE);
+
         foreach (FoodContainsCategory::all() as $fcc)
         {
             if ($fcc->CTG_ID == $category->CTG_ID) $fcc->delete();
         }
+
+        $category->delete();
         return redirect()->route('category.index');
     }
     public function info($id)
@@ -90,6 +103,15 @@ class CategoryController extends Controller
         $category->CTG_COLOR = $request->input('CTG_COLOR');
 
         $category->CTG_UPDATED_AT = time();
+
+        if ($request->hasFile('CTG_IMAGE'))
+        {
+            if ($category->CTG_IMAGE != 'CTG_DEF.png') Storage::disk('public')->delete('category/'.$category->CTG_IMAGE);
+            $CTG_IMAGE = $category->CTG_ID.".".$request->file('CTG_IMAGE')->extension();
+            Storage::disk('public')->putFileAs('category', $request->file('CTG_IMAGE'), $CTG_IMAGE);
+
+            $category->CTG_IMAGE = $CTG_IMAGE;
+        }
 
         $category->save();
 
