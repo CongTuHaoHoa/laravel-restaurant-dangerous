@@ -12,9 +12,20 @@
     <div class="card-header d-flex justify-content-between align-items-center">
         <strong>Order #{{ $order->id }}</strong>
 
+        
+        @if($order->status == 1)
         <span class="badge bg-warning">
-            {{ $order->status }}
+            Pending
         </span>
+        @elseif ($order->status == 2)
+        <span class="badge bg-primary">
+            Confirmed
+        </span>
+        @elseif ($order->status == 3)
+        <span class="badge bg-success">
+            Delivered
+        </span>
+        @endif
     </div>
 
     <div class="card-body p-3 border-bottom">
