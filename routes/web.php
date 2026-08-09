@@ -51,7 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/cart', 'App\Http\Controllers\Client\CartController@index')->name('cart.index');
     Route::post('/cart/add/{id}', 'App\Http\Controllers\Client\CartController@add')->name('cart.add');
     Route::get('/cart/delete', 'App\Http\Controllers\Client\CartController@delete')->name('cart.delete');
-    Route::get('/cart/purchase', 'App\Http\Controllers\Client\CartController@purchase')->name('cart.purchase');
+    Route::post('/cart/purchase', 'App\Http\Controllers\Client\CartController@purchase')->name('cart.purchase');
     Route::get('/my-account/orders', 'App\Http\Controllers\MyAccountController@orders')->name('myaccount.orders');
     Route::get('/my-account', 'App\Http\Controllers\MyAccountController@index')->name('myaccount.index');
     Route::put('/my-account',[App\Http\Controllers\MyAccountController::class,'update'])->name('myaccount.update');

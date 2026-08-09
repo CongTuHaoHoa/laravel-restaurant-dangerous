@@ -15,9 +15,10 @@
 
                 <div class="card-body text-center">
 
-                    <img src="{{ asset(Auth::user()->avatar) }}" alt="Avatar"
-                         class="rounded-circle mb-3"
-                         width="120">
+                    <img src="{{ asset('storage/avatar/'.Auth::user()->avatar) }}" alt="Avatar"
+                        class="rounded-circle mb-3"
+                        width="120">
+                    
 
                     <h4>{{ Auth::user()->name }}</h4>
 
@@ -60,10 +61,19 @@
                         My Profile
                     </h3>
 
-                    <form action="{{ route('myaccount.update') }}" method="POST">
+                    <form action="{{ route('myaccount.update') }}" method="POST" enctype="multipart/form-data">
 
                         @csrf
                         @method('PUT')
+
+
+                        <div class="mb-3">
+                            <label class="form-label">Change Avatar</label>
+                        </div>
+                        <input type="file"
+                        name="avatar"
+                        class="form-control mb-3"
+                        accept="image/*">
 
                         <div class="mb-3">
                             <label class="form-label">Full Name</label>

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         $table->string('role')->default('client');
         $table->integer('balance')->default(0);
-        $table->string('avatar')->default('img/client/default-avatar.png')->after('password');
+        $table->string('avatar')->default('storage/avatar/default-avatar.png')->after('password');
     });
 }
 

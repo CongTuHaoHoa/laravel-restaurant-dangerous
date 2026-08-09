@@ -155,41 +155,83 @@
                 <div class="sline"></div>
             </div>
             <!-- FIX 3 � filter buttons -->
-            <div class="text-center mb-4" data-aos="fade-up">
-                <button class="filtbtn active" data-f="all">All</button>
+            
+            <div class="text-center mb-4">
+                <button type="button" class="filtbtn active" data-f="all">
+                    All
+                </button>
+
                 @foreach($viewData["categories"] as $category)
-                <button class="filtbtn" data-f="{{ $category->CTG_ID }}">{{ $category->CTG_NAME }}</button>
+                    <button type="button"
+                            class="filtbtn"
+                            data-f="{{ $category->CTG_ID }}">
+                        {{ $category->CTG_NAME }}
+                    </button>
                 @endforeach
             </div>
 
             
             <div class="row g-4" id="mgrid">
-            @foreach($viewData["foods"] as $food)
-                <div class="col-sm-6 col-lg-4 mwrap"data-aos="fade-up">
-                    <a href="{{ route('client.show', $food->FOD_ID) }}">
-                    <div class="mcard">
-                        <div class="mimg">
-                            <img src="{{ asset('storage/food/'.$food->FOD_IMAGE) }}" alt="img"/>
-                            <div class="mbdg hot"><i class="fas fa-star"></i> Hot</div>
-                            <div class="mhrt"><i class="far fa-heart"></i></div>
-                        </div>
-                        <div class="mbody">
-                            <div class="mcat">{{ $food->FOD_CATEGORY }}</div>
-                            <div class="mtit">{{ $food->FOD_NAME }}</div>
-                            <div class="mdesc">{{ $food->FOD_DESCRIPTION }}</div>
-                            <div class="mfoot">
-                                <div>
-                                    <div class="mprice">{{ number_format($food->FOD_PRICE, 0, ',', '.') }}<small>{{ number_format($food->FOD_PRICE * 1.3, 0, ',', '.') }}</small></div>
+
+                @foreach($viewData["foodsCategory"] as $food)
+
+                    <div class="col-sm-6 col-lg-4 mwrap food-item"
+                        data-category="{{ $food->CTG_ID }}">
+
+                        <a href="{{ route('client.show', $food->FOD_ID) }}">
+                            <div class="mcard">
+
+                                <div class="mimg">
+                                    <img src="{{ asset('storage/food/'.$food->FOD_IMAGE) }}" alt="img">
+
+                                    <div class="mbdg hot">
+                                        <i class="fas fa-star"></i> Hot
+                                    </div>
+
+                                    <div class="mhrt">
+                                        <i class="far fa-heart"></i>
+                                    </div>
                                 </div>
-                                <button class="madd" title="View Details"><i class="fas fa-plus"></i></button>
+
+                                <div class="mbody">
+
+                                    <div class="mcat">
+                                        {{ $food->CTG_NAME }}
+                                    </div>
+
+                                    <div class="mtit">
+                                        {{ $food->FOD_NAME }}
+                                    </div>
+
+                                    <div class="mdesc">
+                                        {{ $food->FOD_DESCRIPTION }}
+                                    </div>
+
+                                    <div class="mfoot">
+                                        <div>
+                                            <div class="mprice">
+                                                {{ number_format($food->FOD_PRICE, 0, ',', '.') }}
+                                                <small>
+                                                    {{ number_format($food->FOD_PRICE * 1.3, 0, ',', '.') }}
+                                                </small>
+                                            </div>
+                                        </div>
+
+                                        <button type="button" class="madd">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
+                        </a>
+
                     </div>
-                    </a>
-                </div>
-            @endforeach
+
+                @endforeach
+
             </div>
-            
+                        
 
             <!-- end #mgrid -->
             <div class="text-center mt-5"><a href="#" class="btn-red"><i class="fas fa-th-large"></i>View Full Menu</a>
@@ -867,4 +909,43 @@
             </div>
         </div>
     </section>
+
+
+    <script>
+        const filterButtons = document.querySelectorAll('.filtbtn');
+        const foods = document.querySelectorAll('.food-item');
+
+        filterButtons.forEach(button => {
+
+            button.addEventListener('click', function () {
+
+                // Đổi nút active
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                this.classList.add('active');
+
+                // Lấy category ID
+                const category = this.dataset.f;
+
+                // Lọc món
+                foods.forEach(food => {
+
+                    if (category === 'all' ||
+                        food.dataset.category === category) {
+
+                        food.style.display = '';
+
+                    } else {
+
+                        food.style.display = 'none';
+                    }
+
+                });
+
+            });
+
+        });
+    </script>
 @endsection

@@ -63,6 +63,9 @@ class CartController extends Controller
         $total = $total + ($food->FOD_PRICE * $quantity);
         }
         $order->total = $total;
+        $order->address = Auth::user()->address;
+        $order->address = $request->address;
+        $order->status = '1';
         $order->save();
         $newBalance = Auth::user()->balance - $total;
         Auth::user()->balance = $newBalance;

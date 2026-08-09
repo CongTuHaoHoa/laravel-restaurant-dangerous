@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+
 class MyAccountController extends Controller
 {
     public function index()
@@ -21,10 +23,28 @@ class MyAccountController extends Controller
 
     public function update(Request $request)
     {
+
+        $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email',
+        'password' => 'nullable|min:8',
+        'avatar' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
+
         $user = Auth::user();
 
         $user->name = $request->name;
         $user->email = $request->email;
+
+        if ($request->hasFile('avatar'))
+            {
+                $avatar = $user->id . "." . $request->file('avatar')->extension();
+
+                Storage::disk('public')->putFileAs('avatar',$request->file('avatar'), $avatar);
+
+                $user->avatar = $avatar;
+            }
+        else $user->avatar = 'default-avatar.png';
 
         if($request->password != null){
             $user->password = Hash::make($request->password);

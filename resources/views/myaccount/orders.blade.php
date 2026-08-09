@@ -13,7 +13,7 @@
         <strong>Order #{{ $order->id }}</strong>
 
         <span class="badge bg-warning">
-            Pending
+            {{ $order->status }}
         </span>
     </div>
 
@@ -41,6 +41,11 @@
             </p>
 
         @endforeach
+
+        <div>
+            <strong>Delivery Address:</strong>
+            {{ $order->address }}
+        </div>
     </div>
 
     

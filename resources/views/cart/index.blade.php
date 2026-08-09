@@ -118,56 +118,96 @@
                         Cart Summary
                     </h4>
 
-                    <div class="d-flex justify-content-between mb-3">
-                        <span>Subtotal</span>
-                        <strong>
-                            ${{ number_format($viewData["total"],0) }}
-                        </strong>
-                    </div>
+                    
 
-                    @if($viewData["total"] < 100000)
-                    <div class="d-flex justify-content-between mb-3">
-                        <span>Shipping</span>
-                        <span class="text-success fw-bold">
-                            5,000
-                        </span>
-                    </div>
-                    @else
-                    <div class="d-flex justify-content-between mb-3">
-                        <span>Shipping</span>
-                        <span class="text-success">
-                            FREE
-                        </span>
-                    </div>
-                    @endif
+                    @if(
+                            Auth::check() &&
+                            Auth::user()->balance >= (
+                                $viewData["total"] < 100000
+                                    ? $viewData["total"] + 5000
+                                    : $viewData["total"]
+                            )
+                        )
 
-                    <hr>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Subtotal</span>
+                            <strong>
+                                {{ number_format($viewData["total"], 0, ',', '.') }} VND
+                            </strong>
+                        </div>
 
-                    <div class="d-flex justify-content-between mb-4">
-
-                        <h5>Total</h5>
                         @if($viewData["total"] < 100000)
-                        <h5 class="text-danger fw-bold">
-                            ${{ number_format($viewData["total"] + 5000,0) }}
-                        </h5>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Shipping</span>
+                                <span class="text-success fw-bold">
+                                    5,000 VND
+                                </span>
+                            </div>
                         @else
-                        <h5 class="text-danger fw-bold">
-                            ${{ number_format($viewData["total"],0) }}
-                        </h5>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Shipping</span>
+                                <span class="text-success">
+                                    FREE
+                                </span>
+                            </div>
                         @endif
-                    </div>
 
-                    @if(Auth::check() && Auth::user()->balance >= $viewData["total"])
-                    <a href="{{ route('cart.purchase') }}" class="btn btn-warning w-100 py-2">
-                        <i class="fas fa-credit-card me-2"></i>
-                        Checkout
-                    </a>
+                        <hr>
+
+                        <div class="d-flex justify-content-between mb-4">
+                            <h5>Total</h5>
+
+                            <h5 class="text-danger fw-bold">
+                                {{ number_format(
+                                    $viewData["total"] < 100000
+                                        ? $viewData["total"] + 5000
+                                        : $viewData["total"],
+                                    0,
+                                    ',',
+                                    '.'
+                                ) }} VND
+                            </h5>
+                        </div>
+
+                        <form action="{{ route('cart.purchase') }}" method="POST">
+
+                            @csrf
+
+                            <div class="mb-4">
+                                <label for="address" class="form-label fw-bold">
+                                    <i class="fas fa-map-marker-alt me-2 text-danger"></i>
+                                    Delivery Address
+                                </label>
+
+                                <textarea
+                                    id="address"
+                                    name="address"
+                                    class="form-control text-start @error('address') is-invalid @enderror"
+                                    rows="3">
+                                    {{ old('address', Auth::user()->address) }}</textarea>
+
+                                @error('address')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                            <button type="submit" class="btn btn-warning w-100 py-2">
+                                <i class="fas fa-credit-card me-2"></i>
+                                Checkout
+                            </button>
+
+                        </form>
+
                     @else
-                    <button class="btn btn-warning w-100 py-2" disabled>
-                        <i class="fas fa-credit-card me-2"></i>
-                        Not enough money
-                    </button>
-                    @endif  
+
+                        <button class="btn btn-warning w-100 py-2" disabled>
+                            <i class="fas fa-credit-card me-2"></i>
+                            Not enough money
+                        </button>
+
+                    @endif
 
                 </div>
 
