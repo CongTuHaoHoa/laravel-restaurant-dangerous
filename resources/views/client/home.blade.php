@@ -59,7 +59,7 @@
         </div>
     </section>
     <!-- MARQUEE -->
-    
+
     <div class="mqsec">
         <div class="mqtrack">
             @foreach($viewData["categories"] as $category)
@@ -87,14 +87,14 @@
                 </div>
                  @foreach($viewData["categories"] as $category)
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="0">
-                   
+
                     <div class="catcard active" data-filter="{{ $category->CTG_NAME }}">
-                        <img class="catimg" src="{{ asset('img/client/default_avatar.png') }}" alt=""/>
+                        <img class="catimg" src="{{ asset('storage/category/'.$category->CTG_IMAGE) }}" alt=""/>
                         <div class="catnm">{{ $category->CTG_NAME}}</div>
                         <div class="catct">{{ $category->count($category->CTG_ID) }} item(s)</div>
 
                     </div>
-                    
+
                 </div>
                 @endforeach
             </div>
@@ -155,7 +155,7 @@
                 <div class="sline"></div>
             </div>
             <!-- FIX 3 � filter buttons -->
-            
+
             <div class="text-center mb-4">
                 <button type="button" class="filtbtn active" data-f="all">
                     All
@@ -170,7 +170,7 @@
                 @endforeach
             </div>
 
-            
+
             <div class="row g-4" id="mgrid">
 
                 @foreach($viewData["foods"] as $food)
@@ -231,7 +231,7 @@
                 @endforeach
 
             </div>
-                        
+
 
             <!-- end #mgrid -->
             <div class="text-center mt-5"><a href="#" class="btn-red"><i class="fas fa-th-large"></i>View Full Menu</a>

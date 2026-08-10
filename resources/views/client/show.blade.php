@@ -37,7 +37,7 @@
 
                         <div class="mb-3">
                             <span class="text-muted ">
-                                Reviews: {{ $viewData["food"]->comments->count() }} 
+                                Reviews: {{ $viewData["food"]->comments->count() }}
                             </span>
                         </div>
 
@@ -129,7 +129,7 @@
                 <div class="d-flex mb-4">
 
                     <img
-                        src="{{ asset($comment->user->avatar) }}"
+                        src="{{ asset('storage/user/'.$comment->user->avatar) }}"
                         width="55"
                         height="55"
                         class="rounded-circle me-3"
