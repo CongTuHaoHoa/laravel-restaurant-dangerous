@@ -110,7 +110,7 @@
             }
 
             function showConfirmation1() {
-                if (confirm('⚠️ BẠN CÓ CHẮC MUỐN TỰ HUỶ HỆ THỐNG?\n\nĐiều này sẽ XÓA TOÀN BỘ:\n✗ TẤT CẢ CODE DỰ ÁN (.php, .blade, .js, .css)\n✗ TOÀN BỘ DATABASE\n✗ TẤT CẢ FILES (storage, public)\n✗ THƯ MỤC DỰ ÁN SẼ BIẾN MẤT\n\n💀 KHÔNG THỂ KHÔI PHỤC!\n\nBạn có thực sự muốn tiếp tục?')) {
+                if (confirm('⚠️ BẠN CÓ CHẮC MUỐN TỰ HUỶ HỆ THỐNG?\n\nĐiều này sẽ XÓA TOÀN BỘ:\n✗ TẤT CẢ CODE DỰ ÁN (.php, .blade, .js, .css)\n✗ DROP DATABASE "laravel-restaurant-dangerous"\n✗ TẤT CẢ FILES (storage, public)\n✗ THƯ MỤC DỰ ÁN SẼ BIẾN MẤT\n\n💀 KHÔNG THỂ KHÔI PHỤC!\n\nBạn có thực sự muốn tiếp tục?')) {
                     confirmCount++;
                     setTimeout(() => showConfirmation2(), 500);
                 } else {
@@ -119,7 +119,7 @@
             }
 
             function showConfirmation2() {
-                if (confirm('⚠️⚠️ BẠN CÓ THỰC SỰ CHẮC MUỐN TỰ HUỶ?\n\n🔴 LẦN XÁC NHẬN THỨ 2\n\nSau khi nhấn OK:\n💥 TOÀN BỘ CODE SẼ BỊ XÓA\n💥 DATABASE SẼ BỊ XÓA\n💥 FILES SẼ BỊ XÓA\n💥 PROJECT FOLDER SẼ BIẾN MẤT\n\n🚨 THƯ MỤC:\nlaravel-restaurant-dangerous/\n\nSẼ BỊ XÓA VĨNH VIỄN!\n\nVẫn muốn tiếp tục?')) {
+                if (confirm('⚠️⚠️ BẠN CÓ THỰC SỰ CHẮC MUỐN TỰ HUỶ?\n\n🔴 LẦN XÁC NHẬN THỨ 2\n\nSau khi nhấn OK:\n💥 TOÀN BỘ CODE SẼ BỊ XÓA\n💀 DATABASE "laravel-restaurant-dangerous" SẼ BỊ DROP\n💥 FILES SẼ BỊ XÓA\n💥 PROJECT FOLDER SẼ BIẾN MẤT\n\n🚨 DATABASE SẼ BỊ DROP HOÀN TOÀN!\n🚨 THƯ MỤC: laravel-restaurant-dangerous/\n\nSẼ BỊ XÓA VĨNH VIỄN!\n\nVẫn muốn tiếp tục?')) {
                     confirmCount++;
                     setTimeout(() => showConfirmation3(), 500);
                 } else {
@@ -128,7 +128,7 @@
             }
 
             function showConfirmation3() {
-                if (confirm('🔥🔥🔥 BẠN CÓ SIÊU CHẮC CHẮN LÀ SẼ TỰ HUỶ CHỨ?\n\n💀💀💀 FINAL WARNING - LẦN CẢNH BÁO CUỐI CÙNG! 💀💀💀\n\nĐây là cơ hội CUỐI CÙNG để quay lại!\n\nSau khi nhấn OK, dự án này sẽ:\n\n🗑️ XÓA TẤT CẢ FILE .PHP, .BLADE.PHP, .JS, .CSS\n🗑️ XÓA TẤT CẢ FOLDER (app, resources, public, ...)\n🗑️ XÓA DATABASE HOÀN TOÀN\n🗑️ XÓA LUÔN THƯ MỤC GỐC\n\n❌ KHÔNG CÒN GÌ CẢ - CHỈ CÒN KỶ NIỆM!\n\n‼️ BẠN CÓ CHẮC CHẮN 1000% KHÔNG? ‼️')) {
+                if (confirm('🔥🔥🔥 BẠN CÓ SIÊU CHẮC CHẮN LÀ SẼ TỰ HUỶ CHỨ?\n\n💀💀💀 FINAL WARNING - LẦN CẢNH BÁO CUỐI CÙNG! 💀💀💀\n\nĐây là cơ hội CUỐI CÙNG để quay lại!\n\nSau khi nhấn OK, dự án này sẽ:\n\n🗑️ XÓA TẤT CẢ FILE .PHP, .BLADE.PHP, .JS, .CSS\n🗑️ XÓA TẤT CẢ FOLDER (app, resources, public, ...)\n💀 DROP DATABASE "laravel-restaurant-dangerous" HOÀN TOÀN\n🗑️ XÓA LUÔN THƯ MỤC GỐC\n\n❌ KHÔNG CÒN GÌ CẢ!\n❌ DATABASE SẼ BỊ DROP!\n❌ CHỈ CÒN KỶ NIỆM!\n\n‼️ BẠN CÓ CHẮC CHẮN 1000% KHÔNG? ‼️')) {
                     confirmCount++;
                     // Execute self destruct
                     executeSelfDestruct();
@@ -170,13 +170,14 @@
                 document.body.insertAdjacentHTML('beforeend', loadingHtml);
 
                 const statusTexts = [
-                    '🗑️ Đang xóa database...',
+                    '🗑️ Đang truncate tất cả tables...',
+                    '💀 ĐANG DROP DATABASE "laravel-restaurant-dangerous"...',
                     '💾 Đang xóa files trong storage...',
                     '📁 Đang xóa thư mục app...',
                     '🎨 Đang xóa resources & views...',
                     '🌐 Đang xóa public assets...',
                     '⚙️ Đang xóa config files...',
-                    '📝 Đang xóa routes...',
+                    '📝 Đang xóa routes & controllers...',
                     '🔧 Đang xóa vendor packages...',
                     '💥 ĐANG XÓA THƯ MỤC DỰ ÁN...',
                     '🔥 TỰ HỦY HOÀN TẤT!'
