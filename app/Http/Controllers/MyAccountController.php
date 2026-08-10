@@ -40,13 +40,13 @@ class MyAccountController extends Controller
 
         if ($request->hasFile('avatar'))
             {
+                if ($user->avatar != 'USR_DEF.jpg') Storage::disk('public')->delete('user/'.$user->avatar);
+
                 $avatar = $user->id . "." . $request->file('avatar')->extension();
 
-                Storage::disk('public')->putFileAs('avatar',$request->file('avatar'), $avatar);
-
+                Storage::disk('public')->putFileAs('user',$request->file('avatar'), $avatar);
                 $user->avatar = $avatar;
             }
-        else $user->avatar = 'default-avatar.png';
 
         if($request->password != null){
             $user->password = Hash::make($request->password);

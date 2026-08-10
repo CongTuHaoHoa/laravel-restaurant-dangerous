@@ -15,10 +15,10 @@
 
                 <div class="card-body text-center">
 
-                    <img src="{{ asset('storage/avatar/'.Auth::user()->avatar) }}" alt="Avatar"
+                    <img src="{{ asset('storage/user/'.Auth::user()->avatar) }}" alt="Avatar"
                         class="rounded-circle mb-3"
                         width="120">
-                    
+
 
                     <h4>{{ Auth::user()->name }}</h4>
 
