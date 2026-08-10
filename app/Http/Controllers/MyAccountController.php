@@ -40,11 +40,10 @@ class MyAccountController extends Controller
             {
                 $avatar = $user->id . "." . $request->file('avatar')->extension();
 
-                Storage::disk('public')->putFileAs('avatar',$request->file('avatar'), $avatar);
+                Storage::disk('public')->putFileAs('users',$request->file('users'), $avatar);
 
                 $user->avatar = $avatar;
             }
-        else $user->avatar = 'default-avatar.png';
 
         if($request->password != null){
             $user->password = Hash::make($request->password);
