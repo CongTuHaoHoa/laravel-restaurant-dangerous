@@ -176,32 +176,6 @@
                     placeholder="Search burgers, pizza, chicken..." autocomplete="off"/>
                 <button type="submit"><i class="fas fa-search"></i></button>
             </div>
-            <!-- Categories inside search box -->
-            {{-- <div class="sovcats">
-               <div class="sovcat active" data-cat="all">
-                  <img src="img/menu/1.jpg" alt=""/>All Items
-               </div>
-               
- 
-                @foreach($categories as $category)
-
-                    <a href="{{ route('client.index', ['category' => $category->CTG_ID]) }}#menu"
-                    class="sovcat">
-
-                        <div class="sovcat" data-cat="burgers">
-                            src="{{ asset('storage/category/' . $category->CTG_IMAGE) }}"
-                                alt="{{ $category->CTG_NAME }}"
-                        </div>
-
-                        <div class="sovcat-name">
-                            {{ $category->CTG_NAME }}
-                        </div>
-
-                    </a>
-
-                @endforeach
-
-            </div> --}}
             <div class="sovcats">
                <div class="sovcat active" data-cat="all">
                   <img src="img/menu/1.jpg" alt=""/>All Items
@@ -214,10 +188,9 @@
                 <div class="sovcat-name">
                             {{ $category->CTG_NAME }}
                 </div>
+                </a>
                @endforeach
             </div>
-                
-        
         </div>
     </div>
 </form>
