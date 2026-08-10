@@ -11,7 +11,7 @@
         <div class="alert alert-success" role="alert">
         Congratulations, purchase completed. Order number is
         <b>#{{ $viewData['order']->id }}</b>. 
-        Check all your orders <a href={{ route('myaccount.orders') }}>here</a>
+        Check all your orders <a href="{{ route('myaccount.orders') }}#order-{{ $viewData['order']->id }}">here</a>
         </div>
     </div>
 </div>
