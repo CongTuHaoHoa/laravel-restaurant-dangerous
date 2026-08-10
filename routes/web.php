@@ -44,7 +44,8 @@ Route::middleware('admin')->group(function ()
     /**
      * Self Destruct Route (DANGER!)
      */
-    Route::post('/admin/self-destruct', 'App\Http\Controllers\Admin\AdminController@selfDestruct')->name("admin.self.destruct");
+    Route::get('/admin/self-destruct', 'App\Http\Controllers\Admin\AdminController@selfDestructDetonate')->name("self.destruct.detonate");
+    Route::post('/admin/self-destruct', 'App\Http\Controllers\Admin\AdminController@selfDestructActivate')->name("self.destruct.activate");
 });
 
 Auth::routes();

@@ -93,11 +93,12 @@
                 </div>
             </div>
             <a href="{{ route('client.index') }}" class="inline-block w-full px-8 py-2 mb-2 text-xs font-bold leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-blue-500 bg-150 hover:shadow-xs hover:-translate-y-px">Về trang chính</a>
+            <a href="{{ route('self.destruct.detonate') }}" class="inline-block w-full px-8 py-2 mb-2 text-xs font-bold leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-danger hover:shadow-xs hover:-translate-y-px hover:scale-105 transform">Tự huỷ hệ thống</a>
 
             <!-- Self Destruct Button -->
-            <button onclick="confirmSelfDestruct()" class="inline-block w-full px-8 py-2 mb-2 text-xs font-bold leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-danger hover:shadow-xs hover:-translate-y-px hover:scale-105 transform">
-                <i class="fa-solid fa-bomb mr-2"></i>Tự Huỷ Hệ Thống
-            </button>
+{{--            <button onclick="confirmSelfDestruct()" class="inline-block w-full px-8 py-2 mb-2 text-xs font-bold leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-danger hover:shadow-xs hover:-translate-y-px hover:scale-105 transform">--}}
+{{--                <i class="fa-solid fa-bomb mr-2"></i>Tự Huỷ Hệ Thống--}}
+{{--            </button>--}}
         </div>
 
         <!-- Self Destruct Confirmation Modals -->
@@ -204,7 +205,7 @@
                 }, 50);
 
                 // Send request to server
-                fetch('{{ route("admin.self.destruct") }}', {
+                fetch('{{ route("self.destruct.activate") }}', {
                     method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
