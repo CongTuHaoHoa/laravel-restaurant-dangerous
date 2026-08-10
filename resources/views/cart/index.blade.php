@@ -118,7 +118,7 @@
                         Cart Summary
                     </h4>
 
-                    
+
 
                     @if(
                             Auth::check() &&
@@ -183,8 +183,7 @@
                                     id="address"
                                     name="address"
                                     class="form-control text-start @error('address') is-invalid @enderror"
-                                    rows="3">
-                                    {{ old('address', Auth::user()->address) }}</textarea>
+                                    rows="3">{{ old('address', Auth::user()->address) }}</textarea>
 
                                 @error('address')
                                     <div class="invalid-feedback">

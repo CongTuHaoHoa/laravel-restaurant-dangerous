@@ -135,7 +135,7 @@
                             </li>
 
                         </ul>
-                            
+
                         <form id="logout-form"
                             action="{{ route('logout') }}"
                             method="POST"
@@ -154,6 +154,7 @@
                 @endguest
             </div>
         </div>
+    </div>
     </div>
 </nav>
 <!-- ============================================================
