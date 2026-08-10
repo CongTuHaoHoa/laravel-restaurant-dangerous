@@ -38,10 +38,11 @@ class MyAccountController extends Controller
 
         if ($request->hasFile('avatar'))
             {
+                if ($user->avatar != 'USR_DEF.jpg') Storage::disk('public')->delete('user/'.$user->avatar);
+
                 $avatar = $user->id . "." . $request->file('avatar')->extension();
 
-                Storage::disk('public')->putFileAs('users',$request->file('users'), $avatar);
-
+                Storage::disk('public')->putFileAs('user',$request->file('avatar'), $avatar);
                 $user->avatar = $avatar;
             }
 
