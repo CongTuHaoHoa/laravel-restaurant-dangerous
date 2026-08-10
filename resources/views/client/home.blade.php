@@ -115,7 +115,7 @@
                     <span class="slbl">Our Story</span>
                     <h2 class="stitle text-start">We Invite You to Visit<br/>Our <span>Food Restaurant</span></h2>
                     <div class="sline lft"></div>
-                    <p class="sdesc mb-4">Founded in 2012, Sarab began as a small corner joint with a big dream - to serve food that brings people together. Today we're proud to serve thousands of happy customers every week with the same passion that started it all.</p>
+                    <p class="sdesc mb-4">Founded in 2012, Dangerous began as a small corner joint with a big dream - to serve food that brings people together. Today we're proud to serve thousands of happy customers every week with the same passion that started it all.</p>
                     <div class="mb-4">
                         <div class="fti">
                             <div class="ftico r"><i class="fas fa-leaf"></i></div>
@@ -340,7 +340,7 @@
                     <div class="tl-left">
                         <div class="tlyear">2012</div>
                         <h5>Evolution of Restaurants</h5>
-                        <p>Sarab opens its first 20-seat diner on Flavor Street. Within 3 months, lines stretch around the block every evening as word of our food spreads.</p>
+                        <p>Dangerous opens its first 20-seat diner on Flavor Street. Within 3 months, lines stretch around the block every evening as word of our food spreads.</p>
                     </div>
                     <div class="tl-center">
                         <div class="tldot"></div>
@@ -348,7 +348,7 @@
                     <div class="tl-right">
                         <div class="tlyear">2012</div>
                         <h5>Evolution of Restaurants</h5>
-                        <p>Sarab opens its first 20-seat diner on Flavor Street. Within 3 months, lines stretch around the block every evening as word of our food spreads.</p>
+                        <p>Dangerous opens its first 20-seat diner on Flavor Street. Within 3 months, lines stretch around the block every evening as word of our food spreads.</p>
                     </div>
                 </div>
                 <!-- EVEN ? text on RIGHT -->
