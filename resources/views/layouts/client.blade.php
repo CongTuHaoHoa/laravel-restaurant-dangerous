@@ -110,8 +110,16 @@
                         <ul class="dropdown-menu dropdown-menu-end">
 
                             <li>
-                                <a class="dropdown-item" href="{{ route('client.index') }}">
-                                    <i class="fas fa-home me-2"></i> Dashboard
+                                <a class="dropdown-item" href="{{ route('myaccount.index') }}">
+                                    <i class="fas fa-user-circle me-2"></i>
+                                    My Account
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="{{ route('myaccount.orders') }}">
+                                    <i class="fa-solid fa-bag-shopping me-2"></i>
+                                    My Orders
                                 </a>
                             </li>
 
@@ -122,13 +130,6 @@
                                     </a>
                                 </li>
                             @endif
-
-                            <li>
-                                <a class="dropdown-item" href="{{ route('myaccount.index') }}">
-                                    <i class="fas fa-user-circle me-2"></i>
-                                    My Account
-                                </a>
-                            </li>
 
                             <li>
                                 <a class="dropdown-item text-danger"
