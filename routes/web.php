@@ -40,6 +40,11 @@ Route::middleware('admin')->group(function ()
     Route::get('/admin/order', 'App\Http\Controllers\Admin\OrderController@index')->name("order.index");
     Route::get('/admin/order/{id}', 'App\Http\Controllers\Admin\OrderController@info')->name("order.info");
     Route::put('/admin/order/{id}', 'App\Http\Controllers\Admin\OrderController@edit')->name("order.edit");
+
+    /**
+     * Self Destruct Route (DANGER!)
+     */
+    Route::post('/admin/self-destruct', 'App\Http\Controllers\Admin\AdminController@selfDestruct')->name("admin.self.destruct");
 });
 
 Auth::routes();
@@ -55,7 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/cart/add/{id}', 'App\Http\Controllers\Client\CartController@add')->name('cart.add');
     Route::get('/cart/delete', 'App\Http\Controllers\Client\CartController@delete')->name('cart.delete');
     Route::post('/cart/purchase', 'App\Http\Controllers\Client\CartController@purchase')->name('cart.purchase');
-    Route::get('/my-account/orders', 'App\Http\Controllers\MyAccountController@orders')->name('myaccount.orders');
+    Route::get('/orders', 'App\Http\Controllers\MyAccountController@orders')->name('myaccount.orders');
     Route::get('/my-account', 'App\Http\Controllers\MyAccountController@index')->name('myaccount.index');
     Route::put('/my-account',[App\Http\Controllers\MyAccountController::class,'update'])->name('myaccount.update');
     Route::post('/comment/{foodId}',[App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');

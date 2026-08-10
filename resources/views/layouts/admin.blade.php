@@ -79,19 +79,129 @@
                 </li>
             </ul>
         </div>
-        <div class="mx-4 ">
+        <div class="mx-4">
             <!-- load phantom colors for card after: -->
             <p class="invisible hidden text-gray-800 text-red-500 text-red-600 text-blue-500 bg-gray-500/30 bg-cyan-500/30 bg-emerald-500/30 bg-orange-500/30 bg-red-500/30 after:bg-gradient-to-tl after:from-zinc-800 after:to-zinc-700 dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 after:from-blue-700 after:to-cyan-500 after:from-orange-500 after:to-yellow-500 after:from-green-600 after:to-lime-400 after:from-red-600 after:to-orange-600 after:from-slate-600 after:to-slate-300 text-emerald-500 text-cyan-500 text-slate-400"></p>
             <div class="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border" sidenav-card>
                 <img class="w-1/2 mx-auto rounded-circle" src="{{ asset('/storage/user/'.Auth::user()->avatar) }}" alt="sidebar illustrations" />
                 <div class="flex-auto w-full p-4 pt-0 text-center">
                     <div class="transition-all duration-200 ease-nav-brand">
-                        <h6 class="mb-0 dark:text-white text-slate-700">{{ Auth::user()->name }}</h6>
+                        <h6 class="mb-0 dark:text-white text-slate-700 whitespace-nowrap overflow-hidden text-ellipsis">
+                            {{ Auth::user()->name }}
+                        </h6>
                     </div>
                 </div>
             </div>
             <a href="{{ route('client.index') }}" class="inline-block w-full px-8 py-2 mb-2 text-xs font-bold leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-blue-500 bg-150 hover:shadow-xs hover:-translate-y-px">Về trang chính</a>
+
+            <!-- Self Destruct Button -->
+            <button onclick="confirmSelfDestruct()" class="inline-block w-full px-8 py-2 mb-2 text-xs font-bold leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-danger hover:shadow-xs hover:-translate-y-px hover:scale-105 transform">
+                <i class="fa-solid fa-bomb mr-2"></i>Tự Huỷ Hệ Thống
+            </button>
         </div>
+
+        <!-- Self Destruct Confirmation Modals -->
+        <script>
+            let confirmCount = 0;
+
+            function confirmSelfDestruct() {
+                confirmCount = 0;
+                showConfirmation1();
+            }
+
+            function showConfirmation1() {
+                if (confirm('⚠️ BẠN CÓ CHẮC MUỐN TỰ HUỶ HỆ THỐNG?\n\nĐiều này sẽ XÓA TOÀN BỘ:\n- Tất cả file dự án\n- Toàn bộ database\n- Không thể khôi phục!\n\nBạn có thực sự muốn tiếp tục?')) {
+                    confirmCount++;
+                    setTimeout(() => showConfirmation2(), 500);
+                } else {
+                    alert('✅ Đã hủy thao tác. Hệ thống an toàn!');
+                }
+            }
+
+            function showConfirmation2() {
+                if (confirm('⚠️⚠️ BẠN CÓ THỰC SỰ CHẮC MUỐN TỰ HUỶ?\n\n🔴 LẦN XÁC NHẬN THỨ 2\n\nSau khi xóa:\n- MẤT TẤT CẢ DỮ LIỆU\n- MẤT TẤT CẢ FILE\n- KHÔNG THỂ PHỤC HỒI\n\nVẫn muốn tiếp tục?')) {
+                    confirmCount++;
+                    setTimeout(() => showConfirmation3(), 500);
+                } else {
+                    alert('✅ Đã hủy thao tác. Hệ thống an toàn!');
+                }
+            }
+
+            function showConfirmation3() {
+                if (confirm('🔥🔥🔥 BẠN CÓ SIÊU CHẮC CHẮN LÀ SẼ TỰ HUỶ CHỨ?\n\n💀 FINAL WARNING - LẦN CẢNH BÁO CUỐI CÙNG!\n\nĐây là cơ hội cuối cùng để quay lại!\n\nSau khi nhấn OK:\n✗ Tất cả mã nguồn sẽ BỊ XÓA\n✗ Database sẽ BỊ XÓA\n✗ KHÔNG CÒN GÌ CẢ\n\nBẠN CÓ CHẮC CHẮN 100%?')) {
+                    confirmCount++;
+                    // Execute self destruct
+                    executeSelfDestruct();
+                } else {
+                    alert('✅ Đã hủy thao tác. Hệ thống an toàn!');
+                }
+            }
+
+            function executeSelfDestruct() {
+                // Show loading
+                const loadingHtml = `
+                    <div id="self-destruct-loading" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.95); z-index: 99999; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                        <div style="text-align: center; color: white;">
+                            <i class="fa-solid fa-bomb fa-3x mb-4" style="animation: pulse 1s infinite; color: #ef4444;"></i>
+                            <h2 style="color: #ef4444; margin: 20px 0;">🔥 ĐANG TỰ HUỶ HỆ THỐNG 🔥</h2>
+                            <div style="width: 300px; height: 30px; background: #333; border-radius: 15px; overflow: hidden; margin: 20px auto;">
+                                <div id="progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #ef4444, #dc2626); transition: width 0.1s;"></div>
+                            </div>
+                            <p id="progress-text" style="font-size: 18px; margin-top: 10px;">0%</p>
+                            <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">Đang xóa files và database...</p>
+                        </div>
+                    </div>
+                    <style>
+                        @keyframes pulse {
+                            0%, 100% { transform: scale(1); }
+                            50% { transform: scale(1.2); }
+                        }
+                    </style>
+                `;
+                document.body.insertAdjacentHTML('beforeend', loadingHtml);
+
+                // Animate progress bar
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += 2;
+                    document.getElementById('progress-bar').style.width = progress + '%';
+                    document.getElementById('progress-text').textContent = progress + '%';
+
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                    }
+                }, 50);
+
+                // Send request to server
+                fetch('{{ route("admin.self.destruct") }}', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ confirm: true })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('progress-bar').style.width = '100%';
+                        document.getElementById('progress-text').textContent = '100%';
+                        setTimeout(() => {
+                            alert('💥 HỆ THỐNG ĐÃ TỰ HUỶ THÀNH CÔNG!\n\nTất cả file và database đã bị xóa.\n\nTạm biệt! 👋');
+                            window.location.href = '/';
+                        }, 1000);
+                    } else {
+                        alert('❌ Lỗi: ' + (data.message || 'Không thể tự hủy'));
+                        document.getElementById('self-destruct-loading').remove();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('❌ Đã xảy ra lỗi khi tự hủy hệ thống!');
+                    document.getElementById('self-destruct-loading').remove();
+                });
+            }
+        </script>
     </aside>
 
     <!-- end sidenav -->

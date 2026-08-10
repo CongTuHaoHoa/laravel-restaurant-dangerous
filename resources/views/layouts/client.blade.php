@@ -7,7 +7,7 @@
     <meta name="author" content="Sarab">
     <meta name="description" content="Sarab - Fast Food & Restaurant HTML Template">
     <title>@yield('title', 'Sarab - Fast Food & Restaurant HTML Template')</title>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
     <!-- Bootstrap 5.3 -->
     <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.9.0/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-9DZ6o3pJWcTwBR8W196XizUEf2kNMD35tkeyWqOB0yzml+nZrEe/13PMCpAIrT4r" crossorigin="anonymous">
@@ -73,7 +73,7 @@
                     href="{{ route('client.index') }}#hero">
                         Home
                     </a>
-                </li>                
+                </li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#about">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#menu">Menu</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#chefs">Chefs</a></li>
@@ -110,8 +110,16 @@
                         <ul class="dropdown-menu dropdown-menu-end">
 
                             <li>
-                                <a class="dropdown-item" href="{{ route('client.index') }}">
-                                    <i class="fas fa-home me-2"></i> Dashboard
+                                <a class="dropdown-item" href="{{ route('myaccount.index') }}">
+                                    <i class="fas fa-user-circle me-2"></i>
+                                    My Account
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="{{ route('myaccount.orders') }}">
+                                    <i class="fa-solid fa-shop me-2"></i>
+                                    My Orders
                                 </a>
                             </li>
 
@@ -122,13 +130,6 @@
                                     </a>
                                 </li>
                             @endif
-
-                            <li>
-                                <a class="dropdown-item" href="{{ route('myaccount.index') }}">
-                                    <i class="fas fa-user-circle me-2"></i>
-                                    My Account
-                                </a>
-                            </li>
 
                             <li>
                                 <a class="dropdown-item text-danger"
@@ -167,12 +168,12 @@
 <form action="{{ route('search.index') }}" method="GET">
     <div id="searchOv">
         <button class="sovclose" id="searchClose"><i class="fas fa-times"></i></button>
-        <div class="sovbox">
+        <div class="sovboxdas">
             <h4>What are you craving today?</h4>
             <div class="sovinput">
-                <input 
+                <input
                     name="search"
-                    value="{{ request('search') }}" 
+                    value="{{ request('search') }}"
                     placeholder="Search burgers, pizza, chicken..." autocomplete="off"/>
                 <button type="submit"><i class="fas fa-search"></i></button>
             </div>
@@ -180,7 +181,7 @@
                <div class="sovcat active" data-cat="all">
                   <img src="img/menu/1.jpg" alt=""/>All Items
                </div>
-               @foreach($categories as $category)   
+               @foreach($categories as $category)
                 <a href="{{ route('client.index', ['category' => $category->CTG_ID]) }}#menu"class="sovcat">
                 <div data-cat="desserts">
                     <img src="{{ asset('storage/category/' . $category->CTG_IMAGE) }}" alt=""/>"{{ $category->CTG_NAME }}"

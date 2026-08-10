@@ -27,22 +27,6 @@
                     </p>
 
                     <hr>
-
-                    <div class="list-group list-group-flush">
-                        <a href="{{ route('myaccount.index') }}"
-                           class="list-group-item list-group-item-action active">
-                            <i class="fas fa-user me-2"></i>
-                            My Profile
-                        </a>
-
-                        <a href="{{ route('myaccount.orders') }}"
-                           class="list-group-item list-group-item-action">
-                            <i class="fas fa-box me-2"></i>
-                            My Orders
-                        </a>
-
-                    </div>
-
                 </div>
 
             </div>
