@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Sarab">
-    <meta name="description" content="Sarab - Fast Food & Restaurant HTML Template">
-    <title>@yield('title', 'Sarab - Fast Food & Restaurant HTML Template')</title>
+    <meta name="description" content="Sarab - Traditional Food & Restaurant HTML Template">
+    <title>@yield('title', 'Sarab - Traditional Food & Restaurant HTML Template')</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
     <!-- Bootstrap 5.3 -->
@@ -110,16 +110,8 @@
                         <ul class="dropdown-menu dropdown-menu-end">
 
                             <li>
-                                <a class="dropdown-item" href="{{ route('myaccount.index') }}">
-                                    <i class="fas fa-user-circle me-2"></i>
-                                    My Account
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item" href="{{ route('myaccount.orders') }}">
-                                    <i class="fa-solid fa-shop me-2"></i>
-                                    My Orders
+                                <a class="dropdown-item" href="{{ route('client.index') }}">
+                                    <i class="fas fa-home me-2"></i> Dashboard
                                 </a>
                             </li>
 
@@ -130,6 +122,13 @@
                                     </a>
                                 </li>
                             @endif
+
+                            <li>
+                                <a class="dropdown-item" href="{{ route('myaccount.index') }}">
+                                    <i class="fas fa-user-circle me-2"></i>
+                                    My Account
+                                </a>
+                            </li>
 
                             <li>
                                 <a class="dropdown-item text-danger"
@@ -168,7 +167,7 @@
 <form action="{{ route('search.index') }}" method="GET">
     <div id="searchOv">
         <button class="sovclose" id="searchClose"><i class="fas fa-times"></i></button>
-        <div class="sovboxdas">
+        <div class="sovbox">
             <h4>What are you craving today?</h4>
             <div class="sovinput">
                 <input
@@ -204,7 +203,7 @@
         <div class="row g-5">
             <div class="col-lg-4">
                 <div class="fnm">Dang<span>erous</span></div>
-                <p class="fdesc">We bring the world's finest flavors together in a fast, friendly, and affordable experience. Every meal crafted with love.</p>
+                <p class="fdesc">We bring the world's finest flavors together in a Traditional, friendly, and affordable experience. Every meal crafted with love.</p>
                 <div class="fsoc">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
