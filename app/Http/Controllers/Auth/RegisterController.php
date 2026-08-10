@@ -68,6 +68,7 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
             'balance' => 5000,
+            'avatar' => 'USR_DEF.jpg'
         ]);
     }
 }
