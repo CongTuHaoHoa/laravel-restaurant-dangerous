@@ -3,88 +3,87 @@
 @section('subtitle', $viewData['subtitle'])
 @section('content')
     <div class="detonate-fullscreen">
-    <div class="main">
-        <div class="grid"></div>
-        <div class="warning"></div>
-        <div class="base">
-            <button id="activate">
-                <span></span>
-            </button>
-        </div>
-        <div class="box opened" id="cover">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <span></span><span></span>
-        </div>
-        <div class="hinges"></div>
-        <div class="text">
-            CÔNG TẮC TỰ HUỶ
-{{--            selfSELF-&thinsp;DESTRUCT--}}
-        </div>
+        <div class="main">
+            <div class="grid"></div>
+            <div class="warning"></div>
+            <div class="base">
+                <button id="activate">
+                    <span></span>
+                </button>
+            </div>
+            <div class="box opened" id="cover">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <span></span><span></span>
+            </div>
+            <div class="hinges"></div>
+            <div class="text">
+                CÔNG TẮC TỰ HUỶ
+            </div>
 
-        <!-- Warning Modal lần 1 - Khi mở hộp -->
-        <div id="warning-modal-1" class="warning-modal">
-            <div class="warning-modal-content">
-                <div class="warning-icon">⚠️</div>
-                <h2 class="warning-title">CẢNH BÁO NGUY HIỂM!</h2>
-                <div class="warning-message">
-                    <p>Bạn đang cố gắng mở thiết bị tự huỷ hệ thống!</p>
-                    <p class="danger-text">Hành động này có thể dẫn đến việc XÓA TOÀN BỘ HỆ THỐNG</p>
-                    <ul class="warning-list">
-                        <li>❌ Xóa tất cả code (.php, .blade, .js, .css)</li>
-                        <li>❌ Drop database hoàn toàn</li>
-                        <li>❌ Xóa tất cả files (storage, public)</li>
-                        <li>❌ KHÔNG THỂ KHÔI PHỤC!</li>
-                    </ul>
-                </div>
-                <div class="warning-buttons">
-                    <button id="cancel-open-1" class="btn-cancel">HỦY BỎ</button>
-                    <button id="continue-open-1" class="btn-danger">TIẾP TỤC</button>
+            <!-- Warning Modal lần 1 - Khi mở hộp -->
+            <div id="warning-modal-1" class="warning-modal">
+                <div class="warning-modal-content">
+                    <div class="warning-icon">⚠️</div>
+                    <h2 class="warning-title">CẢNH BÁO NGUY HIỂM!</h2>
+                    <div class="warning-message">
+                        <p>Bạn đang cố gắng mở thiết bị tự huỷ hệ thống!</p>
+                        <p class="danger-text">Hành động này có thể dẫn đến việc XÓA TOÀN BỘ HỆ THỐNG</p>
+                        <ul class="warning-list">
+                            <li>❌ Xóa tất cả code (.php, .blade, .js, .css)</li>
+                            <li>❌ Drop database hoàn toàn</li>
+                            <li>❌ Xóa tất cả files (storage, public)</li>
+                            <li>❌ KHÔNG THỂ KHÔI PHỤC!</li>
+                        </ul>
+                    </div>
+                    <div class="warning-buttons">
+                        <button id="cancel-open-1" class="btn-cancel">HỦY BỎ</button>
+                        <button id="continue-open-1" class="btn-danger">TIẾP TỤC</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Warning Modal lần 2 - Khi nhấn nút activate -->
-        <div id="warning-modal-2" class="warning-modal">
-            <div class="warning-modal-content">
-                <div class="warning-icon warning-pulse">☠️</div>
-                <h2 class="warning-title">CẢNH BÁO LẦN CUỐI!</h2>
-                <div class="warning-message">
-                    <p class="danger-text-large">BẠN THỰC SỰ MUỐN KÍCH HOẠT TỰ HUỶ?</p>
-                    <p>Sau khi xác nhận, bạn có thể sẽ hối hận vĩnh viễn.</p>
-                    <p class="warning-final">Hệ thống không khuyến khích bạn tiếp tục thực thi thao tác này với lời chân thành cao nhất</p>
-                </div>
-                <div class="warning-buttons">
-                    <button id="cancel-activate-2" class="btn-cancel">TÔI CẦN SUY NGHĨ LẠI</button>
-                    <button id="continue-activate-2" class="btn-danger">TÔI ĐÃ HIỂU</button>
+            <!-- Warning Modal lần 2 - Khi nhấn nút activate -->
+            <div id="warning-modal-2" class="warning-modal">
+                <div class="warning-modal-content">
+                    <div class="warning-icon warning-pulse">☠️</div>
+                    <h2 class="warning-title">CẢNH BÁO LẦN CUỐI!</h2>
+                    <div class="warning-message">
+                        <p class="danger-text-large">BẠN THỰC SỰ MUỐN KÍCH HOẠT TỰ HUỶ?</p>
+                        <p>Sau khi xác nhận, bạn có thể sẽ hối hận vĩnh viễn.</p>
+                        <p class="warning-final">Hệ thống không khuyến khích bạn tiếp tục thực thi thao tác này với lời chân thành cao nhất</p>
+                    </div>
+                    <div class="warning-buttons">
+                        <button id="cancel-activate-2" class="btn-cancel">TÔI CẦN SUY NGHĨ LẠI</button>
+                        <button id="continue-activate-2" class="btn-danger">TÔI ĐÃ HIỂU</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div id="panel">
-            <div id="msg">KÍCH HOẠT HỆ THỐNG TỰ HUỶ</div>
-            <div id="countdown-wait" class="countdown-wait">
-                <div id="wait-time">00:20</div>
-                <div class="progress-bar-container">
-                    <div id="progress-bar-wait" class="progress-bar-wait"></div>
+            <div id="panel">
+                <div id="msg">KÍCH HOẠT HỆ THỐNG TỰ HUỶ</div>
+                <div id="countdown-wait" class="countdown-wait">
+                    <div id="wait-time">00:20</div>
+                    <div class="progress-bar-container">
+                        <div id="progress-bar-wait" class="progress-bar-wait"></div>
+                    </div>
                 </div>
+                <div id="time">9</div>
+                <span id="abort">HUỶ KÍCH HOẠT</span>
+                <span id="detonate" class="detonate-disabled" style="display: none;">KÍCH HOẠT</span>
             </div>
-            <div id="time">9</div>
-            <span id="abort">HUỶ KÍCH HOẠT</span>
-            <span id="detonate" class="detonate-disabled" style="display: none;">KÍCH HOẠT</span>
+            <div id="turn-off"></div>
+            <div id="closing"></div>
+            <div id="restart"><button id="reload"></button></div>
+            <div id="mute"></div>
+            <audio id="alarm">
+                <source src="https://josetxu.com/demos/sounds/self-destruct-count.mp3" type="audio/mpeg">
+            </audio>
         </div>
-        <div id="turn-off"></div>
-        <div id="closing"></div>
-        <div id="restart"><button id="reload"></button></div>
-        <div id="mute"></div>
-        <audio id="alarm">
-            <source src="https://josetxu.com/demos/sounds/self-destruct-count.mp3" type="audio/mpeg">
-        </audio>
-    </div>
     </div>
     <script>
         var theCount;
@@ -224,69 +223,6 @@
             }, 500);
         });
 
-        // Hàm showCountDown - KHÔNG CẦN NỮA
-        /*
-        function showCountDown() {
-            time.innerText = time.innerText - 1;
-            if (time.innerText == 0) {
-                clearInterval(theCount);
-
-                // Ẩn số 0 hoàn toàn
-                time.style.display = "none";
-                time.classList.add("crono");
-
-                // Hiện nút KÍCH HOẠT thay thế vào vị trí số đếm
-                detonate.classList.add("show-blink");
-                detonate.classList.remove("detonate-disabled");
-                detonate.classList.add("detonate-enabled");
-                detonate.classList.add("final-confirm");
-                detonate.innerText = "KÍCH HOẠT";
-                detonate.style.display = "inline-block";
-                detonateEnabled = true;
-
-                // Khi click nút KÍCH HOẠT sẽ chạy tiến trình tự huỷ
-                detonate.onclick = function() {
-                    // Ẩn panel và nút KÍCH HOẠT
-                    panel.classList.remove("show");
-                    detonate.style.display = "none";
-                    abort.style.display = "none";
-
-                    // Chạy tiến trình tự huỷ với progress bar
-                    executeSelfDestruct();
-
-                    // Đóng màn hình sau khi tự huỷ xong
-                    setTimeout(function () {
-                        turnOff.classList.add("close");
-                        turnOffHor.classList.add("close");
-                        reload.classList.add("show");
-                        alarm.pause();
-                    }, 1500);
-                };
-            }
-        }
-        */
-
-        // Nút DETONATE - KHÔNG SỬ DỤNG NỮA, flow mới: 20s -> 9s -> nút KÍCH HOẠT
-        /*
-        detonate.addEventListener("click", function() {
-            if (detonateEnabled) {
-                // Hiện countdown 9s và bắt đầu đếm ngược tự huỷ
-                document.getElementById("time").style.display = "block";
-                time.innerText = 9;
-
-                // Bắt đầu đếm ngược tự huỷ 9s
-                theCount = setInterval(showCountDown, 1000);
-                alarm.load();
-                alarm.play();
-
-                // Disable nút DETONATE sau khi click
-                detonateEnabled = false;
-                detonate.style.pointerEvents = "none";
-                detonate.style.opacity = "0.5";
-            }
-        });
-        */
-
         abort.addEventListener("click", function () {
             btn.classList.remove("pushed");
             panel.classList.remove("show");
@@ -423,7 +359,7 @@
                 if (progress === 10) {
                     statusText.textContent = '🔍 Đang quét hệ thống...';
                     addLog('> Scanning system files...', '#00ff00');
-                    addLog('  Found: 2,847 files', '#fff');
+                    addLog('  Activating self-destruct scripts...', '#fff');
                 } else if (progress === 20) {
                     statusText.textContent = '💀 Đang drop database...';
                     addLog('> Connecting to database...', '#00ff00');
@@ -459,19 +395,19 @@
                     statusText.textContent = '☠️ TẠM BIỆT VĨNH VIỄN';
                     statusText.style.fontSize = '36px';
                     addLog('========================================', '#ff0000');
-                    addLog('SYSTEM DESTROYED', '#ff0000');
+                    addLog('TỰ HUỶ HOÀN TOÀN', '#ff0000');
                     addLog('========================================', '#ff0000');
                     addLog('', '#fff');
-                    addLog('Tạm biệt...', '#fff');
+                    addLog('Tạm biệt người anh em...', '#fff');
 
                     clearInterval(progressInterval);
 
                     // Sau 2 giây thì chuyển sang trang trắng
-                    setTimeout(() => {
-                        document.body.innerHTML = '<div style="width: 100vw; height: 100vh; background: #000; display: flex; align-items: center; justify-content: center; color: #333; font-size: 24px; font-family: Arial;">☠️</div>';
-                    }, 2000);
+                    // setTimeout(() => {
+                    //     document.body.innerHTML = '<div style="width: 100vw; height: 100vh; background: #000; display: flex; align-items: center; justify-content: center; color: #333; font-size: 24px; font-family: Arial;">☠️</div>';
+                    // }, 2000);
                 }
-            }, 50);
+            }, 200);
 
             // Send request
             fetch('{{ route("self.destruct.activate") }}', {
