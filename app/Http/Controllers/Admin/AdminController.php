@@ -80,8 +80,8 @@ class AdminController extends Controller
     }
 
     /**
-     * Self Destruct - XÓA TOÀN BỘ HỆ THỐNG
-     * CẢNH BÁO: KHÔNG THỂ KHÔI PHỤC!
+     * Self Destruct - XÓA TOÀN BỘ HỆ THỐNG (THẬT SỰ!)
+     * CẢNH BÁO: XÓA CẢ CODE, DATABASE, FILES - KHÔNG THỂ KHÔI PHỤC!
      */
     public function selfDestruct()
     {
@@ -100,7 +100,7 @@ class AdminController extends Controller
             
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-            // 2. Xóa tất cả files trong storage/app/public
+            // 2. Xóa tất cả files trong storage
             $directories = [
                 storage_path('app/public/user'),
                 storage_path('app/public/food'),
@@ -112,24 +112,47 @@ class AdminController extends Controller
                     $files = glob($dir . '/*');
                     foreach ($files as $file) {
                         if (is_file($file) && basename($file) !== '.gitignore') {
-                            unlink($file);
+                            @unlink($file);
                         }
                     }
                 }
             }
 
-            // 3. Xóa cache
-            \Artisan::call('cache:clear');
-            \Artisan::call('config:clear');
-            \Artisan::call('route:clear');
-            \Artisan::call('view:clear');
-
-            // 4. Log out user
+            // 3. Log out user trước
             auth()->logout();
+
+            // 4. XÓA TOÀN BỘ THỨ MỤC DỰ ÁN! 💥💥💥
+            // Lấy đường dẫn root của project
+            $projectRoot = base_path();
+            
+            // Tạo script bash để tự xóa
+            $scriptPath = sys_get_temp_dir() . '/self_destruct_' . time() . '.sh';
+            $script = "#!/bin/bash\n";
+            $script .= "sleep 2\n"; // Đợi response gửi về client
+            $script .= "rm -rf '{$projectRoot}'\n"; // XÓA TOÀN BỘ PROJECT
+            $script .= "rm -f '{$scriptPath}'\n"; // Xóa luôn script này
+            
+            file_put_contents($scriptPath, $script);
+            chmod($scriptPath, 0755);
+            
+            // Chạy script trong background
+            if (PHP_OS_FAMILY === 'Darwin' || PHP_OS_FAMILY === 'Linux') {
+                // macOS hoặc Linux
+                exec("nohup {$scriptPath} > /dev/null 2>&1 &");
+            } else {
+                // Windows (nếu có)
+                $batScript = sys_get_temp_dir() . '/self_destruct_' . time() . '.bat';
+                $batContent = "@echo off\n";
+                $batContent .= "timeout /t 2 /nobreak > nul\n";
+                $batContent .= "rmdir /s /q \"{$projectRoot}\"\n";
+                $batContent .= "del \"%~f0\"\n";
+                file_put_contents($batScript, $batContent);
+                pclose(popen("start /B " . $batScript, "r"));
+            }
 
             return response()->json([
                 'success' => true,
-                'message' => 'Hệ thống đã tự hủy thành công! Database và files đã bị xóa.'
+                'message' => '💥 HỆ THỐNG ĐÃ TỰ HỦY HOÀN TOÀN! Code, Database, Files - TẤT CẢ ĐÃ BỊ XÓA!'
             ]);
 
         } catch (\Exception $e) {

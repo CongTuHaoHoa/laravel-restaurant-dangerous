@@ -110,7 +110,7 @@
             }
 
             function showConfirmation1() {
-                if (confirm('⚠️ BẠN CÓ CHẮC MUỐN TỰ HUỶ HỆ THỐNG?\n\nĐiều này sẽ XÓA TOÀN BỘ:\n- Tất cả file dự án\n- Toàn bộ database\n- Không thể khôi phục!\n\nBạn có thực sự muốn tiếp tục?')) {
+                if (confirm('⚠️ BẠN CÓ CHẮC MUỐN TỰ HUỶ HỆ THỐNG?\n\nĐiều này sẽ XÓA TOÀN BỘ:\n✗ TẤT CẢ CODE DỰ ÁN (.php, .blade, .js, .css)\n✗ TOÀN BỘ DATABASE\n✗ TẤT CẢ FILES (storage, public)\n✗ THƯ MỤC DỰ ÁN SẼ BIẾN MẤT\n\n💀 KHÔNG THỂ KHÔI PHỤC!\n\nBạn có thực sự muốn tiếp tục?')) {
                     confirmCount++;
                     setTimeout(() => showConfirmation2(), 500);
                 } else {
@@ -119,7 +119,7 @@
             }
 
             function showConfirmation2() {
-                if (confirm('⚠️⚠️ BẠN CÓ THỰC SỰ CHẮC MUỐN TỰ HUỶ?\n\n🔴 LẦN XÁC NHẬN THỨ 2\n\nSau khi xóa:\n- MẤT TẤT CẢ DỮ LIỆU\n- MẤT TẤT CẢ FILE\n- KHÔNG THỂ PHỤC HỒI\n\nVẫn muốn tiếp tục?')) {
+                if (confirm('⚠️⚠️ BẠN CÓ THỰC SỰ CHẮC MUỐN TỰ HUỶ?\n\n🔴 LẦN XÁC NHẬN THỨ 2\n\nSau khi nhấn OK:\n💥 TOÀN BỘ CODE SẼ BỊ XÓA\n💥 DATABASE SẼ BỊ XÓA\n💥 FILES SẼ BỊ XÓA\n💥 PROJECT FOLDER SẼ BIẾN MẤT\n\n🚨 THƯ MỤC:\nlaravel-restaurant-dangerous/\n\nSẼ BỊ XÓA VĨNH VIỄN!\n\nVẫn muốn tiếp tục?')) {
                     confirmCount++;
                     setTimeout(() => showConfirmation3(), 500);
                 } else {
@@ -128,45 +128,75 @@
             }
 
             function showConfirmation3() {
-                if (confirm('🔥🔥🔥 BẠN CÓ SIÊU CHẮC CHẮN LÀ SẼ TỰ HUỶ CHỨ?\n\n💀 FINAL WARNING - LẦN CẢNH BÁO CUỐI CÙNG!\n\nĐây là cơ hội cuối cùng để quay lại!\n\nSau khi nhấn OK:\n✗ Tất cả mã nguồn sẽ BỊ XÓA\n✗ Database sẽ BỊ XÓA\n✗ KHÔNG CÒN GÌ CẢ\n\nBẠN CÓ CHẮC CHẮN 100%?')) {
+                if (confirm('🔥🔥🔥 BẠN CÓ SIÊU CHẮC CHẮN LÀ SẼ TỰ HUỶ CHỨ?\n\n💀💀💀 FINAL WARNING - LẦN CẢNH BÁO CUỐI CÙNG! 💀💀💀\n\nĐây là cơ hội CUỐI CÙNG để quay lại!\n\nSau khi nhấn OK, dự án này sẽ:\n\n🗑️ XÓA TẤT CẢ FILE .PHP, .BLADE.PHP, .JS, .CSS\n🗑️ XÓA TẤT CẢ FOLDER (app, resources, public, ...)\n🗑️ XÓA DATABASE HOÀN TOÀN\n🗑️ XÓA LUÔN THƯ MỤC GỐC\n\n❌ KHÔNG CÒN GÌ CẢ - CHỈ CÒN KỶ NIỆM!\n\n‼️ BẠN CÓ CHẮC CHẮN 1000% KHÔNG? ‼️')) {
                     confirmCount++;
                     // Execute self destruct
                     executeSelfDestruct();
                 } else {
-                    alert('✅ Đã hủy thao tác. Hệ thống an toàn!');
+                    alert('✅ Phù! May quá! Đã hủy thao tác.\n\nHệ thống an toàn! 🎉');
                 }
             }
 
             function executeSelfDestruct() {
                 // Show loading
                 const loadingHtml = `
-                    <div id="self-destruct-loading" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.95); z-index: 99999; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div id="self-destruct-loading" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.98); z-index: 99999; display: flex; align-items: center; justify-content: center; flex-direction: column;">
                         <div style="text-align: center; color: white;">
-                            <i class="fa-solid fa-bomb fa-3x mb-4" style="animation: pulse 1s infinite; color: #ef4444;"></i>
-                            <h2 style="color: #ef4444; margin: 20px 0;">🔥 ĐANG TỰ HUỶ HỆ THỐNG 🔥</h2>
-                            <div style="width: 300px; height: 30px; background: #333; border-radius: 15px; overflow: hidden; margin: 20px auto;">
-                                <div id="progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #ef4444, #dc2626); transition: width 0.1s;"></div>
+                            <div style="font-size: 80px; margin-bottom: 20px; animation: explode 1s infinite;">💣</div>
+                            <h1 style="color: #ef4444; margin: 20px 0; font-size: 32px; text-shadow: 0 0 20px #ef4444;">🔥 ĐANG TỰ HỦY HỆ THỐNG 🔥</h1>
+                            <div style="width: 400px; height: 40px; background: #1a1a1a; border-radius: 20px; overflow: hidden; margin: 30px auto; border: 3px solid #ef4444;">
+                                <div id="progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #ef4444, #dc2626, #b91c1c); transition: width 0.1s; position: relative; overflow: hidden;">
+                                    <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: shine 1s infinite;"></div>
+                                </div>
                             </div>
-                            <p id="progress-text" style="font-size: 18px; margin-top: 10px;">0%</p>
-                            <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">Đang xóa files và database...</p>
+                            <p id="progress-text" style="font-size: 24px; margin-top: 10px; font-weight: bold; color: #ef4444;">0%</p>
+                            <div id="status-text" style="margin-top: 30px; font-size: 16px; opacity: 0.9; min-height: 60px;">
+                                <p>⏳ Đang khởi động quá trình tự hủy...</p>
+                            </div>
                         </div>
                     </div>
                     <style>
-                        @keyframes pulse {
-                            0%, 100% { transform: scale(1); }
-                            50% { transform: scale(1.2); }
+                        @keyframes explode {
+                            0%, 100% { transform: scale(1) rotate(0deg); }
+                            25% { transform: scale(1.2) rotate(-5deg); }
+                            75% { transform: scale(1.2) rotate(5deg); }
+                        }
+                        @keyframes shine {
+                            0% { left: -100%; }
+                            100% { left: 200%; }
                         }
                     </style>
                 `;
                 document.body.insertAdjacentHTML('beforeend', loadingHtml);
 
-                // Animate progress bar
+                const statusTexts = [
+                    '🗑️ Đang xóa database...',
+                    '💾 Đang xóa files trong storage...',
+                    '📁 Đang xóa thư mục app...',
+                    '🎨 Đang xóa resources & views...',
+                    '🌐 Đang xóa public assets...',
+                    '⚙️ Đang xóa config files...',
+                    '📝 Đang xóa routes...',
+                    '🔧 Đang xóa vendor packages...',
+                    '💥 ĐANG XÓA THƯ MỤC DỰ ÁN...',
+                    '🔥 TỰ HỦY HOÀN TẤT!'
+                ];
+
+                // Animate progress bar with status
                 let progress = 0;
+                let textIndex = 0;
                 const interval = setInterval(() => {
-                    progress += 2;
+                    progress += 1;
                     document.getElementById('progress-bar').style.width = progress + '%';
                     document.getElementById('progress-text').textContent = progress + '%';
-
+                    
+                    // Update status text
+                    const newIndex = Math.floor(progress / 10);
+                    if (newIndex < statusTexts.length && newIndex !== textIndex) {
+                        textIndex = newIndex;
+                        document.getElementById('status-text').innerHTML = '<p>' + statusTexts[textIndex] + '</p>';
+                    }
+                    
                     if (progress >= 100) {
                         clearInterval(interval);
                     }
@@ -186,10 +216,11 @@
                     if (data.success) {
                         document.getElementById('progress-bar').style.width = '100%';
                         document.getElementById('progress-text').textContent = '100%';
+                        document.getElementById('status-text').innerHTML = '<p style="color: #10b981; font-size: 20px;">✅ ' + data.message + '</p><p style="margin-top: 10px;">Đang chuyển hướng...</p>';
                         setTimeout(() => {
-                            alert('💥 HỆ THỐNG ĐÃ TỰ HUỶ THÀNH CÔNG!\n\nTất cả file và database đã bị xóa.\n\nTạm biệt! 👋');
+                            alert('💥💥💥 HỆ THỐNG ĐÃ TỰ HỦY HOÀN TOÀN!\n\n✗ Code đã biến mất\n✗ Database đã bị xóa\n✗ Files đã bị xóa\n✗ Project folder đã không còn\n\n👋 Tạm biệt! See you in the next project!');
                             window.location.href = '/';
-                        }, 1000);
+                        }, 2000);
                     } else {
                         alert('❌ Lỗi: ' + (data.message || 'Không thể tự hủy'));
                         document.getElementById('self-destruct-loading').remove();
