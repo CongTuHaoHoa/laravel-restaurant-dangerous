@@ -14,6 +14,7 @@
                             <a href="{{ route('category.index') }}" class="inline-block px-3 mb-2 mr-4 py-2 text-xs font-bold leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-secondary bg-150 hover:shadow-xs"><i class="fa-solid fa-arrow-left"></i></a>
                             <p class="dark:text-white/80 mb-2 grow">{{ $viewData['category']->CTG_NAME }}</p>
                             <button type="submit" class="block mb-2 w-max px-8 py-2 font-bold leading-normal text-center text-white align-middle transition-all ease-in border-0 rounded-lg shadow-md cursor-pointer text-xs bg-success tracking-tight-rem hover:shadow-xs hover:-translate-y-px active:opacity-85">
+                                <i class="fa-solid fa-floppy-disk mr-2"></i>
                                 Lưu lại
                             </button>
                         </div>

@@ -11,7 +11,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Random\RandomException;
-use function Laravel\Prompts\alert;
 
 class FoodController extends Controller
 {

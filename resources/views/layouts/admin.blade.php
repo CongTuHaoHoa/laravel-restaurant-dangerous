@@ -54,7 +54,7 @@
                     </a>
                 </li>
                 <li class="mt-0.5 w-full">
-                    <a class="py-2.7 {{ $viewData['activate'] == 'order' ? 'bg-blue-500/13 font-semibold text-slate-700' : '' }} dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 transition-colors" href="{{ route('admin.order') }}">
+                    <a class="py-2.7 {{ $viewData['activate'] == 'order' ? 'bg-blue-500/13 font-semibold text-slate-700' : '' }} dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 transition-colors" href="{{ route('order.index') }}">
                         <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
                             <i class="relative top-0 text-sm leading-normal text-emerald-500 fa-solid fa-bag-shopping"></i>
                         </div>
@@ -83,10 +83,10 @@
             <!-- load phantom colors for card after: -->
             <p class="invisible hidden text-gray-800 text-red-500 text-red-600 text-blue-500 bg-gray-500/30 bg-cyan-500/30 bg-emerald-500/30 bg-orange-500/30 bg-red-500/30 after:bg-gradient-to-tl after:from-zinc-800 after:to-zinc-700 dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 after:from-blue-700 after:to-cyan-500 after:from-orange-500 after:to-yellow-500 after:from-green-600 after:to-lime-400 after:from-red-600 after:to-orange-600 after:from-slate-600 after:to-slate-300 text-emerald-500 text-cyan-500 text-slate-400"></p>
             <div class="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border" sidenav-card>
-                <img class="w-1/2 mx-auto" src="{{ asset('/img/admin/illustrations/icon-documentation.svg') }}" alt="sidebar illustrations" />
+                <img class="w-1/2 mx-auto rounded-circle" src="{{ asset('/storage/user/'.Auth::user()->avatar) }}" alt="sidebar illustrations" />
                 <div class="flex-auto w-full p-4 pt-0 text-center">
                     <div class="transition-all duration-200 ease-nav-brand">
-                        <h6 class="mb-0 dark:text-white text-slate-700">Tên người dùng</h6>
+                        <h6 class="mb-0 dark:text-white text-slate-700">{{ Auth::user()->name }}</h6>
                     </div>
                 </div>
             </div>
