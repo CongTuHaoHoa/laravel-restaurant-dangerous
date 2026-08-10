@@ -115,7 +115,7 @@
                     <span class="slbl">Our Story</span>
                     <h2 class="stitle text-start">We Invite You to Visit<br/>Our <span>Food Restaurant</span></h2>
                     <div class="sline lft"></div>
-                    <p class="sdesc mb-4">Founded in 2012, Sarab began as a small corner joint with a big dream - to serve food that brings people together. Today we're proud to serve thousands of happy customers every week with the same passion that started it all.</p>
+                    <p class="sdesc mb-4">Founded in 2012, Dangerous began as a small corner joint with a big dream - to serve food that brings people together. Today we're proud to serve thousands of happy customers every week with the same passion that started it all.</p>
                     <div class="mb-4">
                         <div class="fti">
                             <div class="ftico r"><i class="fas fa-leaf"></i></div>
@@ -157,16 +157,16 @@
             <!-- FIX 3 � filter buttons -->
 
             <div class="text-center mb-4">
-                <button type="button" class="filtbtn active" data-f="all">
+                <a href="{{ route('client.index') }}#menu"
+                class="filtbtn {{ !request()->has('category') ? 'active' : '' }}">
                     All
-                </button>
+                </a>
 
                 @foreach($viewData["categories"] as $category)
-                    <button type="button"
-                            class="filtbtn"
-                            data-f="{{ $category->CTG_ID }}">
+                    <a href="{{ route('client.index', ['category' => $category->CTG_ID]) }}#menu"
+                    class="filtbtn {{ request('category') == $category->CTG_ID ? 'active' : '' }}">
                         {{ $category->CTG_NAME }}
-                    </button>
+                    </a>
                 @endforeach
             </div>
 
@@ -176,7 +176,7 @@
                 @foreach($viewData["foods"] as $food)
 
                     <div class="col-sm-6 col-lg-4 mwrap food-item"
-                        data-category="{{ $food->CTG_ID }}">
+                        >
 
                         <a href="{{ route('client.show', $food->FOD_ID) }}">
                             <div class="mcard">
@@ -196,7 +196,7 @@
                                 <div class="mbody">
 
                                     <div class="mcat">
-                                        {{ $food->CTG_NAME }}
+                                        
                                     </div>
 
                                     <div class="mtit">
@@ -239,32 +239,7 @@
         </div>
     </section>
 
-    <!-- SPECIAL OFFER -->
-    <section id="special">
-        <div class="spbg"></div>
-        <div class="container" style="position:relative;z-index:2;">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="sptag"><i class="fas fa-bolt me-1"></i>Limited Time Offer</div>
-                    <h2 class="sptitle">Get 30% Off<br/>Our Signature<br/><span>Burger</span> Meal</h2>
-                    <p class="spdesc">Don't miss our weekend special - grab our award-winning signature burger combo with loaded fries and a premium shake at an unbeatable price.</p>
-                    <div class="cdwrap">
-                        <div class="cditem"><span class="cdnum" id="cdH">08</span><span class="cdlbl">Hours</span></div>
-                        <div class="cditem"><span class="cdnum" id="cdM">45</span><span class="cdlbl">Minutes</span></div>
-                        <div class="cditem"><span class="cdnum" id="cdS">30</span><span class="cdlbl">Seconds</span></div>
-                    </div>
-                    <a href="#menu" class="btn-red"><i class="fas fa-shopping-cart"></i>Grab the Deal</a>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="spimgw">
-                        <div class="spglow"></div>
-                        <div class="sppbdg"><span class="old">$24.99</span><span class="np">$17.49</span></div>
-                        <img src="{{ asset('img/client/off-img.jpg') }}" alt="Special Burger"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
 
     <!-- ============================================================
@@ -365,7 +340,7 @@
                     <div class="tl-left">
                         <div class="tlyear">2012</div>
                         <h5>Evolution of Restaurants</h5>
-                        <p>Sarab opens its first 20-seat diner on Flavor Street. Within 3 months, lines stretch around the block every evening as word of our food spreads.</p>
+                        <p>Dangerous opens its first 20-seat diner on Flavor Street. Within 3 months, lines stretch around the block every evening as word of our food spreads.</p>
                     </div>
                     <div class="tl-center">
                         <div class="tldot"></div>
@@ -373,7 +348,7 @@
                     <div class="tl-right">
                         <div class="tlyear">2012</div>
                         <h5>Evolution of Restaurants</h5>
-                        <p>Sarab opens its first 20-seat diner on Flavor Street. Within 3 months, lines stretch around the block every evening as word of our food spreads.</p>
+                        <p>Dangerous opens its first 20-seat diner on Flavor Street. Within 3 months, lines stretch around the block every evening as word of our food spreads.</p>
                     </div>
                 </div>
                 <!-- EVEN ? text on RIGHT -->
@@ -434,7 +409,7 @@
         <div class="container ">
             <div class="text-center mb-5" data-aos="fade-up">
                 <span class="slbl">The Culinary Team</span>
-                <h2 class="stitle">Fuck you <span>Chefs</span></h2>
+                <h2 class="stitle">Our <span>Chefs</span></h2>
                 <div class="sline"></div>
             </div>
             <div class="row g-4 flex justify-content-center">
@@ -550,13 +525,13 @@
                         <h5 style="color:#fff;margin-bottom:18px;font-family:'Poppins',sans-serif;font-size:.95rem;font-weight:700;">
                             <i class="fas fa-map-marker-alt me-2" style="color:var(--secondary);"></i>Find Us</h5>
                         <div class="hrsrow">
-                            <span class="hrsday"><i class="fas fa-location-dot me-2" style="color:var(--secondary);"></i>Address</span><span class="hrstime" style="font-size:.8rem;">42 Flavor Street, NY</span>
+                            <span class="hrsday"><i class="fas fa-location-dot me-2" style="color:var(--secondary);"></i>Address</span><span class="hrstime" style="font-size:.8rem;">123 Quang Trung, TP.HCM</span>
                         </div>
                         <div class="hrsrow">
-                            <span class="hrsday"><i class="fas fa-phone me-2" style="color:var(--secondary);"></i>Phone</span><span class="hrstime" style="font-size:.8rem;">+1 (800) 123-4567</span>
+                            <span class="hrsday"><i class="fas fa-phone me-2" style="color:var(--secondary);"></i>Phone</span><span class="hrstime" style="font-size:.8rem;"> (+84) 12 345 6789</span>
                         </div>
                         <div class="hrsrow">
-                            <span class="hrsday"><i class="fas fa-envelope me-2" style="color:var(--secondary);"></i>Email</span><span class="hrstime" style="font-size:.8rem;">hello@sarabfood.com</span>
+                            <span class="hrsday"><i class="fas fa-envelope me-2" style="color:var(--secondary);"></i>Email</span><span class="hrstime" style="font-size:.8rem;">restaurant@dangerousplace.com</span>
                         </div>
                     </div>
                 </div>
@@ -565,85 +540,7 @@
     </section>
 
 
-    <!-- TESTIMONIALS -->
-    <section id="testimonials">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <span class="slbl">What People Say</span>
-                <h2 class="stitle">Our Customers <span>Feedback</span></h2>
-                <div class="sline"></div>
-            </div>
-            <div class="swiper tesSwiper" data-aos="fade-up">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="tescard">
-                            <div class="tesq">"</div>
-                            <div class="tess">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="testxt">Honestly the best burgers I've ever had. The smash burger is incredible - perfectly crispy edges, juicy inside, and those pickles! We come every Friday now.</p>
-                            <div class="tesauth">
-                                <img src="{{ asset('img/client/testimonial/1.jpg') }}" alt=""/>
-                                <div>
-                                    <div class="tesnm">Monica Wilber</div>
-                                    <div class="tesrl">Regular Customer</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tescard">
-                            <div class="tesq">"</div>
-                            <div class="tess">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="testxt">Ordered delivery and the food arrived hot and fresh in 22 minutes. Portions are generous. Sarab has become my go-to comfort food spot without question.</p>
-                            <div class="tesauth">
-                                <img src="{{ asset('img/client/testimonial/2.jpg') }}" alt=""/>
-                                <div>
-                                    <div class="tesnm">Cameron Fox</div>
-                                    <div class="tesrl">Food Blogger</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tescard">
-                            <div class="tesq">"</div>
-                            <div class="tess">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="testxt">The truffle pasta blew my mind. I didn't expect that quality from a fast food place. Great ambiance, super friendly staff. Highly recommended!</p>
-                            <div class="tesauth">
-                                <img src="{{ asset('img/client/testimonial/3.jpg') }}" alt=""/>
-                                <div>
-                                    <div class="tesnm">Priya Sharma</div>
-                                    <div class="tesrl">Food Enthusiast</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="tescard">
-                            <div class="tesq">"</div>
-                            <div class="tess">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="testxt">Catered our office party of 50 people and everything was flawless. Fresh, delicious, on time and well presented. Nashville chicken was the absolute star!</p>
-                            <div class="tesauth">
-                                <img src="{{ asset('img/client/testimonial/4.jpg') }}" alt=""/>
-                                <div>
-                                    <div class="tesnm">David Park</div>
-                                    <div class="tesrl">Corporate Client</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination mt-4" style="position:static;"></div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- RESERVATION FORM -->
     <section id="reservation">
@@ -671,7 +568,7 @@
                                 <div style="width:46px;height:46px;border-radius:11px;background:rgba(232,40,26,.2);display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:1.1rem;flex-shrink:0;">
                                     <i class="fas fa-phone-alt"></i></div>
                                 <div>
-                                    <strong style="display:block;color:#ccc;font-size:.78rem;text-transform:uppercase;letter-spacing:1px;">Call for Booking</strong><span style="color:#fff;font-size:.87rem;">+1 (800) 123-4567</span>
+                                    <strong style="display:block;color:#ccc;font-size:.78rem;text-transform:uppercase;letter-spacing:1px;">Call for Booking</strong><span style="color:#fff;font-size:.87rem;">(+84) 12 345 6789</span>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center gap-3">
@@ -685,7 +582,7 @@
                                 <div style="width:46px;height:46px;border-radius:11px;background:rgba(232,40,26,.2);display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:1.1rem;flex-shrink:0;">
                                     <i class="fas fa-map-marker-alt"></i></div>
                                 <div>
-                                    <strong style="display:block;color:#ccc;font-size:.78rem;text-transform:uppercase;letter-spacing:1px;">Location</strong><span style="color:#fff;font-size:.87rem;">42 Flavor Street, NY</span>
+                                    <strong style="display:block;color:#ccc;font-size:.78rem;text-transform:uppercase;letter-spacing:1px;">Location</strong><span style="color:#fff;font-size:.87rem;">123 Quang Trung, TP.HCM</span>
                                 </div>
                             </div>
                         </div>
@@ -698,7 +595,7 @@
                                 <label class="flbl">Full Name *</label><input type="text" class="fctrl" placeholder="John Doe"/>
                             </div>
                             <div class="col-sm-6">
-                                <label class="flbl">Phone Number *</label><input type="tel" class="fctrl" placeholder="+1 (800) 000-0000"/>
+                                <label class="flbl">Phone Number *</label><input type="tel" class="fctrl" placeholder="(+84) 00 000 0000"/>
                             </div>
                             <div class="col-sm-6">
                                 <label class="flbl">Email Address *</label><input type="email" class="fctrl" placeholder="you@email.com"/>
@@ -750,67 +647,7 @@
         </div>
     </section>
 
-    <!-- BLOG -->
-    <section id="blog">
-        <div class="container">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <span class="slbl">News &amp; Updates</span>
-                <h2 class="stitle">Our Latest <span>Blog</span> Posts</h2>
-                <div class="sline"></div>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
-                    <div class="blcard">
-                        <div class="blimg">
-                            <img src="{{ asset('img/client/blog/1.jpg') }}" alt=""/>
-                            <div class="bldatebdg"><span class="bd">14</span><span class="bm">Mar</span></div>
-                        </div>
-                        <div class="blbody">
-                            <div class="bltag">Food &amp; Health</div>
-                            <div class="bltit"><a href="#">Healthy Fast Food: A Myth or Beautiful Reality</a></div>
-                            <div class="blmeta">
-                                <span><i class="fas fa-user"></i>James Writer</span><span><i class="fas fa-comment"></i>24 Comments</span>
-                            </div>
-                            <a href="#" class="blmore">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
-                    <div class="blcard">
-                        <div class="blimg">
-                            <img src="{{ asset('img/client/blog/2.jpg') }}" alt=""/>
-                            <div class="bldatebdg"><span class="bd">28</span><span class="bm">Feb</span></div>
-                        </div>
-                        <div class="blbody">
-                            <div class="bltag">Food Science</div>
-                            <div class="bltit"><a href="#">Is Fast Food Getting Healthier? Here's What We Found</a></div>
-                            <div class="blmeta">
-                                <span><i class="fas fa-user"></i>Sarah Grain</span><span><i class="fas fa-comment"></i>18 Comments</span>
-                            </div>
-                            <a href="#" class="blmore">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
-                    <div class="blcard">
-                        <div class="blimg">
-                            <img src="{{ asset('img/client/blog/3.jpg') }}" alt=""/>
-                            <div class="bldatebdg"><span class="bd">05</span><span class="bm">Jan</span></div>
-                        </div>
-                        <div class="blbody">
-                            <div class="bltag">Recipes</div>
-                            <div class="bltit"><a href="#">Innovative Hot Chickpeas Flake Crackin' Recipe at Home</a></div>
-                            <div class="blmeta">
-                                <span><i class="fas fa-user"></i>Chef Marcus</span><span><i class="fas fa-comment"></i>32 Comments</span>
-                            </div>
-                            <a href="#" class="blmore">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+   
     <!-- NEWSLETTER -->
     <section id="newsletter">
         <div class="nlbg"></div>
@@ -848,16 +685,16 @@
                         <p class="ctsub">We typically respond within 2 hours during business hours.</p>
                         <div class="ctitem">
                             <div class="cticon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div class="ctinfo"><strong>Address</strong><span>42 Flavor Street, Manhattan,<br/>New York, NY 10001</span>
+                            <div class="ctinfo"><strong>Address</strong><span>123 Quang Trung,<br/>TP.HCM</span>
                             </div>
                         </div>
                         <div class="ctitem">
                             <div class="cticon"><i class="fas fa-phone-alt"></i></div>
-                            <div class="ctinfo"><strong>Phone</strong><span>+1 (800) 123-4567</span></div>
+                            <div class="ctinfo"><strong>Phone</strong><span>(+84) 12 345 6789</span></div>
                         </div>
                         <div class="ctitem">
                             <div class="cticon"><i class="fas fa-envelope"></i></div>
-                            <div class="ctinfo"><strong>Email</strong><span>hello@sarabfood.com</span></div>
+                            <div class="ctinfo"><strong>Email</strong><span>restaurant@dangerousplace.com</span></div>
                         </div>
                         <div class="ctitem">
                             <div class="cticon"><i class="fas fa-clock"></i></div>
@@ -881,7 +718,7 @@
                                 <label class="flbl">Email Address *</label><input type="email" class="fctrl" placeholder="you@email.com"/>
                             </div>
                             <div class="col-sm-6">
-                                <label class="flbl">Phone Number</label><input type="tel" class="fctrl" placeholder="+1 (800) 000-0000"/>
+                                <label class="flbl">Phone Number</label><input type="tel" class="fctrl" placeholder="(+84) 00 0000000"/>
                             </div>
                             <div class="col-sm-6">
                                 <label class="flbl">Subject *</label>
@@ -910,42 +747,4 @@
         </div>
     </section>
 
-
-    <script>
-        const filterButtons = document.querySelectorAll('.filtbtn');
-        const foods = document.querySelectorAll('.food-item');
-
-        filterButtons.forEach(button => {
-
-            button.addEventListener('click', function () {
-
-                // Đổi nút active
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                });
-
-                this.classList.add('active');
-
-                // Lấy category ID
-                const category = this.dataset.f;
-
-                // Lọc món
-                foods.forEach(food => {
-
-                    if (category === 'all' ||
-                        food.dataset.category === category) {
-
-                        food.style.display = '';
-
-                    } else {
-
-                        food.style.display = 'none';
-                    }
-
-                });
-
-            });
-
-        });
-    </script>
 @endsection

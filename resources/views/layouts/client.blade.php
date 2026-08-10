@@ -34,7 +34,7 @@
         <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
             <div class="top-contact d-flex flex-wrap">
                 <span><i class="fas fa-phone-alt"></i>(+84) 12 345 6789</span>
-                <span><i class="fas fa-envelope"></i>Restaurant@dangerousplace.com</span>
+                <span><i class="fas fa-envelope"></i>restaurant@dangerousplace.com</span>
                 <span><i class="fas fa-map-marker-alt"></i>123 Quang Trung, TP.HCM</span>
             </div>
             <div class="d-flex align-items-center gap-3">
@@ -54,12 +54,12 @@
    ============================================================ -->
 <nav class="navbar navbar-expand-lg" id="nav">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ route('client.index') }}">
             <div class="blogo">
                 <div class="bico"><i class="fas fa-utensils"></i></div>
                 <div>
-                    <div class="bname">Sar<span>ab</span></div>
-                    <div class="bsub">Fast Food & Restaurant</div>
+                    <div class="bname">Dang<span>erous</span></div>
+                    <div class="bsub">Traditional Restaurant</div>
                 </div>
             </div>
         </a>
@@ -68,12 +68,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="nav-link active" href="{{ route('client.index') }}#hero">Home</a></li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('client.index') ? 'active' : '' }}"
+                    href="{{ route('client.index') }}#hero">
+                        Home
+                    </a>
+                </li>                
                 <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#about">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#menu">Menu</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#chefs">Chefs</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#reservation">Reservation</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#testimonials">Reviews</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('client.index') }}#contact-section">Contact</a></li>
             </ul>
             <div class="d-flex align-items-center gap-2">
@@ -173,9 +177,46 @@
                 <button type="submit"><i class="fas fa-search"></i></button>
             </div>
             <!-- Categories inside search box -->
+            {{-- <div class="sovcats">
+               <div class="sovcat active" data-cat="all">
+                  <img src="img/menu/1.jpg" alt=""/>All Items
+               </div>
+               
+ 
+                @foreach($categories as $category)
+
+                    <a href="{{ route('client.index', ['category' => $category->CTG_ID]) }}#menu"
+                    class="sovcat">
+
+                        <div class="sovcat" data-cat="burgers">
+                            src="{{ asset('storage/category/' . $category->CTG_IMAGE) }}"
+                                alt="{{ $category->CTG_NAME }}"
+                        </div>
+
+                        <div class="sovcat-name">
+                            {{ $category->CTG_NAME }}
+                        </div>
+
+                    </a>
+
+                @endforeach
+
+            </div> --}}
             <div class="sovcats">
-            
+               <div class="sovcat active" data-cat="all">
+                  <img src="img/menu/1.jpg" alt=""/>All Items
+               </div>
+               @foreach($categories as $category)   
+                <a href="{{ route('client.index', ['category' => $category->CTG_ID]) }}#menu"class="sovcat">
+                <div data-cat="desserts">
+                    <img src="{{ asset('storage/category/' . $category->CTG_IMAGE) }}" alt=""/>"{{ $category->CTG_NAME }}"
+                </div>
+                <div class="sovcat-name">
+                            {{ $category->CTG_NAME }}
+                </div>
+               @endforeach
             </div>
+                
         
         </div>
     </div>
@@ -188,7 +229,7 @@
     <div class="container">
         <div class="row g-5">
             <div class="col-lg-4">
-                <div class="fnm">Sar<span>ab</span></div>
+                <div class="fnm">Dang<span>erous</span></div>
                 <p class="fdesc">We bring the world's finest flavors together in a fast, friendly, and affordable experience. Every meal crafted with love.</p>
                 <div class="fsoc">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -201,38 +242,35 @@
             <div class="col-sm-6 col-lg-2">
                 <div class="ftit">Quick Links</div>
                 <ul class="flinks ps-0">
-                    <li><a href="#hero"><i class="fas fa-chevron-right"></i>Home</a></li>
-                    <li><a href="#about"><i class="fas fa-chevron-right"></i>About Us</a></li>
-                    <li><a href="#menu"><i class="fas fa-chevron-right"></i>Our Menu</a></li>
-                    <li><a href="#reservation"><i class="fas fa-chevron-right"></i>Reservation</a></li>
-                    <li><a href="#blog"><i class="fas fa-chevron-right"></i>Blog</a></li>
-                    <li><a href="#contact-section"><i class="fas fa-chevron-right"></i>Contact</a></li>
+                    <li><a href="{{ route('client.index') }}#hero"><i class="fas fa-chevron-right"></i>Home</a></li>
+                    <li><a href="{{ route('client.index') }}#about"><i class="fas fa-chevron-right"></i>About Us</a></li>
+                    <li><a href="{{ route('client.index') }}#menu"><i class="fas fa-chevron-right"></i>Our Menu</a></li>
+                    <li><a href="{{ route('client.index') }}#reservation"><i class="fas fa-chevron-right"></i>Reservation</a></li>
+                    <li><a href="{{ route('client.index') }}#contact-section"><i class="fas fa-chevron-right"></i>Contact</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 col-lg-2">
                 <div class="ftit">Our Menu</div>
                 <ul class="flinks ps-0">
-                    <li><a href="#menu"><i class="fas fa-chevron-right"></i>Burgers</a></li>
-                    <li><a href="#menu"><i class="fas fa-chevron-right"></i>Pizza</a></li>
-                    <li><a href="#menu"><i class="fas fa-chevron-right"></i>Fried Chicken</a></li>
-                    <li><a href="#menu"><i class="fas fa-chevron-right"></i>Wraps &amp; Rolls</a></li>
-                    <li><a href="#menu"><i class="fas fa-chevron-right"></i>Pasta</a></li>
-                    <li><a href="#menu"><i class="fas fa-chevron-right"></i>Desserts</a></li>
+                    @foreach($categories as $category)
+                    <li><a href="{{ route('client.index', ['category' => $category->CTG_ID]) }}#menu">
+                        <i class="fas fa-chevron-right"></i>{{ $category->CTG_NAME }}</a></li>
+                    @endforeach
                 </ul>
             </div>
             <div class="col-lg-4">
                 <div class="ftit">Get In Touch</div>
                 <div class="fci">
                     <div class="fciico"><i class="fas fa-map-marker-alt"></i></div>
-                    <div class="fciinfo"><strong>Address</strong>42 Flavor Street, Manhattan, NY 10001</div>
+                    <div class="fciinfo"><strong>Address</strong>123 Quang Trung, TP.HCM</div>
                 </div>
                 <div class="fci">
                     <div class="fciico"><i class="fas fa-phone-alt"></i></div>
-                    <div class="fciinfo"><strong>Phone</strong>+1 (800) 123-4567</div>
+                    <div class="fciinfo"><strong>Phone</strong>(+84) 12 345 6789</div>
                 </div>
                 <div class="fci">
                     <div class="fciico"><i class="fas fa-envelope"></i></div>
-                    <div class="fciinfo"><strong>Email</strong>hello@sarabfood.com</div>
+                    <div class="fciinfo"><strong>Email</strong>restaurant@dangerousplace.com</div>
                 </div>
                 <div class="fci">
                     <div class="fciico"><i class="fas fa-clock"></i></div>
@@ -244,8 +282,8 @@
     <div class="fbot">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                <p>&copy 2026 <span>Sarab Restaurant</span>. All Rights Reserved by
-                    <a target="_blank" class="mx-0 fw-bold text-success" href="https://bestwpware.com/">Bestwpware</a>. Made with
+                <p>&copy 2026 <span>Dangerous Restaurant</span>. All Rights Reserved by
+                    <a target="_blank" class="mx-0 fw-bold text-success" href="https://bestwpware.com/">Us</a>. Made with
                     <span><i class="fas fa-heart"></i></span> <br>Distributed by
                     <a target="_blank" class="mx-0 fw-bold text-success" href="https://themewagon.com">ThemeWagon</a>
                 </p>

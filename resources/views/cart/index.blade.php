@@ -91,7 +91,7 @@
 
             <div class="d-flex justify-content-between">
 
-                <a href="{{ route('client.index') }}"
+                <a href="{{ route('client.index') }}#menu"
                    class="btn btn-outline-danger">
                     <i class="fas fa-arrow-left me-1"></i>
                     Continue Shopping

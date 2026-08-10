@@ -7,7 +7,7 @@
 
         <!-- Back -->
         <div class="mb-4">
-            <a href="{{ route('client.index') }}#menu" class="btn btn-outline-light">
+            <a href="{{ url()->previous() }}#menu" class="btn btn-outline-light">
                 <i class="fas fa-arrow-left me-2"></i> Back to Menu
             </a>
         </div>

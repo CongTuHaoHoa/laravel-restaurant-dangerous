@@ -56,4 +56,13 @@ class MyAccountController extends Controller
 
         return back()->with('success','Profile updated successfully!');
     }
-}
+
+    public function delivered($id)
+    {
+        $order = Order::findOrFail($id);
+        $order->status = 3;
+        $order->save();
+
+        return back();
+    }
+    }

@@ -60,5 +60,6 @@ Route::middleware('auth')->group(function () {
     Route::put('/my-account',[App\Http\Controllers\MyAccountController::class,'update'])->name('myaccount.update');
     Route::post('/comment/{foodId}',[App\Http\Controllers\CommentController::class, 'store'])->name('comment.store');
     Route::put('/comment/{id}',[App\Http\Controllers\CommentController::class, 'update'])->name('comment.update');
+    Route::put('/myaccount/orders/{id}/delivered',[App\Http\Controllers\MyAccountController::class, 'delivered'])->name('myaccount.order.delivered');
 
 });
