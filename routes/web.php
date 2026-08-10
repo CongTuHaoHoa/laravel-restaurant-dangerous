@@ -34,8 +34,12 @@ Route::middleware('admin')->group(function ()
     Route::post('/admin/user/{id}', 'App\Http\Controllers\Admin\UserController@money')->name("user.money");
     Route::put('/admin/user/{id}', 'App\Http\Controllers\Admin\UserController@role')->name("user.role");
 
-
-    Route::get('/admin/order', 'App\Http\Controllers\Admin\AdminController@order')->name("admin.order");
+    /**
+     * Order Route
+     */
+    Route::get('/admin/order', 'App\Http\Controllers\Admin\OrderController@index')->name("order.index");
+    Route::get('/admin/order/{id}', 'App\Http\Controllers\Admin\OrderController@info')->name("order.info");
+    Route::put('/admin/order/{id}', 'App\Http\Controllers\Admin\OrderController@edit')->name("order.edit");
 });
 
 Auth::routes();

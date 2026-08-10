@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Food;
 use App\Models\FoodContainsCategory;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;

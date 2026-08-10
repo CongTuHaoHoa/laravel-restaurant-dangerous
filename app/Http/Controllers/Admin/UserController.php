@@ -2,17 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Food;
-use App\Models\FoodContainsCategory;
 use App\Models\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Random\RandomException;
-use function Laravel\Prompts\alert;
 
 class UserController extends Controller
 {
