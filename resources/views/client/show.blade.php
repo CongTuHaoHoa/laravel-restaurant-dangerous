@@ -7,7 +7,7 @@
 
         <!-- Back -->
         <div class="mb-4">
-            <a href="{{ route('client.index') }}" class="btn btn-outline-light">
+            <a href="{{ route('client.index') }}#menu" class="btn btn-outline-light">
                 <i class="fas fa-arrow-left me-2"></i> Back to Menu
             </a>
         </div>
@@ -69,13 +69,19 @@
                                     style="width:120px;">
 
                             </div>
-
+                            @if ($viewData["food"]->FOD_STATUS == 1)
                             <button class="btn btn-danger btn-lg px-5">
                                 <i class="fas fa-shopping-cart me-2"></i>
                                 Add to Cart
                             </button>
-
+                            
                         </form>
+                            @else
+                            <button class="btn btn-danger btn-lg px-5 disabled">
+                                <i class="fas fa-shopping-cart me-2"></i>
+                                Out of stock
+                            </button>
+                            @endif
 
                     </div>
                 </div>

@@ -9,21 +9,25 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    public function index(Request $request): Factory|View
+    public function index(): Factory|View
     {
         $viewData = [];
-
         $viewData["title"] = "Home";
         $viewData["categories"] = Category::all();
+        $viewData["foods"] = Food::all();
+       
 
+        return view('client.search.index')->with('viewData', $viewData);
+    }
+
+    public function Search(Request $request): Factory|View
+    {
         $query = Food::query();
-
-        if ($request->filled('search')) {
+        if ($request->filled('search')) 
+        {
             $query->where('FOD_NAME', 'like', '%' . $request->search . '%');
         }
-
         $viewData["foods"] = $query->get();
-
-        return view('client.index')->with('viewData', $viewData);
+        return view('client.search.index')->with('viewData', $viewData);
     }
 }

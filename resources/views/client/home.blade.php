@@ -173,7 +173,7 @@
             
             <div class="row g-4" id="mgrid">
 
-                @foreach($viewData["foodsCategory"] as $food)
+                @foreach($viewData["foods"] as $food)
 
                     <div class="col-sm-6 col-lg-4 mwrap food-item"
                         data-category="{{ $food->CTG_ID }}">
