@@ -2,14 +2,10 @@
 
 namespace App\Models;
 
-use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Attributes\Fillable;
-use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\Order;
-use App\Models\Comment;
+use Laravel\Sanctum\HasApiTokens;
 
 
 class User extends Authenticatable
@@ -32,7 +28,7 @@ class User extends Authenticatable
     */
 
 
-    protected $fillable = 
+    protected $fillable =
         [
             'name',
             'email',

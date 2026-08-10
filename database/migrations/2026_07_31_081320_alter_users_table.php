@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up()
 {
-    Schema::table('users', function (Blueprint $table) 
+    Schema::table('users', function (Blueprint $table)
     {
         $table->string('role')->default('client');
         $table->integer('balance')->default(0);
-        $table->string('avatar')->default('storage/avatar/default-avatar.png')->after('password');
+        $table->string('avatar')->default('USR_DEF.jpg')->after('password');
     });
 }
 
@@ -24,7 +24,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) 
+        Schema::table('users', function (Blueprint $table)
         {
         $table->dropColumn(['role']);
         $table->dropColumn(['balance']);
