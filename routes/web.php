@@ -47,7 +47,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/client/{FOD_ID}', [App\Http\Controllers\Client\FoodController::class, 'show'])->name('client.show');
 Route::get('/', [App\Http\Controllers\Client\FoodController::class, 'index'])->name('client.index');
-
+Route::get('/search', [App\Http\Controllers\Client\SearchController::class, 'search'])->name('search.index');
 
 
 Route::middleware('auth')->group(function () {

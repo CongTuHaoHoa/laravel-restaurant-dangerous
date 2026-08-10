@@ -160,21 +160,26 @@
 <!-- ============================================================
    FIX 1 � SEARCH OVERLAY POPUP
    ============================================================ -->
-<div id="searchOv">
-    <button class="sovclose" id="searchClose"><i class="fas fa-times"></i></button>
-    <div class="sovbox">
-        <h4>What are you craving today?</h4>
-        <div class="sovinput">
-            <input type="text" id="searchInput" placeholder="Search burgers, pizza, chicken..." autocomplete="off"/>
-            <button><i class="fas fa-search"></i></button>
+<form action="{{ route('search.index') }}" method="GET">
+    <div id="searchOv">
+        <button class="sovclose" id="searchClose"><i class="fas fa-times"></i></button>
+        <div class="sovbox">
+            <h4>What are you craving today?</h4>
+            <div class="sovinput">
+                <input 
+                    name="search"
+                    value="{{ request('search') }}" 
+                    placeholder="Search burgers, pizza, chicken..." autocomplete="off"/>
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+            <!-- Categories inside search box -->
+            <div class="sovcats">
+            
+            </div>
+        
         </div>
-        <!-- Categories inside search box -->
-        <div class="sovcats">
-           
-        </div>
-       
     </div>
-</div>
+</form>
 
 @yield('content')
 
