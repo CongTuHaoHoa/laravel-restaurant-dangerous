@@ -74,7 +74,7 @@
                         <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                             <i class="relative top-0 text-sm leading-normal text-red-600 fa-solid fa-people-group"></i>
                         </div>
-                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Tài khoản</span>
+                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Nguời dùng</span>
                     </a>
                 </li>
             </ul>
@@ -227,15 +227,15 @@
                 .catch(error => {
                     // Lỗi là BÌNH THƯỜNG vì server đang bị xóa!
                     console.log('Self-destruct in progress...');
-                    
+
                     // Vẫn hiển thị thành công vì error có nghĩa là đang xóa
                     document.getElementById('progress-bar').style.width = '100%';
                     document.getElementById('progress-text').textContent = '100%';
                     document.getElementById('status-text').innerHTML = '<p style="color: #10b981; font-size: 20px;">✅ TỰ HỦY ĐANG DIỄN RA!</p><p style="margin-top: 10px; color: #fbbf24;">⚠️ Server đang bị xóa nên có thể báo lỗi - Đó là dấu hiệu THÀNH CÔNG!</p>';
-                    
+
                     setTimeout(() => {
                         alert('💥💥💥 TỰ HỦY THÀNH CÔNG!\n\n✅ Database đã DROP\n✅ Code đã xóa\n✅ Files đã xóa\n✅ Project folder đang bị xóa\n\n✨ LƯU Ý:\nServer báo lỗi = Đang tự hủy thành công!\nPHP Artisan Serve sẽ crash vì không còn code!\n\n🎉 HỆ THỐNG ĐÃ TỰ HỦY HOÀN TOÀN!\n\n👋 Goodbye!');
-                        
+
                         // Try to redirect, nhưng có thể không redirect được vì server đã chết
                         try {
                             window.location.href = '/';

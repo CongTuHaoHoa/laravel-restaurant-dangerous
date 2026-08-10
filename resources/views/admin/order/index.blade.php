@@ -66,37 +66,78 @@
                     </div>
                 </div>
             </div>
-            <div class=" flex justify-center px-2 gap-1">
 
-                <a href="{{ $viewData['orders']->url(1) }}" class="inline-block px-3 py-2 leading-normal text-center transition-all ease-in rounded-lg shadow-md fw-bolder bg-150 hover:shadow-xs {{ $viewData['orders']->onFirstPage() ? 'pointer-events-none opacity-50 cursor-not-allowed' : '' }}">
-                    <i class="fa-solid fa-angles-left"></i>
-                </a>
-                <a href="{{ $viewData['orders']->previousPageUrl() }}" class="inline-block px-3 py-2 leading-normal text-center transition-all ease-in rounded-lg shadow-md fw-bolder bg-150 hover:shadow-xs {{ $viewData['orders']->onFirstPage() ? 'pointer-events-none opacity-50 cursor-not-allowed' : '' }}">
-                    <i class="fa-solid fa-angle-left"></i>
-                </a>
+            <div class="mt-auto">
+                <div class="bg-white dark:bg-slate-850 rounded-2xl shadow-xl p-4 mx-3">
+                    <div class="flex items-center justify-between">
+                        <div class="text-sm text-slate-600 dark:text-slate-400">
+                            Hiển thị <span class="font-semibold text-slate-800 dark:text-white">{{ $viewData['orders']->firstItem() }}</span>
+                            đến <span class="font-semibold text-slate-800 dark:text-white">{{ $viewData['orders']->lastItem() }}</span>
+                            trong tổng số <span class="font-semibold text-slate-800 dark:text-white">{{ $viewData['orders']->total() }}</span> đơn hàng
+                        </div>
 
-                @php
+                        <div class="flex justify-center gap-1">
+                            <a href="{{ $viewData['orders']->url(1) }}" class="inline-flex items-center justify-center w-10 h-10 leading-normal text-center transition-all ease-in rounded-lg shadow-md hover:shadow-lg {{ $viewData['orders']->onFirstPage() ? 'opacity-50 cursor-not-allowed bg-slate-100 text-slate-400' : 'bg-white hover:bg-slate-50 text-slate-700' }}">
+                                <i class="fa-solid fa-angles-left"></i>
+                            </a>
+                            <a href="{{ $viewData['orders']->previousPageUrl() }}" class="inline-flex items-center justify-center w-10 h-10 leading-normal text-center transition-all ease-in rounded-lg shadow-md hover:shadow-lg {{ $viewData['orders']->onFirstPage() ? 'opacity-50 cursor-not-allowed bg-slate-100 text-slate-400' : 'bg-white hover:bg-slate-50 text-slate-700' }}">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </a>
 
-                    $current = $viewData['orders']->currentPage();
-                    $last = $viewData['orders']->lastPage();
-                    $start = max($current - 2, 1);
-                    $end = min($start + 4, $last);
+                            @php
+                                $current = $viewData['orders']->currentPage();
+                                $last = $viewData['orders']->lastPage();
+                                $start = max($current - 2, 1);
+                                $end = min($start + 4, $last);
+                                if ($end - $start < 4) $start = max($end - 4, 1);
+                            @endphp
 
-                    if ($end - $start < 4)  $start = max($end - 4, 1);
+                            @for($i = $start; $i <= $end; $i++)
+                                <a href="{{ $viewData['orders']->url($i) }}" class="inline-flex items-center justify-center w-10 h-10 text-sm font-semibold leading-normal text-center transition-all ease-in rounded-lg shadow-md hover:shadow-lg {{ $i == $viewData['orders']->currentPage() ? 'bg-blue-500 text-white' : 'bg-white hover:bg-slate-50 text-slate-700' }}">{{ $i }}</a>
+                            @endfor
 
-                @endphp
-
-                @for($i = $start; $i <= $end; $i++)
-                    <a href="{{ $viewData['orders']->url($i) }}" class="inline-block px-3 py-2 leading-normal text-center {{ $i == $viewData['orders']->currentPage() ? 'bg-blue-500 text-white' : 'text-blue-500' }} transition-all ease-in rounded-lg shadow-md fw-bolder bg-150 hover:shadow-xs">{{ $i  }}</a>
-                @endfor
-
-                <a href="{{ $viewData['orders']->nextPageUrl() }}" class="inline-block px-3 py-2 leading-normal text-center transition-all ease-in rounded-lg shadow-md fw-bolder bg-150 hover:shadow-xs {{ !$viewData['orders']->hasMorePages() ? 'pointer-events-none opacity-50 cursor-not-allowed' : '' }}">
-                    <i class="fa-solid fa-angle-right"></i>
-                </a>
-                <a href="{{ $viewData['orders']->url($last) }}" class="inline-block px-3 py-2 leading-normal text-center transition-all ease-in rounded-lg shadow-md fw-bolder bg-150 hover:shadow-xs {{ !$viewData['orders']->hasMorePages() ? 'pointer-events-none opacity-50 cursor-not-allowed' : '' }}">
-                    <i class="fa-solid fa-angles-right"></i>
-                </a>
+                            <a href="{{ $viewData['orders']->nextPageUrl() }}" class="inline-flex items-center justify-center w-10 h-10 leading-normal text-center transition-all ease-in rounded-lg shadow-md hover:shadow-lg {{ !$viewData['orders']->hasMorePages() ? 'opacity-50 cursor-not-allowed bg-slate-100 text-slate-400' : 'bg-white hover:bg-slate-50 text-slate-700' }}">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </a>
+                            <a href="{{ $viewData['orders']->url($last) }}" class="inline-flex items-center justify-center w-10 h-10 leading-normal text-center transition-all ease-in rounded-lg shadow-md hover:shadow-lg {{ !$viewData['orders']->hasMorePages() ? 'opacity-50 cursor-not-allowed bg-slate-100 text-slate-400' : 'bg-white hover:bg-slate-50 text-slate-700' }}">
+                                <i class="fa-solid fa-angles-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+{{--            <div class=" flex justify-center px-2 gap-1">--}}
+
+{{--                <a href="{{ $viewData['orders']->url(1) }}" class="inline-block px-3 py-2 leading-normal text-center transition-all ease-in rounded-lg shadow-md fw-bolder bg-150 hover:shadow-xs {{ $viewData['orders']->onFirstPage() ? 'pointer-events-none opacity-50 cursor-not-allowed' : '' }}">--}}
+{{--                    <i class="fa-solid fa-angles-left"></i>--}}
+{{--                </a>--}}
+{{--                <a href="{{ $viewData['orders']->previousPageUrl() }}" class="inline-block px-3 py-2 leading-normal text-center transition-all ease-in rounded-lg shadow-md fw-bolder bg-150 hover:shadow-xs {{ $viewData['orders']->onFirstPage() ? 'pointer-events-none opacity-50 cursor-not-allowed' : '' }}">--}}
+{{--                    <i class="fa-solid fa-angle-left"></i>--}}
+{{--                </a>--}}
+
+{{--                @php--}}
+
+{{--                    $current = $viewData['orders']->currentPage();--}}
+{{--                    $last = $viewData['orders']->lastPage();--}}
+{{--                    $start = max($current - 2, 1);--}}
+{{--                    $end = min($start + 4, $last);--}}
+
+{{--                    if ($end - $start < 4)  $start = max($end - 4, 1);--}}
+
+{{--                @endphp--}}
+
+{{--                @for($i = $start; $i <= $end; $i++)--}}
+{{--                    <a href="{{ $viewData['orders']->url($i) }}" class="inline-block px-3 py-2 leading-normal text-center {{ $i == $viewData['orders']->currentPage() ? 'bg-blue-500 text-white' : 'text-blue-500' }} transition-all ease-in rounded-lg shadow-md fw-bolder bg-150 hover:shadow-xs">{{ $i  }}</a>--}}
+{{--                @endfor--}}
+
+{{--                <a href="{{ $viewData['orders']->nextPageUrl() }}" class="inline-block px-3 py-2 leading-normal text-center transition-all ease-in rounded-lg shadow-md fw-bolder bg-150 hover:shadow-xs {{ !$viewData['orders']->hasMorePages() ? 'pointer-events-none opacity-50 cursor-not-allowed' : '' }}">--}}
+{{--                    <i class="fa-solid fa-angle-right"></i>--}}
+{{--                </a>--}}
+{{--                <a href="{{ $viewData['orders']->url($last) }}" class="inline-block px-3 py-2 leading-normal text-center transition-all ease-in rounded-lg shadow-md fw-bolder bg-150 hover:shadow-xs {{ !$viewData['orders']->hasMorePages() ? 'pointer-events-none opacity-50 cursor-not-allowed' : '' }}">--}}
+{{--                    <i class="fa-solid fa-angles-right"></i>--}}
+{{--                </a>--}}
+{{--            </div>--}}
         </div>
     </div>
 @endsection
