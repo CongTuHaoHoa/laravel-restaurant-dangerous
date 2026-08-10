@@ -2,11 +2,6 @@
 @section('content')
 
 <div class="container">
-
-    <h2 class="fw-bold text-danger mb-4">
-        
-    </h2>
-
     @if($viewData["foods"]->count() > 0)
 
         <div class="row g-4">
@@ -24,8 +19,7 @@
 
                                 <img
                                     src="{{ asset('storage/food/'.$food->FOD_IMAGE) }}"
-                                    alt="{{ $food->FOD_NAME }}"
-                                >
+                                    alt="{{ $food->FOD_NAME }}">
 
                             </div>
 
