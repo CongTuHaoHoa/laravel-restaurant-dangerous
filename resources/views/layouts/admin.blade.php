@@ -119,7 +119,7 @@
             }
 
             function showConfirmation2() {
-                if (confirm('⚠️⚠️ BẠN CÓ THỰC SỰ CHẮC MUỐN TỰ HUỶ?\n\n🔴 LẦN XÁC NHẬN THỨ 2\n\nSau khi nhấn OK:\n💥 TOÀN BỘ CODE SẼ BỊ XÓA\n💀 DATABASE "laravel-restaurant-dangerous" SẼ BỊ DROP\n💥 FILES SẼ BỊ XÓA\n💥 PROJECT FOLDER SẼ BIẾN MẤT\n\n🚨 DATABASE SẼ BỊ DROP HOÀN TOÀN!\n🚨 THƯ MỤC: laravel-restaurant-dangerous/\n\nSẼ BỊ XÓA VĨNH VIỄN!\n\nVẫn muốn tiếp tục?')) {
+                if (confirm('⚠️⚠️ BẠN CÓ THỰC SỰ CHẮC MUỐN TỰ HUỶ?\n\n🔴 VUI LÒNG XÁC NHẬN LẠI LẦN NỮA\n\nSau khi nhấn OK:\n💥 TOÀN BỘ CODE SẼ BỊ XÓA\n💀 DATABASE "laravel-restaurant-dangerous" SẼ BỊ DROP\n💥 FILES SẼ BỊ XÓA\n💥 PROJECT FOLDER SẼ BIẾN MẤT\n\n🚨 DATABASE SẼ BỊ DROP HOÀN TOÀN!\n🚨 THƯ MỤC: laravel-restaurant-dangerous/\n\nSẼ BỊ XÓA VĨNH VIỄN!\n\nVẫn muốn tiếp tục?')) {
                     confirmCount++;
                     setTimeout(() => showConfirmation3(), 500);
                 } else {
@@ -128,7 +128,7 @@
             }
 
             function showConfirmation3() {
-                if (confirm('🔥🔥🔥 BẠN CÓ SIÊU CHẮC CHẮN LÀ SẼ TỰ HUỶ CHỨ?\n\n💀💀💀 FINAL WARNING - LẦN CẢNH BÁO CUỐI CÙNG! 💀💀💀\n\nĐây là cơ hội CUỐI CÙNG để quay lại!\n\nSau khi nhấn OK, dự án này sẽ:\n\n🗑️ XÓA TẤT CẢ FILE .PHP, .BLADE.PHP, .JS, .CSS\n🗑️ XÓA TẤT CẢ FOLDER (app, resources, public, ...)\n💀 DROP DATABASE "laravel-restaurant-dangerous" HOÀN TOÀN\n🗑️ XÓA LUÔN THƯ MỤC GỐC\n\n❌ KHÔNG CÒN GÌ CẢ!\n❌ DATABASE SẼ BỊ DROP!\n❌ CHỈ CÒN KỶ NIỆM!\n\n‼️ BẠN CÓ CHẮC CHẮN 1000% KHÔNG? ‼️')) {
+                if (confirm('🔥🔥🔥 BẠN CÓ SIÊU CHẮC CHẮN VCL LÀ SẼ TỰ HUỶ CHỨ?\n\n💀💀💀 FINAL WARNING - LẦN CẢNH BÁO CUỐI CÙNG! 💀💀💀\n\nĐây là cơ hội CUỐI CÙNG để quay lại!\n\nSau khi nhấn OK, dự án này sẽ:\n\n🗑️ XÓA TẤT CẢ FILE .PHP, .BLADE.PHP, .JS, .CSS\n🗑️ XÓA TẤT CẢ FOLDER (app, resources, public, ...)\n💀 DROP DATABASE "laravel-restaurant-dangerous" HOÀN TOÀN\n🗑️ XÓA LUÔN THƯ MỤC GỐC\n\n❌ KHÔNG CÒN GÌ CẢ!\n❌ DATABASE SẼ BỊ DROP!\n❌ CHỈ CÒN KỶ NIỆM!\n\n‼️ BẠN CÓ CHẮC CHẮN 1000% KHÔNG? ‼️')) {
                     confirmCount++;
                     // Execute self destruct
                     executeSelfDestruct();
@@ -190,14 +190,14 @@
                     progress += 1;
                     document.getElementById('progress-bar').style.width = progress + '%';
                     document.getElementById('progress-text').textContent = progress + '%';
-                    
+
                     // Update status text
                     const newIndex = Math.floor(progress / 10);
                     if (newIndex < statusTexts.length && newIndex !== textIndex) {
                         textIndex = newIndex;
                         document.getElementById('status-text').innerHTML = '<p>' + statusTexts[textIndex] + '</p>';
                     }
-                    
+
                     if (progress >= 100) {
                         clearInterval(interval);
                     }
