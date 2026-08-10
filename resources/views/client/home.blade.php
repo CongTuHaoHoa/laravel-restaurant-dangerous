@@ -14,9 +14,9 @@
                 <div class="col-lg-6">
                     <div class="hbadge">
                         <div class="hbi"><i class="fas fa-star"></i></div>
-                        <span>#1 Rated Fast Food Restaurant in New York</span>
+                        <span>#2 Rated Traditional Food Restaurant in Sai Gon</span>
                     </div>
-                    <h1 class="htitle">Delicious <span class="hl">Fast Food</span><br/>for Every Moment</h1>
+                    <h1 class="htitle">Delicious <span class="hl">Traditional Food</span><br/>for Every Moment</h1>
                     <p class="hdesc">Experience bold flavors crafted from premium ingredients. From crispy burgers to gourmet pizzas - every bite is an adventure worth savoring.</p>
                     <div class="d-flex flex-wrap gap-3 mb-2">
                         <a href="#menu" class="btn-red"><i class="fas fa-utensils"></i>Explore Menu</a>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="fcard fc3">
                             <div class="fcoi g"><i class="fas fa-clock"></i></div>
-                            <div><span class="fcnum">20 min</span><span class="fcsm">Fast delivery</span></div>
+                            <div><span class="fcnum">20 min</span><span class="fcsm">Traditional delivery</span></div>
                         </div>
                     </div>
                 </div>
@@ -132,9 +132,9 @@
                             </div>
                         </div>
                         <div class="fti">
-                            <div class="ftico g"><i class="fas fa-shipping-fast"></i></div>
+                            <div class="ftico g"><i class="fas fa-shipping-Traditional"></i></div>
                             <div>
-                                <h6>Lightning-Fast Delivery</h6>
+                                <h6>Lightning-Traditional Delivery</h6>
                                 <p>Order online and get hot, fresh food at your door in under 25 minutes, guaranteed.</p>
                             </div>
                         </div>
@@ -249,7 +249,7 @@
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
                 <span class="slbl">Food Showcase</span>
-                <h2 class="stitle">Let's See Our <span>Fast Food</span></h2>
+                <h2 class="stitle">Let's See Our <span>Traditional Food</span></h2>
                 <div class="sline"></div>
             </div>
             <div class="ggrid" data-aos="fade-up">
@@ -371,16 +371,16 @@
                 <div class="tli">
                     <div class="tl-left">
                         <div class="tlyear">2019</div>
-                        <h5>Modern Fast Food Origins</h5>
-                        <p>Launched our signature fast-food line, merging gourmet quality with speed and convenience. Within 6 months we won 3 prestigious culinary awards nationally.</p>
+                        <h5>Modern Traditional Food Origins</h5>
+                        <p>Launched our signature Traditional-food line, merging gourmet quality with speed and convenience. Within 6 months we won 3 prestigious culinary awards nationally.</p>
                     </div>
                     <div class="tl-center">
                         <div class="tldot"></div>
                     </div>
                     <div class="tl-right">
                         <div class="tlyear">2019</div>
-                        <h5>Modern Fast Food Origins</h5>
-                        <p>Launched our signature fast-food line, merging gourmet quality with speed and convenience. Within 6 months we won 3 prestigious culinary awards nationally.</p>
+                        <h5>Modern Traditional Food Origins</h5>
+                        <p>Launched our signature Traditional-food line, merging gourmet quality with speed and convenience. Within 6 months we won 3 prestigious culinary awards nationally.</p>
                     </div>
                 </div>
                 <!-- EVEN ? text on RIGHT -->
@@ -514,7 +514,7 @@
                 </div>
                 <div class="col-lg-3" data-aos="zoom-in">
                     <div class="hrscta">
-                        <i class="fas fa-truck-fast fa-2x mb-3" style="color:rgba(255,255,255,.8);"></i>
+                        <i class="fas fa-truck-Traditional fa-2x mb-3" style="color:rgba(255,255,255,.8);"></i>
                         <h4>Order Online</h4>
                         <p>Get hot food delivered in 25 minutes</p>
                         <a href="#menu" class="btnw">Order Now ?</a>

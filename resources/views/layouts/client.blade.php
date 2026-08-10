@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Sarab">
-    <meta name="description" content="Sarab - Fast Food & Restaurant HTML Template">
-    <title>@yield('title', 'Sarab - Fast Food & Restaurant HTML Template')</title>
+    <meta name="description" content="Sarab - Traditional Food & Restaurant HTML Template">
+    <title>@yield('title', 'Sarab - Traditional Food & Restaurant HTML Template')</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
     <!-- Bootstrap 5.3 -->
@@ -203,7 +203,7 @@
         <div class="row g-5">
             <div class="col-lg-4">
                 <div class="fnm">Dang<span>erous</span></div>
-                <p class="fdesc">We bring the world's finest flavors together in a fast, friendly, and affordable experience. Every meal crafted with love.</p>
+                <p class="fdesc">We bring the world's finest flavors together in a Traditional, friendly, and affordable experience. Every meal crafted with love.</p>
                 <div class="fsoc">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>

@@ -7,7 +7,7 @@
 
 @forelse ($viewData["orders"] as $order)
 <section id="order-{{ $order->id }}">
-    <div class="card mb-4 shadow-sm">
+    <div class="card mb-4 ms-4 me-4 mt-4 shadow-sm">
 
         <div class="card-header d-flex justify-content-between align-items-center">
             <strong>Order #{{ $order->id }}</strong>
@@ -44,7 +44,6 @@
                     @foreach ($order->foodOrders as $foodOrder)
 
                         <div class="d-flex align-items-center mb-2">
-
                             <div class="flex-grow-1">
                                 <strong>Name:</strong>
                                 {{ $foodOrder->food?->FOD_NAME }}
@@ -75,7 +74,7 @@
             @csrf
             @method('PUT')
 
-            <button type="submit" class="btn btn-success btn-sm">
+            <button type="submit" class="ms-4 btn btn-success btn-sm">
                 <i class="fas fa-check me-1"></i>
                 Mark as Delivered
             </button>
