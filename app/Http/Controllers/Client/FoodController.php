@@ -15,7 +15,8 @@ class FoodController extends Controller
         $viewData = [];
         $viewData["title"] = "Home";
         $viewData["categories"] = Category::all();
-        $viewData["foods"] = Food::all();  
+        $viewData["foods"] = Food::all(); 
+        
 
         $viewData["foodsCategory"] = DB::table('Food as f')
             ->join('FoodContainsCategory as fcc', 'f.FOD_ID', '=', 'fcc.FOD_ID')

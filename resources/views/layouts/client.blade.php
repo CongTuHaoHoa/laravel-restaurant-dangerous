@@ -7,7 +7,7 @@
     <meta name="author" content="Sarab">
     <meta name="description" content="Sarab - Fast Food & Restaurant HTML Template">
     <title>@yield('title', 'Sarab - Fast Food & Restaurant HTML Template')</title>
-
+    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
     <!-- Bootstrap 5.3 -->
     <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5.9.0/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-9DZ6o3pJWcTwBR8W196XizUEf2kNMD35tkeyWqOB0yzml+nZrEe/13PMCpAIrT4r" crossorigin="anonymous">
@@ -33,9 +33,9 @@
     <div class="container">
         <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
             <div class="top-contact d-flex flex-wrap">
-                <span><i class="fas fa-phone-alt"></i>+1 (800) 123-4567</span>
-                <span><i class="fas fa-envelope"></i>hello@sarabfood.com</span>
-                <span><i class="fas fa-map-marker-alt"></i>42 Flavor Street, NY</span>
+                <span><i class="fas fa-phone-alt"></i>(+84) 12 345 6789</span>
+                <span><i class="fas fa-envelope"></i>Restaurant@dangerousplace.com</span>
+                <span><i class="fas fa-map-marker-alt"></i>123 Quang Trung, TP.HCM</span>
             </div>
             <div class="d-flex align-items-center gap-3">
                 <span class="ttag"><i class="fas fa-fire me-1"></i>Free Delivery Today!</span>
@@ -169,37 +169,9 @@
         </div>
         <!-- Categories inside search box -->
         <div class="sovcats">
-            <div class="sovcat active" data-cat="all">
-                <img src="{{ asset('img/client/menu/1.jpg') }}}" alt=""/>All Items
-            </div>
-            <div class="sovcat" data-cat="burgers">
-                <img src="{{ asset('img/client/menu/1.jpg') }}" alt=""/>Burgers
-            </div>
-            <div class="sovcat" data-cat="pizza">
-                <img src="{{ asset('img/client/menu/2.jpg') }}" alt=""/>Pizza
-            </div>
-            <div class="sovcat" data-cat="chicken">
-                <img src="{{ asset('img/client/menu/3.jpg') }}" alt=""/>Chicken
-            </div>
-            <div class="sovcat" data-cat="wraps">
-                <img src="{{ asset('img/client/menu/4.jpg') }}" alt=""/>Wraps
-            </div>
-            <div class="sovcat" data-cat="pasta">
-                <img src="{{ asset('img/client/menu/5.jpg') }}" alt=""/>Pasta
-            </div>
-            <div class="sovcat" data-cat="desserts">
-                <img src="{{ asset('img/client/menu/6.jpg') }}" alt=""/>Desserts
-            </div>
+           
         </div>
-        <div class="sovtrend">
-            <p><i class="fas fa-fire me-1" style="color:var(--secondary);"></i>Trending Searches</p>
-            <span class="ttag">Smash Burger</span>
-            <span class="ttag">Nashville Chicken</span>
-            <span class="ttag">Truffle Pizza</span>
-            <span class="ttag">Lava Cake</span>
-            <span class="ttag">Loaded Fries</span>
-            <span class="ttag">Mango Shake</span>
-        </div>
+       
     </div>
 </div>
 

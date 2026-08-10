@@ -29,7 +29,6 @@
                     <hr>
 
                     <div class="list-group list-group-flush">
-
                         <a href="{{ route('myaccount.index') }}"
                            class="list-group-item list-group-item-action active">
                             <i class="fas fa-user me-2"></i>
@@ -89,6 +88,22 @@
                                    class="form-control"
                                    name="email"
                                    value="{{ Auth::user()->email }}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input type="number"
+                                   class="form-control"
+                                   name="phone_number"
+                                   value="{{ Auth::user()->phone_number }}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Address</label>
+                            <input type="text"
+                                   class="form-control"
+                                   name="address"
+                                   value="{{ Auth::user()->address }}">
                         </div>
 
                         <div class="mb-3">

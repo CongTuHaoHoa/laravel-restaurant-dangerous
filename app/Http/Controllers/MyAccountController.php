@@ -35,6 +35,8 @@ class MyAccountController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->phone_number = $request->phone_number;
+        $user->address = $request->address;
 
         if ($request->hasFile('avatar'))
             {
