@@ -19,7 +19,7 @@ class FoodController extends Controller
         $viewData["categories"] = Category::all();
 
         $query = DB::table('Food as f')
-            ->select('f.*');
+            ->select('f.*')->limit(6);
 
         if ($request->filled('category')) {
             $query->whereExists(function ($q) use ($request) {

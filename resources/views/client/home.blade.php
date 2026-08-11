@@ -139,7 +139,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#menu" class="btn-red"><i class="fas fa-book-open"></i>View Full Menu</a>
+                    <a href="{{ route('search.index') }}" class="btn-red"><i class="fas fa-book-open"></i>View Full Menu</a>
                 </div>
             </div>
         </div>
@@ -196,7 +196,7 @@
                                 <div class="mbody">
 
                                     <div class="mcat">
-                                        
+
                                     </div>
 
                                     <div class="mtit">
@@ -234,12 +234,12 @@
 
 
             <!-- end #mgrid -->
-            <div class="text-center mt-5"><a href="#" class="btn-red"><i class="fas fa-th-large"></i>View Full Menu</a>
+            <div class="text-center mt-5"><a href="{{ route('search.index') }}" class="btn-red"><i class="fas fa-th-large"></i>View Full Menu</a>
             </div>
         </div>
     </section>
 
-    
+
 
 
     <!-- ============================================================
@@ -540,7 +540,7 @@
     </section>
 
 
-    
+
 
     <!-- RESERVATION FORM -->
     <section id="reservation">
@@ -647,7 +647,7 @@
         </div>
     </section>
 
-   
+
     <!-- NEWSLETTER -->
     <section id="newsletter">
         <div class="nlbg"></div>
